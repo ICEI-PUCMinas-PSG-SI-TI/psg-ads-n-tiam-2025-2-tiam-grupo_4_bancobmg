@@ -154,12 +154,19 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
 
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
+|   |  RF 1 |  RF 2 |  RF 3 |  RF 4 |  RF 5 |  RF 6 | RF 7 |  RFN 1 |  RFN 2 | RFN 3 | RFN 4
+|--------------------|------------------------------------|----------------------------------------|
+| RF 1|   |  |   |  |  |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RF 2|   |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+|  RF 3|   |   |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RF 4|      |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RF 5| |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RF 6 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RF 7 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RFN 1 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RFN 2 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RFN 3 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+| RFN 4 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
 
 
 # Gerenciamento de Projeto
