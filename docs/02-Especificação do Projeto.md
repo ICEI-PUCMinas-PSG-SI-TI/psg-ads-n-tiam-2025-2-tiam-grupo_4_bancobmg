@@ -28,8 +28,15 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|cliente do sistema | realizar meu cadastro utilizando o CPF como identificador único|garantir segurança e evitar duplicidade de contas|
+|cliente do sistema     | escolher em qual conta desejo receber o saldo no momento da solicitação de saque| ter flexibilidade e controle sobre meu recebimento|
+|Administrador do sistema|que o sistema verifique se o cliente tenha autorização para visualizar informações do FGTS|utilizar os recursos financeiros quando for permitido|
+|cliente do sistema |solicitar a liberação do meu FGTS|garantir segurança e evitar duplicidade de contas|
+|cliente do sistema |visualizar meu saldo de FGTS logo na tela inicial  |garantir segurança e evitar duplicidade de contas      |
+|cliente do sistema | realizar meu cadastro utilizando o CPF como identificador único         |ter acesso rápido e fácil à informação principal|
+|cliente do sistema |visualizar uma tabela com os valores disponíveis do meu FGTS e seus respectivos anos |acompanhar melhor a evolução do meu saldo ao longo do tempo|
+|cliente do sistema |receber notificações automáticas diárias às 6h da manhã sobre atualização do saldo|me manter sempre informado sem precisar acessar o app constantemente |
+|administrador do sistema| gerar relatórios sobre quantos clientes utilizam o app, com possibilidade de exportar para BI ou planilha|analisar métricas de uso e apoiar decisões estratégicas|
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
@@ -79,15 +86,22 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deve permitir que o cliente realize cadastro utilizando o CPF como identificador | ALTA | 
+|RF-002| O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.  |ALta |
+|RF-003| O sistema deve verificar se o cliente possui autorização para visualizar informações do FGTS.| ALTA | 
+|RF-004| O sistema deve exibir o saldo do FGTS do cliente na tela inicial. | MÉDIA |
+|RF-005|Caso o cliente possua saldo, o sistema deve apresentar uma tabela com os valores disponíveis e os respectivos anos.| MÉDIA  | 
+|RF-006| O sistema deve enviar notificação diária às 6h da manhã informando sobre atualização de saldo. | MÉDIA |
+|RF-007| O sistema deve gerar relatórios de quantos clientes utilizam o app, permitindo exportação para BI ou planilha | ALTA | 
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| O sistema deve utilizar cache de até 24 horas para otimizar a consulta de saldos e evitar sobrecarga. | MÉDIA | 
+|RNF-002| A interface deve ser simples e intuitiva|  ALTA | 
+|RNF-003| O sistema deve informar ao usuário, em tempo real, caso o tempo de resposta esteja maior do que o normal, dependendo do horário de acesso.|  BAIXA | 
+|RNF-004| O app deve garantir disponibilidade mínima (ex.: 99%) e apresentar mensagens adequadas em caso de falhas.|  MÉDIA | 
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
@@ -112,6 +126,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
+| 04  | A aplicação deve funcionar em navegadores modernos e não requer compatibilidade com versões antigas |
+| 05  | O projeto não deve ultrapassar o orçamento estipulado                                      |
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
