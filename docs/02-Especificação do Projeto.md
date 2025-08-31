@@ -154,7 +154,7 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
 
-|                                                 | RF-01 | RF-02 | RF-03 | RF-04 | RF-05 | RF-06 | RF-07 | RF-08 | RNF-01 | RNF-02 | RNF-03 | RNF-04 | TC01 | TC02 | TC03 | TC04 | TC05 | M100 | M200 | DC-01 | DC-02 | GV |
+|                                                 | RF-01 | RF-02 | RF-03 | RF-04 | RF-05 | RF-06 | RF-07 | RF-08 | RNF-01 | RNF-02 | RNF-03 | RNF-04 
 | ----------------------------------------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------ | ------ | ------ | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----- | ----- | -- |
 | **RF-01 – Cadastro de Cliente com CPF**         | X     | X     |       |       |       |       |       |       | X      | X      | X      |        | X    |      |      |      |      | X    |      | X     |       |    |
 | **RF-02 – Escolha da Conta para Saque**         | X     | X     | X     |       |       |       |       |       |        | X      |        | X      |      | X    |      |      |      |      | X    |       | X     |    |
