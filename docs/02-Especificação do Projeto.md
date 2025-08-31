@@ -156,7 +156,7 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 
 |                                                 | RF-01 | RF-02 | RF-03 | RF-04 | RF-05 | RF-06 | RF-07 | RF-08 | RNF-01 | RNF-02 | RNF-03 | RNF-04 |
 | ----------------------------------------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------ | ------ | ------ | ------ |
-| **RF-01 – Cadastro de Cliente com CPF**         | X     |    x   |    x   |    x   |  x     |  x     |     |  x     | X   | X      |        | X      |
+| **RF-01 – Cadastro de Cliente com CPF**         | X     |    x   |    x   |    x   |  x     |  x     |     |       | X   | X      |        | X      |
 | **RF-02 – Escolha da Conta para Saque**         |   X    | X     |       |       |       |       |       |       | X      | X      |        | X      |
 | **RF-03 – Consulta de Autorização**             |  X     |       | X     | X     |       |       |       |       | X      |        |        | X      |
 | **RF-04 – Liberação de FGTS**                   |  X     |       | X     | X     |       |       |       |       | X      |        |        | X      |
