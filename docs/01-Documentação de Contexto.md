@@ -3,17 +3,12 @@
 Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+Apesar da disponibilidade do FGTS como direito trabalhista, muitos clientes enfrentam dificuldades significativas para acompanhar seus saldos e autorizações de saque de forma prática e segura. O aplicativo oficial do governo apresenta problemas de usabilidade, como lentidão, erros de carregamento e interface pouco intuitiva, o que dificulta o acesso às informações essenciais, especialmente para usuários que precisam consultar o saldo com frequência.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+Atualmente, os clientes recorrem a atendimentos presenciais ou contato por telefone/WhatsApp com a empresa para obter informações, o que gera filas, atrasos e sobrecarga para o atendimento. Além disso, a ausência de um sistema centralizado que envie notificações automáticas sobre novos saldos ou atualizações de autorização torna o acompanhamento do FGTS ineficiente e propenso a erros.
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
+Consequentemente, os clientes enfrentam frustração e perda de tempo, enquanto a empresa tem dificuldade em monitorar os cadastros e o progresso dos usuários, o que compromete a experiência do cliente e a eficiência operacional. A falta de uma solução digital ágil e confiável para esse problema representa uma oportunidade significativa de melhoria tanto para os clientes quanto para a empresa.
 ## Objetivos
 
 Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
