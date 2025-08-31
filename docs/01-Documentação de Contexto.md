@@ -34,13 +34,14 @@ O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estat�
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+Público-alvo
+O público-alvo do aplicativo é composto por clientes da empresa que desejam acompanhar de forma prática e rápida o saldo do FGTS e sua disponibilidade para saque, sem depender de atendimentos presenciais ou do aplicativo oficial do governo, que apresenta dificuldades de uso. Esse público inclui:
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+Usuários Individuais com Perfil Familiar
+Indivíduos entre 30 e 40 anos, preocupados com a gestão financeira da família, que buscam acompanhar seus direitos trabalhistas de forma simples e segura.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Administradores Internos da Empresa
+Profissionais da empresa que precisam monitorar os cadastros de clientes, acompanhar o progresso de autorizações e verificar dados essenciais (como CPF, data de nascimento e nome completo).
+
+Público Geral Conectado
+Clientes que possuem familiaridade com smartphones e aplicativos de mensagens, que preferem receber alertas automáticos por WhatsApp ou notificações do app sobre saldo disponível, evitando filas e consultas presenciais.
