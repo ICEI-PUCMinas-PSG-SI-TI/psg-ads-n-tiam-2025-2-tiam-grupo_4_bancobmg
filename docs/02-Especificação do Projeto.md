@@ -154,19 +154,21 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
 
-|   |  RF 1 |  RF 2 |  RF 3 |  RF 4 |  RF 5 |  RF 6 | RF 7 |  RFN 1 |  RFN 2 | RFN 3 | RFN 4
-|--------------------|------------------------------------|----------------------------------------|
-| RF 1|   |  |   |  |  |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RF 2|   |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-|  RF 3|   |   |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RF 4|      |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RF 5| |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RF 6 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RF 7 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RFN 1 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RFN 2 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RFN 3 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
-| RFN 4 | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  | |  |
+|                                                 | RF-01 | RF-02 | RF-03 | RF-04 | RF-05 | RF-06 | RF-07 | RF-08 | RNF-01 | RNF-02 | RNF-03 | RNF-04 | TC01 | TC02 | TC03 | TC04 | TC05 | M100 | M200 | DC-01 | DC-02 | GV |
+| ----------------------------------------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------ | ------ | ------ | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----- | ----- | -- |
+| **RF-01 – Cadastro de Cliente com CPF**         | X     | X     |       |       |       |       |       |       | X      | X      | X      |        | X    |      |      |      |      | X    |      | X     |       |    |
+| **RF-02 – Escolha da Conta para Saque**         | X     | X     | X     |       |       |       |       |       |        | X      |        | X      |      | X    |      |      |      |      | X    |       | X     |    |
+| **RF-03 – Consulta de Autorização**             |       | X     | X     | X     |       |       |       |       | X      |        |        | X      |      |      | X    |      |      |      | X    |       | X     |    |
+| **RF-04 – Liberação de FGTS**                   |       |       | X     | X     |       |       |       |       |        |        | X      |        |      |      |      | X    |      | X    |      | X     |       |    |
+| **RF-05 – Exibição de Saldo na Página Inicial** |       |       |       |       | X     | X     | X     |       | X      | X      |        |        |      |      |      |      | X    |      |      |       | X     |    |
+| **RF-06 – Geração de Tabela com Saldos e Anos** |       |       |       |       | X     | X     |       |       |        |        |        | X      |      |      |      |      | X    |      |      | X     |       |    |
+| **RF-07 – Notificação Automática**              |       |       |       |       | X     |       | X     |       | X      |        | X      |        |      |      |      |      |      |      |      | X     |       |    |
+| **RF-08 – Relatório de Uso (BI/Planilha)**      |       |       |       |       |       |       |       | X     |        |        |        | X      |      |      |      |      |      |      |      | X     | X     |    |
+| **RNF-01 – Desempenho (Cache 24h)**             | X     |       | X     |       | X     |       | X     |       | X      |        |        |        |      |      |      |      |      | X    |      |       |       |    |
+| **RNF-02 – Usabilidade**                        | X     | X     |       |       | X     | X     |       |       |        | X      |        |        |      |      |      |      |      |      |      | X     |       |    |
+| **RNF-03 – Disponibilidade de Avisos**          | X     |       |       | X     |       |       |       |       |        |        | X      |        |      |      |      |      |      |      |      |       | X     |    |
+| **RNF-04 – Estabilidade (99%)**                 |       | X     | X     |       | X     |       |       | X     |        |        |        | X      |      |      |      |      |      |      |      |       | X     | X  |
+
 
 
 # Gerenciamento de Projeto
