@@ -8,9 +8,7 @@ A metodologia de trabalho selecionada para este projeto será a Scrum, uma estru
 A estrutura da equipe de desenvolvimento (Squad) será multifuncional, composta por:
 
 - `Product Owner (PO):` Responsável por definir e priorizar as funcionalidades no backlog do produto.
-
 - `Scrum Master:` Responsável por garantir que a equipe siga os princípios da metodologia e por remover quaisquer impedimentos.
-
 - `Equipe de Desenvolvimento:` Profissionais de back-end, front-end (mobile), UI/UX e QA, responsáveis pela entrega técnica da solução.
 
 ## Relação de Ambientes de Trabalho
