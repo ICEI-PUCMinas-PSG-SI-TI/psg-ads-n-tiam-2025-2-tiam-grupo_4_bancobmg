@@ -1,6 +1,7 @@
 # Introdução
-O presente projeto tem como propósito desburocratizar e agilizar o processo de saque do FGTS na modalidade saque-aniversário, transformando uma operação historicamente complexa em uma experiência digital simples, rápida e segura, diretamente pelo dispositivo móvel do usuário.
-O objetivo final é criar uma jornada intuitiva, na qual o trabalhador possa consultar saldo e solicitar o saque em poucos cliques.
+O Fundo de Garantia do Tempo de Serviço (FGTS) é um direito fundamental do trabalhador brasileiro, mas o acesso às informações sobre saldos e autorizações de saque é frequentemente dificultado por barreiras tecnológicas. O aplicativo oficial do governo, principal ferramenta de consulta, apresenta problemas crônicos de usabilidade, como lentidão, erros de carregamento e uma interface pouco intuitiva. Este cenário obriga os clientes a recorrerem a canais de atendimento manuais, como telefone e WhatsApp, gerando sobrecarga para as equipes de suporte e uma experiência fragmentada para o usuário.
+
+Este projeto aborda essa lacuna desenvolvendo uma solução digital integrada, projetada para simplificar e automatizar a consulta de saldos e o gerenciamento de autorizações do FGTS. A plataforma visa eliminar a dependência do sistema governamental e dos canais de atendimento tradicionais, oferecendo uma experiência de usuário ágil, segura e centralizada. A solução atenderá tanto os clientes finais, que buscam autonomia e praticidade, quanto os administradores internos da empresa, que necessitam de ferramentas eficientes para monitorar o progresso dos cadastros e otimizar a operação.
 
 ## Problema
 
