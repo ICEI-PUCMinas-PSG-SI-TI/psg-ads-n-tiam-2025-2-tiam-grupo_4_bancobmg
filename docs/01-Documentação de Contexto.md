@@ -1,6 +1,6 @@
 # Introdução
-
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+O presente projeto tem como propósito desburocratizar e agilizar o processo de saque do FGTS na modalidade saque-aniversário, transformando uma operação historicamente complexa em uma experiência digital simples, rápida e segura, diretamente pelo dispositivo móvel do usuário.
+O objetivo final é criar uma jornada intuitiva, na qual o trabalhador possa consultar saldo e solicitar o saque em poucos cliques.
 
 ## Problema
 
@@ -11,22 +11,25 @@ Atualmente, os clientes recorrem a atendimentos presenciais ou contato por telef
 Consequentemente, os clientes enfrentam frustração e perda de tempo, enquanto a empresa tem dificuldade em monitorar os cadastros e o progresso dos usuários, o que compromete a experiência do cliente e a eficiência operacional. A falta de uma solução digital ágil e confiável para esse problema representa uma oportunidade significativa de melhoria tanto para os clientes quanto para a empresa.
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+Objetivo Geral
+- Reduzir o tempo entre a decisão do cliente de sacar e a efetivação da solicitação para poucos minutos, aumentando em 40% a taxa de conversão e diminuindo os custos operacionais por cliente.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Objetivos Específicos
 
+- Automatizar a consulta de saldo do FGTS por meio de integração via API.
+- Implementar um fluxo autônomo de saque dentro do aplicativo.
+- Disponibilizar notificações automáticas sobre saldo disponível.
+- Permitir a escolha da conta de recebimento, inclusive via Pix.
+- Criar um programa de indicação integrado ao aplicativo.
+- Reduzir a sobrecarga de atendentes, direcionando-os apenas a casos complexos.
 ## Justificativa
+O projeto é justificado por três pilares principais:
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+- Estratégico: o mercado de FGTS é amplo e competitivo, e a experiência digital diferenciada garante vantagem competitiva frente a bancos digitais.
+- Operacional: a automação reduzirá custos e aumentará a eficiência do processo, liberando os atendentes de tarefas repetitivas.
+- Social: o acesso facilitado democratiza o uso do FGTS, beneficiando trabalhadores com menor familiaridade tecnológica.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
-
+Dessa forma, a solução proposta proporcionará maior satisfação ao cliente, redução de custos internos e aumento na taxa de conversão.
 ## Público-Alvo
 
 Público-alvo
