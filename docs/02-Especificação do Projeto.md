@@ -35,7 +35,7 @@ Trabalha como recepcionista e está planejando uma viagem internacional nas pró
 
 4-Carlos, 45 anos, empresário. 
 
-Acessa o FGTS com frequência e valoriza poder realizar saques de forma autônoma. Prefere aplicativos que ofereçam notificações sobre saldo disponível e etapas claras, para ter segurança e controle sobre suas finanças empresariais.
+Carlos,é empresário e acompanha de perto suas finanças. Acessa o FGTS com frequência e valoriza poder realizar saques de forma autônoma, sem depender de terceiros. Prefere aplicativos que ofereçam notificações sobre saldo disponível e etapas claras, garantindo segurança e controle sobre cada movimentação financeira.
 <div align="center">
 <img src="https://github.com/user-attachments/assets/9efd1eef-0eec-4e12-aa51-67f4e0de1962"  width="300px" />
 </div>
