@@ -35,6 +35,11 @@ Pretende fazer uma viagem internacional nas férias e vê no FGTS uma oportunida
 4-Carlos, 45 anos, empresário. 
 
 Acessa o FGTS com frequência e valoriza poder realizar saques de forma autônoma. Prefere aplicativos que ofereçam notificações sobre saldo disponível e etapas claras, para ter segurança e controle sobre suas finanças empresariais.
+<div align="center">
+<img src="https://github.com/user-attachments/assets/9efd1eef-0eec-4e12-aa51-67f4e0de1962"  width="300px" />
+</div>
+
+
 
 
 Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
