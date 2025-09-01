@@ -6,6 +6,7 @@ Este documento detalha as especificações do projeto para a criação de uma so
 
 ## Personas
 1- Maria, 27 anos, auxiliar administrativa.
+
 Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Quer soluções rápidas e descomplicadas.
 
 
