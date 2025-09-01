@@ -2,9 +2,7 @@
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+Este documento detalha as especificações do projeto para a criação de uma solução digital de acompanhamento do FGTS, definindo o escopo a partir da perspectiva do usuário. Para realizar este levantamento, foram utilizadas técnicas de elicitação de requisitos como a criação de Personas, para personificar os usuários-alvo; a elaboração de Histórias de Usuários, para capturar as necessidades e funcionalidades desejadas; e a derivação de Requisitos Funcionais e Não Funcionais, para formalizar o comportamento e as qualidades do sistema.
 
 ## Personas
 1- Maria, 27 anos, auxiliar administrativa. Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Valoriza soluções rápidas e descomplicadas.
