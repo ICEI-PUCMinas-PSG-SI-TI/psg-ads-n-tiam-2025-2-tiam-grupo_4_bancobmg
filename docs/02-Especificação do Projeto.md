@@ -15,7 +15,13 @@ Usa o FGTS como alternativa em momentos de emergência, como despesas médicas o
 </div>
 
 
-2-Rafael, 32 anos, técnico em manutenção . Quer acessar o aplicativo de forma rápida para resolver necessidades financeiras imediatas. Valoriza um aplicativo ágil e intuitivo, que permita consultar saldo em poucos cliques.
+2-Rafael, 32 anos, técnico em manutenção .
+
+Quer acessar o aplicativo de forma rápida para resolver necessidades financeiras imediatas. Valoriza um aplicativo ágil e intuitivo, que permita consultar saldo em poucos cliques.
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/4344f70d-0e75-471f-975f-d6ae162e4238"  width="300px" />
+</div>
 
 3-Juliana, 24 anos, recepcionista.Pretende fazer uma viagem internacional nas férias e vê no FGTS uma oportunidade de juntar recursos extras para realizar esse objetivo. Precisa de um aplicativo claro e confiável que dê segurança em cada etapa do saque.
 
