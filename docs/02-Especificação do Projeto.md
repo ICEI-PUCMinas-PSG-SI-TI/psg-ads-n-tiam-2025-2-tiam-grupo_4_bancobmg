@@ -6,6 +6,7 @@ Este documento detalha as especificações do projeto para a criação de uma so
 
 ## Personas
 1- Maria, 27 anos, auxiliar administrativa. Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Quer soluções rápidas e descomplicadas.
+<img width="1000" height="700" alt="Image" src="https://github.com/user-attachments/assets/2b37deb4-034a-4907-a224-2946efdf4332" />
 
 2-Rafael, 32 anos, técnico em manutenção . Quer acessar o aplicativo de forma rápida para resolver necessidades financeiras imediatas. Valoriza um aplicativo ágil e intuitivo, que permita consultar saldo em poucos cliques.
 
