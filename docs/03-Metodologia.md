@@ -3,7 +3,15 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A metodologia de trabalho selecionada para este projeto será a Scrum, uma estrutura ágil que permite o desenvolvimento iterativo e incremental, ideal para um ambiente onde a agilidade e a capacidade de adaptação aos feedbacks são cruciais. A Scrum promove a entrega contínua de valor, garantindo que as funcionalidades mais importantes sejam desenvolvidas e validadas em ciclos curtos, chamados de Sprints, com duração de duas semanas.
+
+A estrutura da equipe de desenvolvimento (Squad) será multifuncional, composta por:
+
+    Product Owner (PO): Responsável por definir e priorizar as funcionalidades no backlog do produto.
+
+    Scrum Master: Responsável por garantir que a equipe siga os princípios da metodologia e por remover quaisquer impedimentos.
+
+    Equipe de Desenvolvimento: Profissionais de back-end, front-end (mobile), UI/UX e QA, responsáveis pela entrega técnica da solução.
 
 ## Relação de Ambientes de Trabalho
 
