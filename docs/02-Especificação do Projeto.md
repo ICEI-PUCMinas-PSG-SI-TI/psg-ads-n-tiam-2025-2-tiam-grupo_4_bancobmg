@@ -24,10 +24,10 @@ Rafael,  trabalha como técnico em manutenção e tem uma rotina bastante corrid
 <img src="https://github.com/user-attachments/assets/4344f70d-0e75-471f-975f-d6ae162e4238"  width="300px" />
 </div>
 
-3-Juliana, 24 anos, recepcionista.
+3-Juliana,24 anos,recepcionista:
 
-Pretende fazer uma viagem internacional nas férias e vê no FGTS uma oportunidade de juntar recursos extras para realizar esse objetivo. Precisa de um aplicativo claro e confiável que dê segurança em cada etapa do saque.
 
+Trabalha como recepcionista e está planejando uma viagem internacional nas próximas férias. Para alcançar esse objetivo, vê no FGTS uma oportunidade de juntar recursos extras de forma prática. Ela precisa de um aplicativo claro, confiável e seguro, que a acompanhe passo a passo no processo de saque, garantindo que cada etapa seja simples.
 <div align="center">
 <img src="https://github.com/user-attachments/assets/ac85a12d-87f2-4abf-a8f2-72fdfd2bcf71"  width="300px" />
 </div>
