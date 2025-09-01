@@ -5,8 +5,14 @@
 Este documento detalha as especificações do projeto para a criação de uma solução digital de acompanhamento do FGTS, definindo o escopo a partir da perspectiva do usuário. Para realizar este levantamento, foram utilizadas técnicas de elicitação de requisitos como a criação de Personas, para personificar os usuários-alvo; a elaboração de Histórias de Usuários, para capturar as necessidades e funcionalidades desejadas; e a derivação de Requisitos Funcionais e Não Funcionais, para formalizar o comportamento e as qualidades do sistema.
 
 ## Personas
-1- Maria, 27 anos, auxiliar administrativa. Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Quer soluções rápidas e descomplicadas.
-<img width="1000" height="700" alt="Image" src="https://github.com/user-attachments/assets/2b37deb4-034a-4907-a224-2946efdf4332" />
+1- Maria, 27 anos, auxiliar administrativa.
+Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Quer soluções rápidas e descomplicadas.
+
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/2b37deb4-034a-4907-a224-2946efdf4332"   width="400px" />
+</div>
+
 
 2-Rafael, 32 anos, técnico em manutenção . Quer acessar o aplicativo de forma rápida para resolver necessidades financeiras imediatas. Valoriza um aplicativo ágil e intuitivo, que permita consultar saldo em poucos cliques.
 
