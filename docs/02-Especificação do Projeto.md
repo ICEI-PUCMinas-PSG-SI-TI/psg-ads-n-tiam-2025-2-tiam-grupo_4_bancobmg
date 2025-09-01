@@ -28,11 +28,14 @@ Quer acessar o aplicativo de forma rápida para resolver necessidades financeira
 Pretende fazer uma viagem internacional nas férias e vê no FGTS uma oportunidade de juntar recursos extras para realizar esse objetivo. Precisa de um aplicativo claro e confiável que dê segurança em cada etapa do saque.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/4344f70d-0e75-471f-975f-d6ae162e4238"  width="300px" />
+<img src="https://github.com/user-attachments/assets/ac85a12d-87f2-4abf-a8f2-72fdfd2bcf71"  width="300px" />
 </div>
 
 
-4-Carlos, 45 anos, motorista de aplicativo. Acessa o FGTS com frequência e valoriza poder realizar saques de forma autônoma. Prefere aplicativos que ofereçam notificações sobre saldo disponível e etapas claras, para ter segurança e controle sobre suas finanças.
+4-Carlos, 45 anos, empresário. 
+
+Acessa o FGTS com frequência e valoriza poder realizar saques de forma autônoma. Prefere aplicativos que ofereçam notificações sobre saldo disponível e etapas claras, para ter segurança e controle sobre suas finanças empresariais.
+
 
 Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
 
