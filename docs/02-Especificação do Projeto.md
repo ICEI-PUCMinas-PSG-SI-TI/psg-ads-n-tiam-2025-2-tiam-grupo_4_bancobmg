@@ -17,7 +17,8 @@ Maria trabalha em um escritório e tem uma rotina diária cheia de tarefas, hor�
 
 2-Rafael, 32 anos, técnico em manutenção .
 
-Quer acessar o aplicativo de forma rápida para resolver necessidades financeiras imediatas. Valoriza um aplicativo ágil e intuitivo, que permita consultar saldo em poucos cliques.
+
+Rafael,  trabalha como técnico em manutenção e tem uma rotina bastante corrida. Entre visitas a clientes, consertos e emergências no trabalho, ele precisa de soluções rápidas para gerenciar suas finanças. Como não tem muito tempo sobrando, busca um aplicativo que seja ágil e intuitivo, permitindo consultar seu saldo e realizar operações financeiras essenciais em poucos cliques.
 
 <div align="center">
 <img src="https://github.com/user-attachments/assets/4344f70d-0e75-471f-975f-d6ae162e4238"  width="300px" />
