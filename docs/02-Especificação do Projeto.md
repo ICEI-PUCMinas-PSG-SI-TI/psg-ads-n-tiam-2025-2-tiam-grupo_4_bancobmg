@@ -5,9 +5,13 @@
 Este documento detalha as especificações do projeto para a criação de uma solução digital de acompanhamento do FGTS, definindo o escopo a partir da perspectiva do usuário. Para realizar este levantamento, foram utilizadas técnicas de elicitação de requisitos como a criação de Personas, para personificar os usuários-alvo; a elaboração de Histórias de Usuários, para capturar as necessidades e funcionalidades desejadas; e a derivação de Requisitos Funcionais e Não Funcionais, para formalizar o comportamento e as qualidades do sistema.
 
 ## Personas
-1- Maria, 27 anos, auxiliar administrativa. Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Valoriza soluções rápidas e descomplicadas.
+1- Maria, 27 anos, auxiliar administrativa. Usa o FGTS como alternativa em momentos de emergência, como despesas médicas ou pagamento de contas. Apesar de estar acostumada com aplicativos bancários, sente-se desmotivada quando enfrenta processos longos e confusos. Quer soluções rápidas e descomplicadas.
 
-2-Fernanda, 30 anos, estudante e estagiária. Acostumada com tecnologia no dia a dia, valoriza praticidade e agilidade. Prefere aplicativos rápidos, simples e intuitivos, que facilitem sua rotina sem burocracias.
+2-Rafael, 32 anos, técnico em manutenção . Quer acessar o aplicativo de forma rápida para resolver necessidades financeiras imediatas. Valoriza um aplicativo ágil e intuitivo, que permita consultar saldo em poucos cliques.
+
+3-Juliana, 24 anos, recepcionista.Pretende fazer uma viagem internacional nas férias e vê no FGTS uma oportunidade de juntar recursos extras para realizar esse objetivo. Precisa de um aplicativo claro e confiável que dê segurança em cada etapa do saque.
+
+4-Carlos, 45 anos, motorista de aplicativo. Acessa o FGTS com frequência e valoriza poder realizar saques de forma autônoma. Prefere aplicativos que ofereçam notificações sobre saldo disponível e etapas claras, para ter segurança e controle sobre suas finanças.
 
 Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
 
