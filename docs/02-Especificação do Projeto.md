@@ -110,9 +110,21 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em segu
 
 Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
 
-Usar o seguinte modelo: 
+| Indicador                            | Objetivos                                               | Descrição                                                                      | Cálculo                                        | Fonte de dados           | Perspectiva               |
+| ------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------- | ------------------------ | ------------------------- |
 
-![Indicadores de Desempenho](img/02-indic-desemp.png)
+| Taxa de erro no cadastro (CPF)       | Garantir qualidade e evitar duplicidade                 | Percentual de cadastros rejeitados por inconsistência ou duplicidade           | (erros / total cadastros) \* 100               | Base de cadastros        | Aprendizado e Crescimento |
+| Percentual de consultas ao saldo     | Medir uso da funcionalidade principal                   | Percentual de clientes que acessam saldo FGTS em relação ao total ativo no app | (clientes consulta / clientes ativos) \* 100   | Log de acessos           | Clientes                  |
+| Taxa de saque concluído              | Avaliar efetividade da solicitação de saque             | Mede a % de solicitações de saque concluídas sem erro                          | (saques concl. / total saques) \* 100          | Tabela transações        | Processos internos        |
+| Tempo médio de atualização saldo     | Avaliar desempenho da integração com API do Banco Lotus | Tempo médio que o sistema leva para atualizar saldo após requisição            | (Σ tempo respostas) / nº requisições           | Logs API Banco           | Processos internos        |
+| Disponibilidade do app (%)           | Medir estabilidade da aplicação                         | Percentual de tempo que o app ficou disponível sem falhas                      | (tempo disponível / tempo total) \* 100        | Monitoramento servidores | Processos internos        |
+| Taxa de entrega de notificações      | Avaliar efetividade do sistema de push                  | Mede % de notificações enviadas com sucesso em relação às programadas          | (notif. entregues / notif. programadas) \* 100 | Log de notificações      | Clientes                  |
+| Engajamento no programa de indicação | Avaliar impacto do programa de indicação                | Percentual de novos cadastros feitos via indicação                             | (cadastros indicação / total cadastros) \* 100 | Tabela cadastros         | Crescimento               |
+| Tempo médio de atendimento no chat   | Medir agilidade do suporte                              | Tempo médio de resposta do suporte via chat dentro do app                      | (Σ tempo resposta) / nº atendimentos           | Logs chat                | Clientes                  |
+| Satisfação do usuário (NPS)          | Medir satisfação geral com o app                        | Índice de recomendação calculado a partir da pesquisa NPS                      | %Promotores - %Detratores                      | Pesquisa no app          | Clientes                  |
+
+
+
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
