@@ -117,24 +117,36 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir que o cliente realize cadastro utilizando o CPF como identificador | ALTA | 
-|RF-002| O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.  |ALta |
-|RF-003| O sistema deve verificar se o cliente possui autorização para visualizar informações do FGTS.| ALTA | 
-|RF-004| O sistema deve exibir o saldo do FGTS do cliente na tela inicial. | MÉDIA |
-|RF-005|Caso o cliente possua saldo, o sistema deve apresentar uma tabela com os valores disponíveis e os respectivos anos.| MÉDIA  | 
-|RF-006| O sistema deve enviar notificação diária às 6h da manhã informando sobre atualização de saldo. | MÉDIA |
-|RF-007| O sistema deve gerar relatórios de quantos clientes utilizam o app, permitindo exportação para BI ou planilha | ALTA | 
+| ID     | Descrição do Requisito                                                                                                                             | Prioridade |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RF-001 | O sistema deve permitir que o cliente realize cadastro utilizando o CPF como identificador.| ALTA       |
+| RF-002 | O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.| ALTA       |
+| RF-003 | O sistema deve verificar se o cliente possui autorização para visualizar informações do FGTS. | ALTA       |
+| RF-004 | O sistema deve exibir o saldo do FGTS do cliente na tela inicial. | MÉDIA      |
+| RF-005 | Caso o cliente possua saldo, o sistema deve apresentar uma tabela com os valores disponíveis e os respectivos anos. | MÉDIA      |
+| RF-006 | O sistema deve enviar notificações sobre saldo atualizado, incluindo notificação diária às 6h e push em tempo real quando houver saldo disponível. | MÉDIA      |
+| RF-007 | O sistema deve gerar relatórios de quantos clientes utilizam o app, permitindo exportação para BI ou planilha.| ALTA       |
+| RF-008 | O sistema deve integrar com a API do Banco Lotus para consulta de saldo. | ALTA       |
+| RF-009 | O sistema deve implementar agendamento de atualização matinal de saldos.| ALTA       |
+| RF-010 | O sistema deve criar fluxo autônomo de solicitação de saque.| ALTA       |
+| RF-011 | O sistema deve disponibilizar módulo de gerenciamento de conta bancária para recebimento.| MÉDIA      |
+| RF-012 | O sistema deve criar programa de indicação com rastreamento de downloads e bonificação.| MÉDIA      |
+| RF-013 | O sistema deve integrar chat de suporte dentro do app.| BAIXA      |
+
+
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve utilizar cache de até 24 horas para otimizar a consulta de saldos e evitar sobrecarga. | MÉDIA | 
-|RNF-002| A interface deve ser simples e intuitiva|  ALTA | 
-|RNF-003| O sistema deve informar ao usuário, em tempo real, caso o tempo de resposta esteja maior do que o normal, dependendo do horário de acesso.|  BAIXA | 
-|RNF-004| O app deve garantir disponibilidade mínima (ex.: 99%) e apresentar mensagens adequadas em caso de falhas.|  MÉDIA | 
+| ID      | Descrição do Requisito                                                                                                                     | Prioridade |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| RNF-001 | O sistema deve utilizar cache de até 24 horas para otimizar a consulta de saldos e evitar sobrecarga.| MÉDIA      |
+| RNF-002 | A interface deve ser simples e intuitiva.| ALTA       |
+| RNF-003 | O sistema deve informar ao usuário, em tempo real, caso o tempo de resposta esteja maior do que o normal, dependendo do horário de acesso. | BAIXA      |
+| RNF-004 | O app deve garantir disponibilidade mínima (ex.: 99%) e apresentar mensagens adequadas em caso de falhas.| MÉDIA      |
+| RNF-005 | O tempo de resposta da API de consulta de saldo deve ser inferior a 3 segundos.| ALTA       |
+| RNF-006 | O app deve ser compatível com as versões mais recentes do iOS e Android.| MÉDIA      |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
