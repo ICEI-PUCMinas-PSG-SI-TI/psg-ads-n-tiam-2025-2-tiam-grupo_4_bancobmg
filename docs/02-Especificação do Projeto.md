@@ -110,9 +110,9 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em segu
 
 Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
 
+
 | Indicador                            | Objetivos                                               | Descrição                                                                      | Cálculo                                        | Fonte de dados           | Perspectiva               |
 | ------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------- | ------------------------ | ------------------------- |
-
 | Taxa de erro no cadastro (CPF)       | Garantir qualidade e evitar duplicidade                 | Percentual de cadastros rejeitados por inconsistência ou duplicidade           | (erros / total cadastros) \* 100               | Base de cadastros        | Aprendizado e Crescimento |
 | Percentual de consultas ao saldo     | Medir uso da funcionalidade principal                   | Percentual de clientes que acessam saldo FGTS em relação ao total ativo no app | (clientes consulta / clientes ativos) \* 100   | Log de acessos           | Clientes                  |
 | Taxa de saque concluído              | Avaliar efetividade da solicitação de saque             | Mede a % de solicitações de saque concluídas sem erro                          | (saques concl. / total saques) \* 100          | Tabela transações        | Processos internos        |
