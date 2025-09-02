@@ -61,7 +61,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 | EU COMO... `PERSONA`     | QUERO/PRECISO ... `FUNCIONALIDADE`                                                                        | PARA ... `MOTIVO/VALOR`                                                               |
 | ------------------------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| cliente do sistema       | realizar meu cadastro utilizando o CPF como identificador único | garantir segurança, evitar duplicidade de contas e ter acesso ao sistema |
+|| cliente do sistema       | realizar meu cadastro utilizando o CPF como identificador único | garantir segurança, evitar duplicidade de contas e ter acesso ao sistema |
 | cliente do sistema       | escolher em qual conta desejo receber o saldo no momento da solicitação de saque| ter flexibilidade e controle sobre meu recebimento                                    |
 | administrador do sistema | que o sistema verifique se o cliente possui autorização para visualizar informações do FGTS | garantir o uso correto dos recursos financeiros e cumprir regras de acesso |
 | cliente do sistema       | solicitar a liberação do meu FGTS| acessar meus recursos financeiros quando necessário|
