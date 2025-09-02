@@ -59,17 +59,21 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|cliente do sistema | realizar meu cadastro utilizando o CPF como identificador único|garantir segurança e evitar duplicidade de contas|
-|cliente do sistema     | escolher em qual conta desejo receber o saldo no momento da solicitação de saque| ter flexibilidade e controle sobre meu recebimento|
-|Administrador do sistema|que o sistema verifique se o cliente tenha autorização para visualizar informações do FGTS|utilizar os recursos financeiros quando for permitido|
-|cliente do sistema |solicitar a liberação do meu FGTS|garantir segurança e evitar duplicidade de contas|
-|cliente do sistema |visualizar meu saldo de FGTS logo na tela inicial  |garantir segurança e evitar duplicidade de contas      |
-|cliente do sistema | realizar meu cadastro utilizando o CPF como identificador único         |ter acesso rápido e fácil à informação principal|
-|cliente do sistema |visualizar uma tabela com os valores disponíveis do meu FGTS e seus respectivos anos |acompanhar melhor a evolução do meu saldo ao longo do tempo|
-|cliente do sistema |receber notificações automáticas diárias às 6h da manhã sobre atualização do saldo|me manter sempre informado sem precisar acessar o app constantemente |
-|administrador do sistema| gerar relatórios sobre quantos clientes utilizam o app, com possibilidade de exportar para BI ou planilha|analisar métricas de uso e apoiar decisões estratégicas|
+| EU COMO... `PERSONA`     | QUERO/PRECISO ... `FUNCIONALIDADE`                                                                        | PARA ... `MOTIVO/VALOR`                                                               |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| cliente do sistema       | realizar meu cadastro utilizando o CPF como identificador único                                           | garantir segurança, evitar duplicidade de contas e ter acesso ao sistema              |
+| cliente do sistema       | escolher em qual conta desejo receber o saldo no momento da solicitação de saque                          | ter flexibilidade e controle sobre meu recebimento                                    |
+| administrador do sistema | que o sistema verifique se o cliente possui autorização para visualizar informações do FGTS               | garantir o uso correto dos recursos financeiros e cumprir regras de acesso            |
+| cliente do sistema       | solicitar a liberação do meu FGTS                                                                         | acessar meus recursos financeiros quando necessário                                   |
+| cliente do sistema       | visualizar meu saldo de FGTS logo na tela inicial                                                         | ter acesso rápido e fácil à informação principal                                      |
+| cliente do sistema       | visualizar uma tabela com os valores disponíveis do meu FGTS e seus respectivos anos                      | acompanhar melhor a evolução do meu saldo ao longo do tempo                           |
+| cliente do sistema       | receber notificações automáticas (diárias às 6h e push em tempo real) sobre atualização do saldo          | me manter sempre informado sem precisar acessar o app constantemente                  |
+| administrador do sistema | gerar relatórios sobre quantos clientes utilizam o app, com possibilidade de exportar para BI ou planilha | analisar métricas de uso e apoiar decisões estratégicas                               |
+| cliente do sistema       | que o sistema atualize meu saldo automaticamente em horários programados (ex.: pela manhã)                | garantir que as informações estejam sempre atualizadas sem necessidade de ação manual |
+| cliente do sistema       | solicitar saque por meio de um fluxo totalmente autônomo no app                                           | ganhar agilidade e autonomia, sem precisar de intervenção manual                      |
+| cliente do sistema       | gerenciar minhas contas bancárias cadastradas para recebimento                                            | organizar melhor onde desejo receber meus valores                                     |
+| cliente do sistema       | participar de um programa de indicação com rastreamento de downloads e bonificação                        | obter recompensas por indicar novos usuários e ajudar a expandir o uso do app         |
+| cliente do sistema       | acessar um chat de suporte dentro do app                                                                  | resolver dúvidas e problemas de forma rápida e prática                                |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
