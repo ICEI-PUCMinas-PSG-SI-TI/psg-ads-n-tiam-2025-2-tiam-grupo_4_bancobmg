@@ -137,9 +137,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos não Funcionais
 
+
 |ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-                                                                                                                   | 
+|-------|-------------------------|----| |
 | RNF-001 | O sistema deve utilizar cache de até 24 horas para otimizar a consulta de saldos e evitar sobrecarga.| MÉDIA      |
 | RNF-002 | A interface deve ser simples e intuitiva.| ALTA       |
 | RNF-003 | O sistema deve informar ao usuário, em tempo real, caso o tempo de resposta esteja maior do que o normal, dependendo do horário de acesso. | BAIXA      |
