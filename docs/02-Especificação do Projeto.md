@@ -1,4 +1,4 @@
-<img width="1092" height="1701" alt="image" src="https://github.com/user-attachments/assets/a429a076-bef0-4bdc-8817-0fa01f715a7e" /># Especificações do Projeto
+# Especificações do Projeto
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
