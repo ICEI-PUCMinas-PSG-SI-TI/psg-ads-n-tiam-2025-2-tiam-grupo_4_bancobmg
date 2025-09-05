@@ -48,30 +48,30 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 > - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
 
 ## Gerenciamento de Projeto
+### Principal Ponto de Contato
+- **Lucas** → Validação técnica da API  
+- **Representante do Marketing** → Validação de UX/UI e campanhas
+- **Frequência de atualização:** Reuniões semanais de alinhamento para acompanhamento do desenvolvimento e resolução de bloqueios.
 
+---
 ### Divisão de Papéis
 
-Divisão de papéis da equipe para o projeto:
+A equipe adota metodologias ágeis, utilizando o **Scrum** como base para o processo de desenvolvimento.  
 
-A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento. A equipe está organizada da seguinte maneira:
-- Scrum Master: Nitai Nandi (SUJEITO A MUDANÇA);
-- Product Owner: Lucas de Paula;
-- Equipe de Desenvolvimento: Gabriela Cristina, Lucas de Paula, Mariana Martins, Nitai Nandi, Pedro Henrique, Robson Marcolino;
-- Equipe de Design: Mariana Martins.
+- **Scrum Master:** Nitai Nandi *(sujeito a mudança)* 
+- **Product Owner:** Lucas de Paula  
+- **Equipe de Desenvolvimento:** Gabriela Cristina, Lucas de Paula, Mariana Martins, Nitai Nandi, Pedro Henrique, Robson Marcolino  
+- **Equipe de Design:** Mariana Martins  
 
-Principal ponto de contato: Lucas (para validação técnica da API) e o representante do marketing (para validação de UX/UI e campanhas).
-Frequência de atualização: Reuniões de alinhamento semanais para acompanhamento do desenvolvimento e resolução de bloqueios.
+---
 
-Outras Partes Interessadas (Stakeholders):
-Diretoria: Interessada no crescimento da base de usuários e no volume de saques.
-Jurídico: Precisa validar os termos de uso e a política de privacidade do app, além da conformidade com as regras do FGTS.
-Equipe de Atendimento: Será impactada pela mudança de fluxo e precisa ser treinada para lidar apenas com os casos complexos que chegarem via chat.
+###  Stakeholders (Partes Interessadas)
 
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-> - [Os papéis do Scrum e a verdade sobre cargos nessa técnica](https://www.atlassian.com/br/agile/scrum/roles)
+- **Diretoria** → Interessada no crescimento da base de usuários e no volume de saques.  
+- **Jurídico** → Responsável pela validação dos termos de uso, da política de privacidade e da conformidade com as regras do FGTS.  
+- **Equipe de Atendimento** → Impactada pela mudança de fluxo; precisará ser treinada para lidar apenas com casos complexos encaminhados via chat.  
 
+---
 ### Processo
 
 Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo deverá fazer uso do recurso de gerenciamento de projeto oferecido pelo GitHub, que permite acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
