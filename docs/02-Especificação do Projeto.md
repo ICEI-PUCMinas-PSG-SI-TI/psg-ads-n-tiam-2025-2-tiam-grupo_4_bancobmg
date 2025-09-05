@@ -1,4 +1,4 @@
-# Especificações do Projeto
+<img width="1092" height="1701" alt="image" src="https://github.com/user-attachments/assets/a429a076-bef0-4bdc-8817-0fa01f715a7e" /># Especificações do Projeto
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
@@ -198,7 +198,16 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+O Diagrama de Casos de Uso é elaborado após a elicitação dos requisitos e tem como objetivo representar, de forma visual, as funcionalidades que o sistema deve oferecer. Esse artefato utiliza uma notação gráfica padronizada para demonstrar:
+a fronteira do sistema;
+os atores envolvidos (usuários ou sistemas externos);
+os casos de uso (funcionalidades disponibilizadas);
+os relacionamentos entre atores e casos de uso.
+
+Esse diagrama facilita a compreensão tanto por parte da equipe técnica quanto dos stakeholders, pois descreve de maneira simples e acessível as interações entre o usuário e o sistema. Além disso, complementa a tabela de requisitos funcionais, detalhando-os de forma visual e servindo como base para etapas posteriores de análise e modelagem.
+<div align="center">
+<img width="1092" height="1701" alt="image" src="https://github.com/user-attachments/assets/99187b53-6f1d-4b67-afcd-0f3019373c2d" />
+</div>
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
 
