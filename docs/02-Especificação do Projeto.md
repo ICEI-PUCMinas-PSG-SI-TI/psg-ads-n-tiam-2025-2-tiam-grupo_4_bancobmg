@@ -185,17 +185,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-| 04  | A aplicação deve funcionar em navegadores modernos e não requer compatibilidade com versões antigas |
-| 05  | O projeto não deve ultrapassar o orçamento estipulado                                      |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
-
+|01| O projeto deve utilizar a API do banco Lotus como fonte de dados primária para o saldo |
+|02| O processo de formalização (selfie e documentos) pode exigir a integração com um sistema externo específico, impondo restrições de desenvolvimento       |
+| 03  | A paleta de cores (amarelo e preto) e a marca do parceiro (BMG) são definidas pelo marketing e não são negociáveis |
 ## Diagrama de Casos de Uso
 
 O Diagrama de Casos de Uso é elaborado após a elicitação dos requisitos e tem como objetivo representar, de forma visual, as funcionalidades que o sistema deve oferecer. Esse artefato utiliza uma notação gráfica padronizada para demonstrar:
