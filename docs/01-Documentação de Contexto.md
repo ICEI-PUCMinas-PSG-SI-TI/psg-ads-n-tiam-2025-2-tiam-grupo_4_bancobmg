@@ -12,10 +12,10 @@ Atualmente, os clientes recorrem a atendimentos presenciais ou contato por telef
 Consequentemente, os clientes enfrentam frustração e perda de tempo, enquanto a empresa tem dificuldade em monitorar os cadastros e o progresso dos usuários, o que compromete a experiência do cliente e a eficiência operacional. A falta de uma solução digital ágil e confiável para esse problema representa uma oportunidade significativa de melhoria tanto para os clientes quanto para a empresa.
 ## Objetivos
 
-Objetivo Geral
+### Objetivo Geral
 - Reduzir o tempo entre a decisão do cliente de sacar e a efetivação da solicitação para poucos minutos, aumentando em 40% a taxa de conversão e diminuindo os custos operacionais por cliente.
 
-Objetivos Específicos
+### Objetivos Específicos
 
 - Automatizar a consulta de saldo do FGTS por meio de integração via API.
 - Implementar um fluxo autônomo de saque dentro do aplicativo.
@@ -24,23 +24,22 @@ Objetivos Específicos
 - Criar um programa de indicação integrado ao aplicativo.
 - Reduzir a sobrecarga de atendentes, direcionando-os apenas a casos complexos.
 ## Justificativa
-O projeto é justificado por três pilares principais:
+O projeto é sustentado por três pilares principais:
 
-- Estratégico: o mercado de FGTS é amplo e competitivo, e a experiência digital diferenciada garante vantagem competitiva frente a bancos digitais.
-- Operacional: a automação reduzirá custos e aumentará a eficiência do processo, liberando os atendentes de tarefas repetitivas.
-- Social: o acesso facilitado democratiza o uso do FGTS, beneficiando trabalhadores com menor familiaridade tecnológica.
+- **Estratégico:** o mercado de FGTS é amplo e competitivo, e uma experiência digital diferenciada garante vantagem competitiva frente a bancos digitais.  
+- **Operacional:** a automação reduzirá custos e aumentará a eficiência do processo, liberando os atendentes de tarefas repetitivas.  
+- **Social:** o acesso facilitado democratiza o uso do FGTS, beneficiando trabalhadores com menor familiaridade tecnológica.  
 
 Dessa forma, a solução proposta proporcionará maior satisfação ao cliente, redução de custos internos e aumento na taxa de conversão.
 ## Público-Alvo
+O público-alvo do aplicativo é composto por clientes da empresa que desejam acompanhar de forma prática e rápida o saldo do FGTS e sua disponibilidade para saque, sem depender de atendimentos presenciais ou do aplicativo oficial do governo, que apresenta dificuldades de uso.
+### Segmentos Principais
 
-Público-alvo
-O público-alvo do aplicativo é composto por clientes da empresa que desejam acompanhar de forma prática e rápida o saldo do FGTS e sua disponibilidade para saque, sem depender de atendimentos presenciais ou do aplicativo oficial do governo, que apresenta dificuldades de uso. Esse público inclui:
+- **Usuários Individuais com Perfil Familiar**  
+  Indivíduos entre 30 e 40 anos, preocupados com a gestão financeira da família, que buscam acompanhar seus direitos trabalhistas de forma simples e segura.  
 
-Usuários Individuais com Perfil Familiar
-Indivíduos entre 30 e 40 anos, preocupados com a gestão financeira da família, que buscam acompanhar seus direitos trabalhistas de forma simples e segura.
+- **Administradores Internos da Empresa**  
+  Profissionais que precisam monitorar cadastros de clientes, acompanhar o progresso de autorizações e verificar dados essenciais (CPF, data de nascimento, nome completo).  
 
-Administradores Internos da Empresa
-Profissionais da empresa que precisam monitorar os cadastros de clientes, acompanhar o progresso de autorizações e verificar dados essenciais (como CPF, data de nascimento e nome completo).
-
-Público Geral Conectado
-Clientes que possuem familiaridade com smartphones e aplicativos de mensagens, que preferem receber alertas automáticos por WhatsApp ou notificações do app sobre saldo disponível, evitando filas e consultas presenciais.
+- **Público Geral Conectado**  
+  Clientes com familiaridade em smartphones e apps de mensagens, que preferem receber alertas automáticos (WhatsApp ou notificações) sobre saldo disponível, evitando filas e consultas presenciais.  
