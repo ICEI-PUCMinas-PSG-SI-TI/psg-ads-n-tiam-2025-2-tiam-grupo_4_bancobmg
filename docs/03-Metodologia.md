@@ -33,9 +33,6 @@ Para o desenvolvimento da aplicação móvel, serão utilizados os seguintes amb
 
 **Justificativa:** A escolha pelo ecossistema React Native com Expo foi estratégica. Ela nos permite desenvolver para Android  a partir de um único código-base em JavaScript, otimizando o tempo da equipe. O Expo simplifica o processo de build, testes em dispositivos físicos e a publicação nas lojas, enquanto o Visual Studio Code oferece uma integração robusta e ágil para o desenvolvimento.
 
-Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito deverá ser apresentada em uma tabela que especifica que detalha Ambiente, Plataforma e Link de Acesso. 
-Nota: Vide documento modelo do estudo de caso "Portal de Notícias" e defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
-
 ## Controle de Versão
 
 A ferramenta de controle de versão adotada no projeto foi o
