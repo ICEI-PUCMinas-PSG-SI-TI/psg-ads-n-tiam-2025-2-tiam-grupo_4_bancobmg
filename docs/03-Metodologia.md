@@ -33,26 +33,52 @@ Para o desenvolvimento da aplicação móvel, serão utilizados os seguintes amb
 
 **Justificativa:** A escolha pelo ecossistema React Native com Expo foi estratégica. Ela nos permite desenvolver para Android  a partir de um único código-base em JavaScript, otimizando o tempo da equipe. O Expo simplifica o processo de build, testes em dispositivos físicos e a publicação nas lojas, enquanto o Visual Studio Code oferece uma integração robusta e ágil para o desenvolvimento.
 
-## Controle de Versão
+## 🔄 Controle de Versão
 
-A ferramenta de controle de versão adotada no projeto foi o
-[Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-foi utilizado para hospedagem do repositório.
+A gestão do código-fonte do projeto é realizada com a ferramenta de controle de versão **Git**, e o **GitHub** é utilizado como plataforma para hospedagem e colaboração do repositório.
 
-O projeto segue a seguinte convenção para o nome de branches:
+### Configuração do Projeto no GitHub
 
-- `main`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
-- `testing`: versão em testes do software
-- `dev`: versão de desenvolvimento do software
+O repositório foi configurado seguindo as melhores práticas para garantir a qualidade e a estabilidade do código. A configuração inicial incluiu:
 
-Quanto à gerência de issues, o projeto adota a seguinte convenção para
-etiquetas:
+1.  **Criação do Repositório:** O projeto foi iniciado no GitHub, estabelecendo um ponto central para todo o código.
+2.  **Definição das Branches Principais:** As branches `main` e `dev` foram criadas. A branch `main` foi configurada como a branch padrão e protegida contra pushes diretos, exigindo que todas as alterações passem por um processo de Pull Request (PR) e revisão.
+3.  **Estrutura de Etiquetas (Labels):** As etiquetas para a gerência de *issues* (`bug`, `feature`, `task`, etc.) foram cadastradas no repositório para padronizar a classificação das tarefas.
 
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
+### Gerenciamento de Branches, Commits, Merges e Tags
+
+Nosso fluxo de trabalho é baseado no modelo **GitFlow**, utilizando uma convenção clara para as branches, garantindo que o desenvolvimento, teste e lançamento de novas versões ocorram de forma organizada.
+
+**Branches:**
+
+* `main`: Representa a versão de produção. Contém apenas código estável e testado, sendo que cada *merge* nesta branch corresponde a uma nova versão em produção.
+* `unstable`: Branch de pré-produção. Recebe funcionalidades que já foram testadas e aprovadas, aguardando o próximo ciclo de *release* para serem movidas para a `main`.
+* `testing`: Ambiente dedicado aos testes de Qualidade (QA). É aqui que as novas funcionalidades são validadas antes de serem consideradas estáveis.
+* `dev`: Branch principal de desenvolvimento. Todas as novas *features* e correções são integradas aqui a partir de suas próprias branches de funcionalidade.
+
+**Commits:**
+
+Adotamos a convenção de **Commits Semânticos**. Cada mensagem de commit é padronizada para descrever claramente a alteração realizada (ex: `feat: Adiciona login com e-mail`, `fix: Corrige validação de formulário`). Isso melhora a legibilidade do histórico e permite a automação de processos, como a geração de changelogs.
+
+**Merges (Pull Requests):**
+
+Nenhuma alteração é enviada diretamente para as branches `dev`, `testing` ou `main`. Todo o processo é realizado via **Pull Requests (PRs)**. Uma nova funcionalidade ou correção é desenvolvida em uma branch própria (ex: `feature/nova-tela-cadastro`) e, ao ser finalizada, um PR é aberto para a branch `dev`. O PR só é "mergeado" após a revisão e aprovação de pelo menos um outro membro da equipe, garantindo a qualidade do código.
+
+**Tags:**
+
+As **tags** são utilizadas para marcar os pontos de *release* na branch `main`. Cada vez que uma nova versão estável é lançada, uma tag semântica (ex: `v1.0.0`, `v1.1.0`) é criada, facilitando a consulta e a reversão para versões específicas do software no futuro.
+
+### Gerenciamento de Issues com Quadro Kanban
+
+A gestão de todas as demandas — sejam elas novas funcionalidades, tarefas técnicas, melhorias ou bugs — é centralizada nas **Issues** do GitHub. Para visualizar e gerenciar o fluxo de trabalho, utilizamos o **GitHub Projects** como um **quadro Kanban**.
+
+O processo é o seguinte:
+
+1.  **Criação da Issue:** Qualquer nova demanda é registrada como uma *issue*.
+2.  **Etiquetagem e Priorização:** A *issue* recebe uma etiqueta para fácil identificação (`feature`, `bug`, `enhancement`, `task`, `documentation`) e é adicionada ao nosso quadro Kanban na coluna "Backlog", onde é priorizada pelo Product Owner.
+3.  **Movimentação no Kanban:** Conforme a *issue* avança no ciclo de desenvolvimento, ela é movida pelas colunas do quadro (ex: "To Do", "In Progress", "In Review", "Done").
+4.  **Desenvolvimento e Vinculação:** O desenvolvedor responsável cria uma branch a partir da *issue*. Ao abrir um Pull Request, ele é automaticamente vinculado à *issue*, mantendo o progresso sincronizado.
+5.  **Fechamento Automático:** Quando o Pull Request é aprovado e "mergeado", a *issue* correspondente é fechada e movida para a coluna "Done" no quadro, garantindo que o status do projeto esteja sempre atualizado.
 
 Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
 
