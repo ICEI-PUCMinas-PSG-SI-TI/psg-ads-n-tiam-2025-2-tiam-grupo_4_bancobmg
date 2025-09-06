@@ -11,7 +11,27 @@ A estrutura da equipe de desenvolvimento (Squad) será multifuncional, composta 
 - `Scrum Master:` Responsável por garantir que a equipe siga os princípios da metodologia e por remover quaisquer impedimentos.
 - `Equipe de Desenvolvimento:` Profissionais de back-end, front-end (mobile), UI/UX e QA, responsáveis pela entrega técnica da solução.
 
-## Relação de Ambientes de Trabalho
+## 🛠️ Relação de Ambientes de Trabalho
+
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas. A relação dos ambientes com seu respectivo propósito e link de acesso é detalhada na tabela abaixo.
+
+| Ambiente | Plataforma / Ferramenta | Link de Acesso (Exemplo) |
+| :--- | :--- | :--- |
+| **Controle de Versão** | Git / GitHub | `[https://github.com/sua-organizacao/nome-do-projeto](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg)` |
+| **Desenvolvimento Local** | Visual Studio Code | `N/A (Ferramenta Local)` |
+| **Design (UI/UX)** | Figma | `https://www.figma.com/file/seu-projeto` |
+| **Gestão Ágil (Scrum)** | GitHub Projects | `[https://github.com/orgs/sua-organizacao/projects/1](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/04-Projeto%20de%20Interface.md)` |
+| **Comunicação** | WhatsApp | `N/A (Grupo Privado)` |
+
+### Ambientes e Frameworks para Desenvolvimento Móvel
+
+Para o desenvolvimento da aplicação móvel, serão utilizados os seguintes ambientes e frameworks:
+
+* **Framework:** **React Native**
+* **Ambiente de Desenvolvimento (IDE):** **Visual Studio Code**
+* **Plataforma de Build e Deploy:** **Expo**
+
+**Justificativa:** A escolha pelo ecossistema React Native com Expo foi estratégica. Ela nos permite desenvolver para Android  a partir de um único código-base em JavaScript, otimizando o tempo da equipe. O Expo simplifica o processo de build, testes em dispositivos físicos e a publicação nas lojas, enquanto o Visual Studio Code oferece uma integração robusta e ágil para o desenvolvimento.
 
 Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito deverá ser apresentada em uma tabela que especifica que detalha Ambiente, Plataforma e Link de Acesso. 
 Nota: Vide documento modelo do estudo de caso "Portal de Notícias" e defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
