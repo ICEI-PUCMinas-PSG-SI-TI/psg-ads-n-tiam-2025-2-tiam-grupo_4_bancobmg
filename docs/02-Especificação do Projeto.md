@@ -198,9 +198,9 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 | Lucas de Paula | Definição do Backlog do Produto | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
 | Mariana Martins | Wireframes e Protótipo de Baixa Fidelidade | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
 | Gabriela Cristina| Configuração do Ambiente de Desenvolvimento | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
-| Pedro Henrique | Desenvolvimento do Módulo de Autenticação | ❌ | 30/10/2025 | 🏃 | |
-| Robson Marcolino| Criação do Banco de Dados | 10/09/2025 | 25/10/2025 | 🏃 | |
-| Nitai Nandi | Definição da Arquitetura do Software | ❌| 25/10/2025 | ✔ | ❌ |
+| Pedro Henrique | Desenvolvimento do Módulo de Autenticação | ❌ | 30/10/2025 | 🏃 | | 
+| Robson, Nitai, Pedro| Criação do Banco de Dados | 10/09/2025 | 25/10/2025 | 🏃 | |
+
 
 **Legenda:**
 * **✔** : terminado
@@ -225,13 +225,6 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 * **🏃** : em execução
 * **⌛** : atrasado
 * **❌** : não iniciado
-
-  
-## Gerenciamento de Equipe
-
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
-
-![Simple Project Timeline](img/02-project-timeline.png)
 
 ## Gestão de Orçamento
 
