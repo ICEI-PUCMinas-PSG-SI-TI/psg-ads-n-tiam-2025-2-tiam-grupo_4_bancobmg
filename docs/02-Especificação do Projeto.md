@@ -195,9 +195,9 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 | Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Lucas de Paula | Definição do Backlog do Produto | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
-| Mariana Martins | Wireframes e Protótipo de Baixa Fidelidade | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
-| Gabriela Cristina| Configuração do Ambiente de Desenvolvimento | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
+| Lucas de Paula | Definição do Backlog do Produto | 15/08/2025 | 07/09/2025 | ✔ | 29/08/2025 |
+| Mariana Martins | Wireframes e Protótipo de Baixa Fidelidade | 15/08/2025 | 07/09/2025 | ✔ | 01/09/2025 |
+| Gabriela Cristina| Configuração do Ambiente de Desenvolvimento | 15/08/2025 | 07/09/2025 | ✔ | 01/09/2025 |
 | Pedro Henrique | Desenvolvimento do Módulo de Autenticação | ❌ | 30/10/2025 | 🏃 | | 
 | Robson, Nitai, Pedro| Criação do Banco de Dados | 10/09/2025 | 25/10/2025 | 🏃 | |
 
