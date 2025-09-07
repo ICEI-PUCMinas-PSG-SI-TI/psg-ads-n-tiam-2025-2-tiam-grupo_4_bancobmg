@@ -175,6 +175,58 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 
 De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
 
+### **Gerenciamento de Equipe**
+
+| Nome | Função(ões) |
+| :--- | :--- |
+| Nitai Nandi | Scrum Master, Equipe de Desenvolvimento |
+| Lucas de Paula | Product Owner, Equipe de Desenvolvimento |
+| Gabriela Cristina| Equipe de Desenvolvimento |
+| Mariana Martins | Equipe de Design, Equipe de Desenvolvimento|
+| Pedro Henrique | Equipe de Desenvolvimento |
+| Robson Marcolino| Equipe de Desenvolvimento |
+
+---
+
+## **Quadro de Tarefas**
+
+### **Sprint 1**
+*Atualizado em: 07/09/2025*
+
+| Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Lucas de Paula | Definição do Backlog do Produto | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
+| Mariana Martins | Wireframes e Protótipo de Baixa Fidelidade | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
+| Gabriela Cristina| Configuração do Ambiente de Desenvolvimento | 15/08/2025 | 07/09/2025 | ✔ | 07/09/2025 |
+| Pedro Henrique | Desenvolvimento do Módulo de Autenticação | ❌ | 30/10/2025 | 🏃 | |
+| Robson Marcolino| Criação do Banco de Dados | 10/09/2025 | 25/10/2025 | 🏃 | |
+| Nitai Nandi | Definição da Arquitetura do Software | ❌| 25/10/2025 | ✔ | ❌ |
+
+**Legenda:**
+* **✔** : terminado
+* **🏃** : em execução
+* **⌛** : atrasado
+* **❌** : não iniciado
+
+### **Sprint 2**
+*Atualizado em: a definir*
+
+| Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Mariana Martins | Protótipo de Alta Fidelidade e Style Guide | | | ❌ | |
+| Lucas de Paula | Refinamento do Backlog e User Stories | | | ❌ | |
+| Gabriela Cristina| Desenvolvimento do Dashboard Principal | | | ❌ | |
+| Pedro Henrique | Integração de API Externa | | | ❌ | |
+| Robson Marcolino| Implementação dos Testes Unitários | | | ❌ | |
+| Nitai Nandi | Revisão de Código e Débitos Técnicos | | | ❌ | |
+
+**Legenda:**
+* **✔** : terminado
+* **🏃** : em execução
+* **⌛** : atrasado
+* **❌** : não iniciado
+
+  
 ## Gerenciamento de Equipe
 
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
