@@ -17,9 +17,14 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 ## Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
+O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa. No centro deste sistema, encontramos a entidade Cliente, que, após o cadastro, tem a capacidade de interagir com diversas funcionalidades da plataforma.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
+O diagrama detalha que cada cliente possui um SaldoFGTS e uma ContaBancaria associada, indicando que o propósito principal da aplicação é permitir ao usuário realizar uma SolicitacaoSaque desses valores.
+
+Além da operação financeira principal, o modelo descreve um ecossistema de suporte e engajamento: o cliente recebe Notificacao, participa de um ProgramaIndicacao e utiliza o SuporteChat para atendimento. Por fim, a entidade Administrador supervisiona o sistema, com a capacidade de gerar um RelatorioUso para monitorar as atividades na plataforma.]
+
+<img width="1393" height="587" alt="image" src="https://github.com/user-attachments/assets/7dc79413-200b-440f-ba6f-4ce5a0e0ff05" />
+
 
 > - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
 
