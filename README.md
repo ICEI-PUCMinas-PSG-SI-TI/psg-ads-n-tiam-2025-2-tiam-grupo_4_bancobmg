@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# ACERT FGTS
 
 `Tecnologia em Análise e Desenvolvimento de Sistemas`
 
@@ -6,7 +6,7 @@
 
 `4° Semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto visa o desenvolvimento de uma aplicação móvel em parceria com o banco BMG, onde é possível visualizar e sacar o saldo de antecipação FGTS.
 
 ## Integrantes
 
