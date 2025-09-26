@@ -95,10 +95,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-001 | O sistema deve permitir que o cliente realize cadastro utilizando o CPF como identificador.| ALTA       |
 | RF-002 | O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.| ALTA       |
 | RF-003 | O sistema deve verificar se o cliente possui autorização para visualizar informações do FGTS. | ALTA       |
-| RF-004 | O sistema deve exibir o saldo do FGTS do cliente na tela inicial. | MÉDIA      |
+| RF-004 | O sistema deve exibir o saldo do FGTS do cliente na tela inicial. | ALTA      |
 | RF-005 | Caso o cliente possua saldo, o sistema deve apresentar uma tabela com os valores disponíveis e os respectivos anos. | MÉDIA      |
 | RF-006 | O sistema deve enviar notificações sobre saldo atualizado, incluindo notificação diária às 6h e push em tempo real quando houver saldo disponível. | MÉDIA      |
-| RF-007 | O sistema deve gerar relatórios de quantos clientes utilizam o app, permitindo exportação para BI ou planilha.| ALTA       |
+| RF-007 | O sistema deve gerar relatórios diários com a quantidade de clientes que utilizam o app, clientes que possuem saldo, clientes que sacaram e não sacaram, clientes não autorizados e total de saldo gerado no dia. Permitindo exportação para BI ou planilha.| ALTA       |
 | RF-008 | O sistema deve integrar com a API do Banco Lotus para consulta de saldo. | ALTA       |
 | RF-009 | O sistema deve implementar agendamento de atualização matinal de saldos.| ALTA       |
 | RF-010 | O sistema deve criar fluxo autônomo de solicitação de saque.| ALTA       |
