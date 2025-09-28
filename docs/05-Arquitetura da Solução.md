@@ -47,11 +47,9 @@ A arquitetura da solução é baseada no modelo Cliente-Servidor, com um aplicat
 
 O lançamento e a hospedagem da plataforma foram realizados utilizando a plataforma Heroku. A escolha se deu pela facilidade de implantação (deploy) e pela integração com ambientes de desenvolvimento. O processo foi o seguinte:
 
-    Back-end (API Rest): A aplicação do servidor foi conteinerizada e implantada em um Dyno do Heroku.
-
-    Banco de Dados (MySQL): Foi utilizado o add-on ClearDB MySQL do Heroku para provisionar e gerenciar o banco de dados relacional na nuvem, garantindo a comunicação com a aplicação do Back-end.
-
-    Serviços Auxiliares (Firebase): As chaves e configurações de acesso aos serviços do Firebase (utilizado para autenticação) foram configuradas como variáveis de ambiente no Heroku para garantir a segurança.
+   Back-end (API Rest): A aplicação do servidor foi conteinerizada e implantada em um Dyno do Heroku.
+   Banco de Dados (MySQL): Foi utilizado o add-on ClearDB MySQL do Heroku para provisionar e gerenciar o banco de dados relacional na nuvem, garantindo a comunicação com a aplicação do Back-end.
+   Serviços Auxiliares (Firebase): As chaves e configurações de acesso aos serviços do Firebase (utilizado para autenticação) foram configuradas como variáveis de ambiente no Heroku para garantir a segurança.
 
 O front-end, por ser um aplicativo nativo, não é "hospedado", mas sim compilado para ser distribuído diretamente aos dispositivos dos usuários.
 
@@ -67,9 +65,8 @@ Com base na norma ISO/IEC 25010, foram selecionadas as seguintes sub-caracterís
 
     Métricas de Avaliação:
 
-        Tempo médio para adicionar uma nova funcionalidade simples: Medir as horas de desenvolvimento para implementar uma nova tela ou endpoint.
-
-        Número de bugs reportados após uma atualização: Contagem de defeitos criados em funcionalidades existentes após a implantação de uma nova versão.
+   Tempo médio para adicionar uma nova funcionalidade simples: Medir as horas de desenvolvimento para implementar uma nova tela ou endpoint.
+   Número de bugs reportados após uma atualização: Contagem de defeitos criados em funcionalidades existentes após a implantação de uma nova versão.
 
 2. Característica: Confiabilidade
 
@@ -79,9 +76,8 @@ Com base na norma ISO/IEC 25010, foram selecionadas as seguintes sub-caracterís
 
     Métricas de Avaliação:
 
-        Percentual de requisições à API com erro (status 5xx): Monitorar a quantidade de erros internos do servidor em relação ao total de requisições.
-
-        Tempo médio de recuperação (MTTR): Medir quanto tempo o sistema leva para se recuperar após uma falha crítica.
+   Percentual de requisições à API com erro (status 5xx): Monitorar a quantidade de erros internos do servidor em relação ao total de requisições.
+   Tempo médio de recuperação (MTTR): Medir quanto tempo o sistema leva para se recuperar após uma falha crítica.
 
 3. Característica: Segurança
 
@@ -91,9 +87,8 @@ Com base na norma ISO/IEC 25010, foram selecionadas as seguintes sub-caracterís
 
     Métricas de Avaliação:
 
-        Número de vulnerabilidades encontradas em testes de SQL Injection: Realizar testes de segurança periódicos.
-
-        Logs de acesso negado: Contagem de tentativas de alteração de dados por usuários sem a devida permissão.
+    Número de vulnerabilidades encontradas em testes de SQL Injection: Realizar testes de segurança periódicos.
+    Logs de acesso negado: Contagem de tentativas de alteração de dados por usuários sem a devida permissão.
    
 > **Links Úteis**:
 >
