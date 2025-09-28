@@ -22,9 +22,6 @@ Além da operação financeira principal, o modelo descreve um ecossistema de su
 
 <img width="1393" height="587" alt="image" src="https://github.com/user-attachments/assets/7dc79413-200b-440f-ba6f-4ce5a0e0ff05" />
 
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
-
 ## Esquema Relacional
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
@@ -39,9 +36,10 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+Para esta solução, utilizaremos o React Native para desenvolver a aplicação móvel, no ambiente de desenvolvimento VS Code, utilizando banco de dados relacional MySQL que se comunicará com o Firebase.
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+<img width="1265" height="567" alt="image" src="https://github.com/user-attachments/assets/ea1bffa7-422f-4559-b853-3fff7d1e06b2" />
+
 
 ## Hospedagem
 
