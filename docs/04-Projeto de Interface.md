@@ -22,9 +22,29 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 ## Wireframes
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/f38eceec-70c6-4fbb-a5af-08599b44342a" width="700px" />
+</div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/d2a46279-81fd-459a-8e1d-f919a20e34d3" width="700px" />
+</div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/c052be86-a5e5-4e65-8375-8f95d9f510d7" width="700px" />
+</div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/a7d3e77b-8e2a-4b00-a86f-dc3829a11018" width="700px" />
+</div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/606824f3-3d8b-4482-9b0c-8f5cd2009838" width="700px" />
+</div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/57465360-2412-4195-bd12-067d6656df90" width="700px" />
+</div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/776e316f-a424-41dd-a994-55cc6c99e1a5" width="700px" />
+</div>
+Link Figma: https://www.figma.com/proto/pTARGGrzCYCuHr164KZ3XH/bancobmg?node-id=21-92&p=f&t=dFTSIktDH0jlLwqi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=8%3A2
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
 > **Links Úteis**:
 > - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
