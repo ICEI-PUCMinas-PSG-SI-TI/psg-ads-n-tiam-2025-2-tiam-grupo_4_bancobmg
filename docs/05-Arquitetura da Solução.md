@@ -41,13 +41,17 @@ Para esta solução, utilizaremos o React Native para desenvolver a aplicação 
 
 ## Hospedagem
 
-A arquitetura da solução é baseada no modelo Cliente-Servidor, com um aplicativo nativo (Front-end) se comunicando com um serviço de Back-end através de uma Rest API.
+A arquitetura da solução é baseada no modelo **Cliente-Servidor**. Ela é composta por:
 
-O lançamento e a hospedagem da plataforma foram realizados utilizando a plataforma Heroku. A escolha se deu pela facilidade de implantação (deploy) e pela integração com ambientes de desenvolvimento. O processo foi o seguinte:
+* **Front-end:** Um aplicativo móvel nativo, desenvolvido em **React Native**. Este aplicativo é compilado e distribuído diretamente para os dispositivos dos usuários.
 
-1.  **Back-end (API Rest):** A aplicação do servidor foi conteinerizada e implantada em um Dyno do Heroku.
-2.  **Banco de Dados (MySQL):** Foi utilizado o add-on `ClearDB MySQL` do Heroku para provisionar e gerenciar o banco de dados relacional na nuvem, garantindo a comunicação com a aplicação do Back-end.
-3.  **Serviços Auxiliares (Firebase):** As chaves e configurações de acesso aos serviços do Firebase (utilizado para autenticação) foram configuradas como variáveis de ambiente no Heroku para garantir a segurança.
+* **Back-end:** Um servidor que expõe uma **Rest API** para o aplicativo cliente.
+
+* **Banco de Dados:** Um banco de dados relacional **MySQL** que armazena os dados da aplicação e se comunica com o Back-end.
+
+* **Serviços Auxiliares:** A plataforma **Firebase** é utilizada para funcionalidades de apoio, como autenticação de usuários e recebimento de dados.
+
+A documentação não especifica o provedor de nuvem ou a plataforma onde o Back-end e o banco de dados MySQL serão hospedados.
 
 O front-end, por ser um aplicativo nativo, não é "hospedado", mas sim compilado para ser distribuído diretamente aos dispositivos dos usuários.
 
