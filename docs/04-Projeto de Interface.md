@@ -44,8 +44,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 <div align="center">
 <img src="https://github.com/user-attachments/assets/776e316f-a424-41dd-a994-55cc6c99e1a5" width="700px" />
 </div>
-Link Figma: https://www.figma.com/proto/pTARGGrzCYCuHr164KZ3XH/bancobmg?node-id=21-92&p=f&t=dFTSIktDH0jlLwqi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=8%3A2
-
+Link Figma:https://www.figma.com/proto/pTARGGrzCYCuHr164KZ3XH/bancobmg?node-id=8-2&p=f&t=dFTSIktDH0jlLwqi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=8%3A2
  
 > **Links Úteis**:
 > - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
