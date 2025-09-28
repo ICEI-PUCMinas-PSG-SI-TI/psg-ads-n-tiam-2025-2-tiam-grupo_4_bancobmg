@@ -51,10 +51,6 @@ A arquitetura da solução é baseada no modelo **Cliente-Servidor**. Ela é com
 
 * **Serviços Auxiliares:** A plataforma **Firebase** é utilizada para funcionalidades de apoio, como autenticação de usuários e recebimento de dados.
 
-A documentação não especifica o provedor de nuvem ou a plataforma onde o Back-end e o banco de dados MySQL serão hospedados.
-
-O front-end, por ser um aplicativo nativo, não é "hospedado", mas sim compilado para ser distribuído diretamente aos dispositivos dos usuários.
-
 ## Qualidade de Software
 
 Com base na norma **ISO/IEC 25010**, foram selecionadas as seguintes sub-características para nortear o desenvolvimento do projeto, garantindo um produto final que atenda às expectativas de negócio e dos usuários.
