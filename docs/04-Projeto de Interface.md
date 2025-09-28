@@ -24,7 +24,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 ## Wireframes
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/f38eceec-70c6-4fbb-a5af-08599b44342a" width="700px" />
+<img src="https://github.com/user-attachments/assets/de20e424-a580-4a32-ad18-3cc25d96a7a6" width="700px" />
 </div>
 <div align="center">
 <img src="https://github.com/user-attachments/assets/d2a46279-81fd-459a-8e1d-f919a20e34d3" width="700px" />
