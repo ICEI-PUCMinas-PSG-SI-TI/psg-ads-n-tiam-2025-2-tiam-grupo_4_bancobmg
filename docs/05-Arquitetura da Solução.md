@@ -43,24 +43,58 @@ Para esta solução, utilizaremos o React Native para desenvolver a aplicação 
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+A arquitetura da solução é baseada no modelo Cliente-Servidor, com um aplicativo nativo (Front-end) se comunicando com um serviço de Back-end através de uma Rest API.
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+O lançamento e a hospedagem da plataforma foram realizados utilizando a plataforma Heroku. A escolha se deu pela facilidade de implantação (deploy) e pela integração com ambientes de desenvolvimento. O processo foi o seguinte:
+
+    Back-end (API Rest): A aplicação do servidor foi conteinerizada e implantada em um Dyno do Heroku.
+
+    Banco de Dados (MySQL): Foi utilizado o add-on ClearDB MySQL do Heroku para provisionar e gerenciar o banco de dados relacional na nuvem, garantindo a comunicação com a aplicação do Back-end.
+
+    Serviços Auxiliares (Firebase): As chaves e configurações de acesso aos serviços do Firebase (utilizado para autenticação) foram configuradas como variáveis de ambiente no Heroku para garantir a segurança.
+
+O front-end, por ser um aplicativo nativo, não é "hospedado", mas sim compilado para ser distribuído diretamente aos dispositivos dos usuários.
 
 ## Qualidade de Software
 
-Conceituar qualidade de fato é uma tarefa complexa, mas ela pode ser vista como um método gerencial que através de procedimentos disseminados por toda a organização, busca garantir um produto final que satisfaça às expectativas dos stakeholders.
+Com base na norma ISO/IEC 25010, foram selecionadas as seguintes sub-características para nortear o desenvolvimento do projeto, garantindo um produto final que atenda às expectativas de negócio e dos usuários.
 
-No contexto de desenvolvimento de software, qualidade pode ser entendida como um conjunto de características a serem satisfeitas, de modo que o produto de software atenda às necessidades de seus usuários. Entretanto, tal nível de satisfação nem sempre é alcançado de forma espontânea, devendo ser continuamente construído. Assim, a qualidade do produto depende fortemente do seu respectivo processo de desenvolvimento.
+1. Característica: Manutenibilidade
 
-A norma internacional ISO/IEC 25010, que é uma atualização da ISO/IEC 9126, define oito características e 30 subcaracterísticas de qualidade para produtos de software.
-Com base nessas características e nas respectivas sub-características, identifique as sub-características que sua equipe utilizará como base para nortear o desenvolvimento do projeto de software considerando-se alguns aspectos simples de qualidade. Justifique as subcaracterísticas escolhidas pelo time e elenque as métricas que permitirão a equipe avaliar os objetos de interesse.
+    Sub-característica Escolhida: Modificabilidade
 
+    Justificativa: A arquitetura foi projetada em camadas (Front-end e Back-end desacoplados) justamente para permitir que o sistema evolua. É crucial que novas funcionalidades possam ser adicionadas ou que as regras de negócio possam ser alteradas no futuro com o mínimo de impacto e sem introduzir defeitos no sistema.
+
+    Métricas de Avaliação:
+
+        Tempo médio para adicionar uma nova funcionalidade simples: Medir as horas de desenvolvimento para implementar uma nova tela ou endpoint.
+
+        Número de bugs reportados após uma atualização: Contagem de defeitos criados em funcionalidades existentes após a implantação de uma nova versão.
+
+2. Característica: Confiabilidade
+
+    Sub-característica Escolhida: Tolerância a Falhas
+
+    Justificativa: O sistema lida com operações financeiras e dados de usuários, não podendo parar de funcionar por erros inesperados (ex: tentativa de saque com valor inválido, falha de conexão com o banco). O back-end precisa ser capaz de tratar exceções de forma adequada, registrar os erros e manter a aplicação em funcionamento.
+
+    Métricas de Avaliação:
+
+        Percentual de requisições à API com erro (status 5xx): Monitorar a quantidade de erros internos do servidor em relação ao total de requisições.
+
+        Tempo médio de recuperação (MTTR): Medir quanto tempo o sistema leva para se recuperar após uma falha crítica.
+
+3. Característica: Segurança
+
+    Sub-característica Escolhida: Integridade
+
+    Justificativa: A integridade dos dados é vital. A aplicação deve garantir que as informações (como saldo, dados pessoais, etc.) não possam ser modificadas de forma acidental ou maliciosa. A modelagem de dados relacional e as validações no back-end são as principais estratégias para garantir essa integridade.
+
+    Métricas de Avaliação:
+
+        Número de vulnerabilidades encontradas em testes de SQL Injection: Realizar testes de segurança periódicos.
+
+        Logs de acesso negado: Contagem de tentativas de alteração de dados por usuários sem a devida permissão.
+   
 > **Links Úteis**:
 >
 > - [ISO/IEC 25010:2011 - Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models](https://www.iso.org/standard/35733.html/)
