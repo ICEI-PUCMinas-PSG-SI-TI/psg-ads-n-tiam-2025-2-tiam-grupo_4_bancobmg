@@ -17,15 +17,6 @@ export default function AppLayout() {
         },
       }}
     >
-      <Tabs.Screen
-        name="home" // Este nome corresponde ao arquivo 'home_ADM.tsx'
-        options={{
-          title: "Início",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={24} color={color} />
-          ),
-        }}
-      />
     </Tabs>
   );
 }
