@@ -53,7 +53,8 @@ export default function LoginScreen() {
   };
 
   const handleLogin = () => {
-    // Adicionar logica de validação
+    // TODO: Adicionar logica de validação
+    // TEMP: CPF 99999999999 SENHA 99999999999 => ADM
     // Exemplo simples:
     if (!cpf || !senha) {
       Alert.alert("Erro", "Por favor, preencha o CPF e a senha.");
@@ -65,7 +66,10 @@ export default function LoginScreen() {
     console.log("Senha:", senha);
 
     // Se a validação for bem-sucedida, navegue para a tela principal.
-    router.push("/home" as any);
+    if (cpf == "999.999.999-99" && senha == "99999999999") 
+      router.push("/ADM/home_ADM" as any);
+    else
+      router.push("/home" as any);
   };
 
   return (
