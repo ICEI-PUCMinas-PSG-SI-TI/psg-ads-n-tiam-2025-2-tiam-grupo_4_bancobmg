@@ -147,11 +147,14 @@ export default function CadastroScreen() {
     try {
       // --- PASSO 1: VERIFICAR CPF DUPLICADO (NOVO) ---
       const cpfLimpo = cpf.replace(/[^\d]/g, "");
-      const clientesRef = collection(db, "clientes");
-      const q = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
-      const querySnapshot = await getDocs(q);
+      const admRef = collection(db, "administradores"); // Verificação de Administrador
+      const q1 = query(admRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot1 = await getDocs(q1);
+      const clientesRef = collection(db, "clientes"); // Verificação de Cliente
+      const q2 = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot2 = await getDocs(q2);
 
-      if (!querySnapshot.empty) {
+      if (!querySnapshot1.empty || !querySnapshot2.empty) {
         // Se querySnapshot.empty for FALSO, significa que encontrou um CPF
         Alert.alert("Erro de Cadastro", "Este CPF já está em uso.");
         setLoading(false);

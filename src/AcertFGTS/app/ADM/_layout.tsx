@@ -17,6 +17,33 @@ export default function AppLayout() {
         },
       }}
     >
+      <Tabs.Screen
+        name="home_ADM" // Este nome corresponde ao arquivo 'home_ADM.tsx'
+        options={{
+          title: "Relatórios",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="document" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="manualAuth" // Este nome corresponde ao arquivo 'manualAuth.tsx'
+        options={{
+          title: "Autenticação",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="lock-open-outline" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="saldos" // Este nome corresponde ao arquivo 'saldos.tsx'
+        options={{
+          title: "Saldos",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="cash-outline" size={24} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

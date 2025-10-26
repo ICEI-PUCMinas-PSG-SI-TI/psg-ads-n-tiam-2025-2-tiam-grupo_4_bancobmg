@@ -67,32 +67,46 @@ export default function LoginScreen() {
     console.log("CPF:", cpf);
     console.log("Senha:", senha);
 
-    // Se a validação for bem-sucedida, navegue para a tela principal.
-    if (cpf == "999.999.999-99" && senha == "99999999999") 
-      router.push("/ADM/home_ADM" as any);
-    else
-      router.push("/home" as any);
-    setLoading(true); // Ativa o carregamento
-
     try {
       // --- PASSO 1: Achar o E-mail usando o CPF ---
       const cpfLimpo = cpf.replace(/[^\d]/g, "");
+      const AdmRef = collection(db, "administradores");
       const clientesRef = collection(db, "clientes");
 
-      // Cria a consulta: "SELECT * FROM clientes WHERE cpf == cpfLimpo LIMIT 1"
-      const q = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
-      const querySnapshot = await getDocs(q);
+      // Cria a consulta: "SELECT * FROM administradores WHERE cpf == cpfLimpo LIMIT 1"
+      const q1 = query(AdmRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot1 = await getDocs(q1);
 
-      if (querySnapshot.empty) {
+      // Cria a consulta: "SELECT * FROM clientes WHERE cpf == cpfLimpo LIMIT 1"
+      const q2 = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot2 = await getDocs(q2);
+
+      if (querySnapshot1.empty && querySnapshot2.empty) {
         // Se não achou o CPF
         Alert.alert("Erro", "CPF não encontrado.");
         setLoading(false);
         return;
       }
 
+      var IsAdm = false;
       // Se achou, pegue o e-mail do documento
-      const clienteData = querySnapshot.docs[0].data();
-      const emailDoUsuario = clienteData.email;
+      var uData;
+      var emailDoUsuario;
+      if (querySnapshot2.empty)
+      {
+        // Dados do Administrador
+        uData = querySnapshot1.docs[0].data();
+        emailDoUsuario = uData.email;
+        IsAdm = true;
+      }
+      else
+      {
+        // Dados do Cliente
+        // Dados do Administrador
+        uData = querySnapshot2.docs[0].data();
+        emailDoUsuario = uData.email;
+        IsAdm = false;
+      }
 
       // --- PASSO 2: Fazer login no FIREBASE AUTH com o E-mail encontrado ---
       const userCredential = await signInWithEmailAndPassword(
@@ -108,13 +122,16 @@ export default function LoginScreen() {
       const userData = {
         uid: userCredential.user.uid,
         email: emailDoUsuario,
-        nome: clienteData.nome,
+        nome: uData.nome,
       };
       await AsyncStorage.setItem("@user_data", JSON.stringify(userData));
 
       // --- SUCESSO! ----
       // Use 'replace' para o usuário não poder "voltar" para a tela de login
-      router.replace("/home" as any);
+      if (IsAdm)
+        router.replace("/ADM/home_ADM" as any);
+      else
+        router.replace("/home" as any);
     } catch (error: any) {
       if (
         error.code === "auth/wrong-password" ||
@@ -128,6 +145,14 @@ export default function LoginScreen() {
     } finally {
       setLoading(false); // Desativa o carregamento
     }
+    /* 
+    // Se a validação for bem-sucedida, navegue para a tela principal.
+    if (cpf == "999.999.999-99" && senha == "99999999999") 
+      router.push("/ADM/home_ADM" as any);
+    else
+      router.push("/home" as any);
+    setLoading(true); // Ativa o carregamento
+    */
   };
 
   return (
