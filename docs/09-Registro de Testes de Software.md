@@ -27,61 +27,80 @@
 
 Descrição: Tela exibindo conta já salva no Firestore.
 Resultado: Dados carregados com sucesso.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)" />
 
 ##  CT02 – Cadastrar nova conta
 
 Descrição: Novo cadastro de conta bancária salvo com sucesso.
 Resultado: Documento criado na coleção contas_bancarias.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg)" />
+
+<img width="1152" height="128" alt="Image" src="[[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/FireBaseContaTrocada.png)" />
 
 ##  CT03 – Atualizar conta existente
 
 Descrição: Dados bancários modificados e salvos novamente.
 Resultado: Firestore atualizado corretamente.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg)" />
+
+<img width="1152" height="128" alt="Image" src="[[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/FireBaseContaTrocada.png)" />
 
 ## CT04 – Validar campos obrigatórios
 
 Descrição: Tentativa de salvar conta com campos vazios.
 Resultado: Exibição de alerta informando erro de preenchimento.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ErroPreenchercampos.jpeg)" />
+
 
 ## CT05 – Cancelar operação
 
 Descrição: Botão “Cancelar” retornando à tela anterior.
 Resultado: Operação cancelada sem alteração de dados.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg)" />
+
 
 ## CT06 – Carregar saldo FGTS
 
 Descrição: Tela mostrando saldo atual do usuário.
 Resultado: Saldo exibido corretamente após leitura do Firestore.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)" />
 
 ## CT07 – Solicitar saque válido
 
 Descrição: Saque solicitado com valor dentro do saldo.
 Resultado: Documento criado em solicitacoes_saque.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ConfirmarTrasferencia.jpeg)" />
+
+<img width="1152" height="128" alt="Image" src="[[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ConfirmarTrasferencia.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/FireBaseSaque.png)" />
 
 ## CT08 – Tentar sacar sem conta cadastrada
 
 Descrição: Usuário tenta sacar sem conta configurada.
 Resultado: Mensagem solicitando cadastro de conta exibida.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="[[[[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ConfirmarTrasferencia.jpeg)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/FireBaseSaque.png)](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ErroSemconta.jpeg)" />
+
 
 ## CT09 – Tentar sacar valor maior que o saldo
 
 Descrição: Usuário insere valor superior ao saldo atual.
 Resultado: Alerta de “Saldo insuficiente”.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ErroSaldoInsufuciente.jpeg" />
 
 ## CT10 – Validar valor do saque
 
 Descrição: Tentativa de saque com valor inválido (0 ou vazio).
 Resultado: Mensagem de erro exibida corretamente.
-📸 [Inserir imagem aqui]
+
+<img width="1152" height="128" alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ErroValor0.jpeg" />
 
 
 ## Conclusão
