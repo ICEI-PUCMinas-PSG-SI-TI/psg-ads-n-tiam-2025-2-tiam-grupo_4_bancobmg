@@ -1,4 +1,4 @@
-# 🧪 Plano de Teste de Funcionalidades e Usabilidade
+# Plano de Teste de Funcionalidades e Usabilidade
 
 ## Objetivo
 Garantir o correto funcionamento das funções de configuração de usuário.
