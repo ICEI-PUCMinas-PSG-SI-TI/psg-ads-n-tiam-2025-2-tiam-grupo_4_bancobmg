@@ -23,7 +23,7 @@ Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Al
 | **CT08** | Tentar sacar sem conta cadastrada    | Inserir valor e confirmar sem conta existente | ✅ Exibiu mensagem solicitando cadastro de conta                       | Mensagem clara para o usuário                 |
 | **CT09** | Tentar sacar valor maior que o saldo | Inserir valor acima do saldo atual            | ✅ Exibiu mensagem de “Saldo insuficiente”                             | Comportamento esperado                        |
 | **CT10** | Validar valor do saque               | Inserir campo vazio ou 0                      | ✅ Exibiu mensagem de erro “Digite um valor válido”                    | Validação de entrada funcionando corretamente |
-| **CT11** | Atualizar saldo após saque (futuro)  | Confirmar saque aprovado (admin)              | ⚠️ Implementação futura                                               | Ainda não disponível                          |
+                      |
 
 
 ## Registro de Testes Executados
