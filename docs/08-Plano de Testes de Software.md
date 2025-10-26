@@ -1,6 +1,23 @@
 # Plano de Testes de Software
 
-## Cenário 1 – Solicitação de Saque FGTS
+### Cenário 1 – Login de Usuário
+
+| **Item** | **Descrição** |
+|-----------|----------------|
+| **Funcionalidades Avaliadas** | Autenticação de usuário e validação de credenciais |
+| **Tela Testada** | index.tsx |
+| **Requisitos Relacionados** | O sistema deve permitir que o usuário acesse sua conta com credenciais válidas |
+| **Objetivo** | Validar o comportamento da aplicação durante o processo de login, incluindo tratamento de erros e redirecionamento para a tela principal |
+| **Grupo de Usuários** | Usuário não autenticado (com cadastro prévio no sistema) |
+| **Ferramentas Utilizadas** | Expo Go, React Developer Tools, Firebase Authentication Console |
+| **Procedimentos Executados** | Abrir tela de login, inserir e-mail e senha válidos, clicar em “Entrar” e verificar redirecionamento; repetir o teste com credenciais inválidas para validar mensagens de erro |
+| **Critério de Sucesso** | Usuário autenticado com sucesso e redirecionado à tela principal; mensagem de erro exibida em caso de credenciais inválidas |
+| **Casos de Teste Executados** | CT01 – CT05 |
+| **Resultado** | Sucesso |
+| **Responsável** | [Robson] |
+
+
+## Cenário 2 – Solicitação de Saque FGTS
 
 | Item                          | Descrição                                                                                                      |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -18,7 +35,7 @@
 
 
 
-## Cenário 2 – Gerenciamento de Conta Bancária
+## Cenário 3 – Gerenciamento de Conta Bancária
 
 | Item                          | Descrição                                                                                               |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
