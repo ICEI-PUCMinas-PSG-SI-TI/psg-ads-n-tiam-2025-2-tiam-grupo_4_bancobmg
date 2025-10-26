@@ -91,7 +91,7 @@ Resultado: Mensagem de erro exibida corretamente.
 - As mensagens e validações de entrada funcionam conforme o esperado;
 - Nenhum erro crítico foi identificado durante a execução.
 
-- Resultado geral: Todos os 11 casos de teste aprovados com sucesso.
+- Resultado geral: Todos os 10 casos de teste aprovados com sucesso.
 - Responsável pelos testes: Pedro
 - Data de execução: 26/10/2025
 
