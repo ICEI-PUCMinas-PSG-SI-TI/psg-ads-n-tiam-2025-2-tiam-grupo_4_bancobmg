@@ -1,52 +1,50 @@
-# ACERT FGTS
+# Welcome to your Expo app 👋
 
-`Tecnologia em Análise e Desenvolvimento de Sistemas`
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-`Trabalho Interdisciplinar: Aplicação Móvel`
+## Get started
 
-`4° Semestre`
+1. Install dependencies
 
-O projeto visa o desenvolvimento de uma aplicação móvel em parceria com o banco BMG, onde é possível visualizar e sacar o saldo de antecipação FGTS.
+   ```bash
+   npm install
+   ```
 
-## Integrantes
+2. Start the app
 
-* Gabriela Cristina Freitas de Lima
-* Lucas de Paula Silva
-* Mariana Martins Moreira
-* Nitai Nandi Rodrigues da Silva
-* Pedro Henrique Rodrigues Evangelista
-* Robson Marcolino da Silva Junior
+   ```bash
+   npx expo start
+   ```
 
-## Orientador
+In the output, you'll find options to open the app in a
 
-* Pedro Felipe Alves de Oliveira
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## Instruções de utilização
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+## Get a fresh project
 
-# Documentação
+When you're ready, run:
 
-<ol>
-<li><a href="docs/01-Documentação de Contexto.md"> Documentação de Contexto</a></li>
-<li><a href="docs/02-Especificação do Projeto.md"> Especificação do Projeto</a></li>
-<li><a href="docs/03-Metodologia.md"> Metodologia</a></li>
-<li><a href="docs/04-Projeto de Interface.md"> Projeto de Interface</a></li>
-<li><a href="docs/05-Arquitetura da Solução.md"> Arquitetura da Solução</a></li>
-<li><a href="docs/06-Template Padrão da Aplicação.md"> Template Padrão da Aplicação</a></li>
-<li><a href="docs/07-Programação de Funcionalidades.md"> Programação de Funcionalidades</a></li>
-<li><a href="docs/08-Plano de Testes de Software.md"> Plano de Testes de Software</a></li>
-<li><a href="docs/09-Registro de Testes de Software.md"> Registro de Testes de Software</a></li>
-<li><a href="docs/10-Plano de Testes de Usabilidade.md"> Plano de Testes de Usabilidade</a></li>
-<li><a href="docs/11-Registro de Testes de Usabilidade.md"> Registro de Testes de Usabilidade</a></li>
-<li><a href="docs/12-Apresentação do Projeto.md"> Apresentação do Projeto</a></li>
-<li><a href="docs/13-Referências.md"> Referências</a></li>
-</ol>
+```bash
+npm run reset-project
+```
 
-# Código
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+## Learn more
 
-# Apresentação
+To learn more about developing your project with Expo, look at the following resources:
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
