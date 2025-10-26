@@ -1,4 +1,4 @@
-# Template Padrão da Aplicação
+#  Programação de Funcionalidades
 
 ## Requisitos Atendidos
 
