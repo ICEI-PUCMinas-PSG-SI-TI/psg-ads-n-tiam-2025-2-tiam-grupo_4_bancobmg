@@ -81,8 +81,8 @@ A autenticação utiliza **Firebase Authentication**, garantindo que cada indica
 | Membro | Função | Contribuição |
 |---------|--------|--------------|
 | **Mariana** | Front-end | Implementação da tela de Indicação, layout e integração com Firebase |
-| **Robson** | QA | Testes e documentação da funcionalidade |
-| **Demais membros** | Apoio | Suporte e revisão do código |
+| **Mariana** | QA | Testes e documentação da funcionalidade |
+
 
 ---
 
