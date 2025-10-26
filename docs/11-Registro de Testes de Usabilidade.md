@@ -5,6 +5,7 @@ Objetivo
 Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Alteração de Conta Bancária e Solicitação de Saque, verificando se o usuário consegue realizar as operações de forma intuitiva e sem erros.
 
 ## Casos de Teste – index.tsx
+
 | Código   | Caso                                | Ação                                           | Resultado Obtido                                      | Observações                                  |
 | -------- | ----------------------------------- | --------------------------------------------- | ----------------------------------------------------- | -------------------------------------------- |
 | **CT01** | Carregar tela de login               | Abrir app e navegar para a tela de login      | ✅ Tela carregou corretamente com campos visíveis    | Funcionamento conforme esperado              |
@@ -14,9 +15,9 @@ Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Al
 | **CT05** | Navegação geral                      | Alternar entre Login e tela de Cadastro       | ✅ Navegação fluida, sem travamentos                  | Consistência visual e responsividade         |
 
 ## Casos de Teste – AlterarConta.tsx
+
 | Código   | Caso                        | Ação                                          | Resultado Obtido                                      | Observações                                  |
 | -------- | --------------------------- | --------------------------------------------- | ----------------------------------------------------- | -------------------------------------------- |
-
 | **CT01** | Carregar conta existente    | Abrir tela “Alterar Conta” com usuário logado | ✅ Exibiu corretamente os dados bancários salvos       | Funcionamento conforme esperado              |
 | **CT02** | Cadastrar nova conta        | Preencher todos os campos e salvar            | ✅ Novo documento criado na coleção `contas_bancarias` | Salvo corretamente no Firestore              |
 | **CT03** | Atualizar conta existente   | Alterar dados e salvar                        | ✅ Documento existente atualizado                      | Mudanças refletidas imediatamente no console |
