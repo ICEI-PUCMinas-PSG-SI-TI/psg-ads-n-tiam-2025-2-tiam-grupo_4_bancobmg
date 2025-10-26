@@ -34,5 +34,8 @@ A seguir o diagrama de fluxo de telas planejado para a solução:
 <div align="center">
 <img src="https://github.com/user-attachments/assets/776e316f-a424-41dd-a994-55cc6c99e1a5" width="700px" />
 </div>
+<div align="center">
+<img src="" width="70px" />
+</div>
 Link Figma:https://www.figma.com/proto/pTARGGrzCYCuHr164KZ3XH/bancobmg?node-id=8-2&p=f&t=dFTSIktDH0jlLwqi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=8%3A2
 
