@@ -1,15 +1,86 @@
-# Programação de Funcionalidades
+# 🧩 Programação de Funcionalidades
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
+## Pré-requisitos
+- Especificação do Projeto
+- Projeto de Interface
+- Metodologia
+- Arquitetura da Solução
 
-Implementação do sistema descritas por meio dos requisitos funcionais e/ou não funcionais. Deve relacionar os requisitos atendidos os artefatos criados (código fonte) além das estruturas de dados utilizadas e as instruções para acesso e verificação da implementação que deve estar funcional no ambiente de hospedagem.
+---
 
-Para cada requisito funcional, pode ser entregue um artefato desse tipo
+## Requisitos Atendidos
+- **RF-006:** Ativar/Desativar Notificações
+- **RF-009:** Atualização de Saldos Agendada
+- Alteração de dados pessoais (nome)
+- Configuração de cache ativo (24h)
 
-> **Links Úteis**:
->
-> - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
-> - [JSON Tutorial](https://www.w3resource.com/JSON)
-> - [JSON Data Set Sample](https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html)
-> - [JSON - Introduction (W3Schools)](https://www.w3schools.com/js/js_json_intro.asp)
-> - [JSON Tutorial (TutorialsPoint)](https://www.tutorialspoint.com/json/index.htm)
+---
+
+## Modelo Físico (Firestore)
+**Coleção:** `settings`
+
+| Campo | Tipo | Descrição |
+|-------|------|------------|
+| nome | String | Nome do usuário |
+| notificacoes | Boolean | Ativa/desativa notificações |
+| atualizacaoAutomatica | Boolean | Define atualização automática |
+| cacheAtivo | Boolean | Define cache de 24h |
+| updatedAt | String | Data/hora da última atualização |
+
+---
+
+## Código-fonte
+Implementado em:
+- `app/(tabs)/index.tsx`
+- `src/firebase.js`
+
+---
+
+## CRUDs Implementados
+| Operação | Método | Descrição |
+|-----------|---------|------------|
+| Read | getDoc() | Carrega as configurações do usuário |
+| Update | setDoc() | Atualiza ou cria as configurações |
+
+---
+
+## Autenticação
+O projeto usa Firebase. O ID do usuário será vinculado à autenticação do Firebase em versões futuras.
+
+---
+
+## Padrões de Codificação
+- Hooks React (`useState`, `useEffect`)
+- Firebase Modular SDK
+- Tratamento de erros (`try/catch`)
+- Componentização e uso de `StyleSheet.create`
+
+---
+
+## Evidências
+- Código-fonte funcional.
+- Integração com Firebase Firestore confirmada.
+- Interface implementada conforme o projeto de interface.
+
+---
+
+## Quadro de Gestão
+**Ferramenta:** Trello ou GitHub Projects  
+**Status:**
+- RF-006 ✅ Concluído  
+- RF-009 ✅ Concluído  
+- Integração Firebase ✅ Concluído  
+
+---
+
+## Contribuições
+| Membro | Função | Contribuição |
+|---------|--------|--------------|
+| Gabriela | Front-end | Implementação da tela Configurações e Firebase |
+| Gabriela | Back-end | Configuração do Firestore e regras |
+| [Nome 3] | QA | Testes e documentação |
+
+---
+
+## Comentários
+A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem e persistência de preferências do usuário.
