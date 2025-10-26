@@ -70,8 +70,6 @@ A autenticação utiliza **Firebase Authentication**, garantindo que cada indica
 
 **Status:**
 - RF-010 ✅ Concluído  
-- RF-011 ✅ Concluído  
-- RF-012 ✅ Concluído  
 - RF-013 ✅ Concluído  
 - Integração Firebase ✅ Concluído  
 
@@ -81,7 +79,8 @@ A autenticação utiliza **Firebase Authentication**, garantindo que cada indica
 | Membro | Função | Contribuição |
 |---------|--------|--------------|
 | **Mariana** | Front-end | Implementação da tela de Indicação, layout e integração com Firebase |
-| **Mariana** | QA | Testes e documentação da funcionalidade |
+|  **Mariana** | Back-end | Configuração do Firestore e regras |
+| **Outros** | QA | Testes e documentação da funcionalidade |
 
 
 ---
