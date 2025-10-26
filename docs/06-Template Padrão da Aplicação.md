@@ -38,7 +38,7 @@ Exemplos:
 Ícones de ações: usados para reforçar a função de compartilhamento e interação.
 
 
-<img width="1393" height="587" alt="image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/46f654034ab7151f1c1e78408358bcb1fd4d1857/docs/img/icones.png" />
+<img width="1393" height="587" alt="image" src="docs/img/icones.png" />
 
 ## Aspectos de Responsividade
 
