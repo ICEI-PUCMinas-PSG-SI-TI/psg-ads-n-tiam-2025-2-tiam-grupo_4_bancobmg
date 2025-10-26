@@ -1,4 +1,4 @@
-# 🧩 Programação de Funcionalidades
+#  Programação de Funcionalidades
 
 ## Pré-requisitos
 - Especificação do Projeto
