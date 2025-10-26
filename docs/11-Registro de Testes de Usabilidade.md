@@ -40,6 +40,11 @@ Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Al
 
 | Data           | Teste                                       | Resultado | Responsável |
 | -------------- | ------------------------------------------- | --------- | ----------- |
+| **21/10/2025** | CT01 – Carregar tela de login               | Sucesso   | Robson      |
+| **21/10/2025** | CT03 – Inserir credenciais inválidas       | Sucesso   | Robson      |
+| **21/10/2025** | CT04 – Recuperar senha                      | Sucesso   | Robson      |
+| **21/10/2025** | CT05 – Navegação geral                      | Sucesso   | Robson      |
+| **22/10/2025** | CT02 – Inserir credenciais válidas         | Sucesso   | Robson      |
 | **26/10/2025** | CT01 – Carregar conta existente             | Sucesso   | Pedro       |
 | **26/10/2025** | CT02 – Cadastrar nova conta                 | Sucesso   | Pedro       |
 | **26/10/2025** | CT03 – Atualizar conta existente            | Sucesso   | Pedro       |
@@ -50,11 +55,7 @@ Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Al
 | **26/10/2025** | CT08 – Tentar sacar sem conta cadastrada    | Sucesso   | Pedro       |
 | **26/10/2025** | CT09 – Tentar sacar valor maior que o saldo | Sucesso   | Pedro       |
 | **26/10/2025** | CT10 – Validar valor do saque               | Sucesso   | Pedro       |
-| **21/10/2025** | CT01 – Carregar tela de login               | Sucesso   | Robson      |
-| **22/10/2025** | CT02 – Inserir credenciais válidas          | Sucesso   | Robson      |
-| **21/10/2025** | CT03 – Inserir credenciais inválidas        | Sucesso   | Robson      |
-| **21/10/2025** | CT04 – Recuperar senha                      | Sucesso   | Robson      |
-| **21/10/2025** | CT05 – Navegação geral                      | Sucesso   | Robson      |
+
 
 
 ## Conclusão
