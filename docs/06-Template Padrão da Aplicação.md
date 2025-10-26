@@ -5,7 +5,7 @@
 O layout do aplicativo segue uma estrutura vertical hierarquizada, voltada para o uso mobile.
 A organização prioriza clareza visual e usabilidade, com a logo posicionada na parte superior, seguida pelo conteúdo principal, centralizado na tela.
 
-📷 [Inserir imagem – Estrutura Base do Layout]
+<img width="1393" height="587" alt="image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/46f654034ab7151f1c1e78408358bcb1fd4d1857/docs/img/Layout_Padr%C3%A3o.png" />
 
 Essa estrutura facilita o reconhecimento da marca e conduz o olhar do usuário naturalmente do topo (identidade da empresa) até as áreas de interação (botões e formulários).
 O design utiliza espaçamento consistente e alinhamento centralizado, o que contribui para uma sensação de equilíbrio e harmonia visual.
@@ -23,7 +23,7 @@ Branco: aplicado em textos e campos de entrada, garantindo legibilidade e leveza
 
 A tipografia é moderna e sem serifa, reforçando o aspecto digital e direto da marca.
 
-📷 [Inserir imagem – Telas com a Identidade Visual Aplicada]
+<img width="1393" height="587" alt="image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/46f654034ab7151f1c1e78408358bcb1fd4d1857/docs/img/TelasColoridas.png" />
 
 ## Iconografia
 
@@ -38,7 +38,7 @@ Exemplos:
 Ícones de ações: usados para reforçar a função de compartilhamento e interação.
 
 
-📷 [Inserir imagem – Exemplos de Ícones Utilizados]
+<img width="1393" height="587" alt="image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/46f654034ab7151f1c1e78408358bcb1fd4d1857/docs/img/icones.png" />
 
 ## Aspectos de Responsividade
 
