@@ -1,19 +1,16 @@
-# Plano de Testes de Software
+# Cenário 4 – Tela de Indicação 
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+| **Item** | **Descrição** |
+|-----------|----------------|
+| **Funcionalidades Avaliadas** | Copiar link de indicação, contabilizar downloads e exibir bonificação |
+| **Tela Testada** | `index.tsx` |
+| **Requisitos Relacionados** | O sistema deve permitir que o usuário compartilhe seu link de indicação; cada download/cadastro realizado pelo link deve ser registrado; a bonificação do usuário deve ser calculada corretamente |
+| **Objetivo** | Validar o comportamento da aplicação durante o processo de indicação, incluindo cópia de link, contabilização de downloads e exibição da bonificação |
+| **Grupo de Usuários** | Usuário autenticado |
+| **Ferramentas Utilizadas** | Expo Go, React Developer Tools, Firebase Console |
+| **Procedimentos Executados** | Abrir a tela de indicação, verificar se o link é exibido corretamente, clicar em **Copiar Link** e confirmar cópia; enviar o link para outro dispositivo, realizar download/cadastro e verificar se foi contabilizado; conferir se a bonificação do usuário foi atualizada corretamente |
+| **Critério de Sucesso** | Link copiado corretamente; downloads registrados corretamente; bonificação exibida corretamente após cada download |
+| **Casos de Teste Executados** | CT06 – CT10 |
+| **Resultado** | Sucesso |
+| **Responsável** | Mariana |
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
-
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
- 
-## Ferramentas de Testes (Opcional)
-
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
