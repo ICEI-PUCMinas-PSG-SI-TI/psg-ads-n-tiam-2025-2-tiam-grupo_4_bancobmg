@@ -198,8 +198,8 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 | Lucas de Paula | Definição do Backlog do Produto | 15/08/2025 | 07/09/2025 | ✔ | 29/08/2025 |
 | Mariana Martins | Wireframes e Protótipo de Baixa Fidelidade | 15/08/2025 | 07/09/2025 | ✔ | 01/09/2025 |
 | Gabriela Cristina| Configuração do Ambiente de Desenvolvimento | 15/08/2025 | 07/09/2025 | ✔ | 01/09/2025 |
-| Pedro Henrique | Desenvolvimento do Módulo de Autenticação | ✔ | 30/10/2025 | 🏃 | | 
-| Robson, Nitai, Pedro| Criação do Banco de Dados | 10/09/2025 | 25/10/2025 | 🏃 | |
+| Pedro Henrique | Desenvolvimento do Módulo de Autenticação |  | 30/10/2025 | ✔ | | 
+| Robson, Nitai, Pedro| Criação do Banco de Dados | 10/09/2025 | 25/10/2025 | ✔ | |
 
 
 **Legenda:**
@@ -231,12 +231,12 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 | Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Mariana Martins | Protótipo de Alta Fidelidade e Style Guide | | | ❌ | |
-| Lucas de Paula | Refinamento do Backlog e User Stories | | | ❌ | |
-| Gabriela Cristina| Desenvolvimento do Dashboard Principal | | | ❌ | |
+| Mariana Martins | Protótipo de Alta Fidelidade e Style Guide | | |  | |
+| Lucas de Paula | Refinamento do Backlog e User Stories | | |  | |
+| Gabriela Cristina| Desenvolvimento do Dashboard Principal | | |  | |
 | Pedro Henrique | Tela de Saque e Alterar Conta | | | ✔ | |
-| Robson Marcolino| Implementação dos Testes Unitários | | | ❌ | |
-| Nitai Nandi | Revisão de Código e Débitos Técnicos | | | ❌ | |
+| Robson Marcolino| Implementação dos Testes Unitários | | |  | |
+| Nitai Nandi | Revisão de Código e Débitos Técnicos | | |  | |
 
 **Legenda:**
 * **✔** : terminado
