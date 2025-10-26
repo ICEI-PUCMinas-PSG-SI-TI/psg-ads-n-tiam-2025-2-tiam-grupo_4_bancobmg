@@ -44,7 +44,7 @@ Resultado: Documento criado na coleção contas_bancarias.
 Descrição: Dados bancários modificados e salvos novamente.
 Resultado: Firestore atualizado corretamente.
 
-<img width="1152" height="128" alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg" />
+<img  alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TrocarConta.jpeg" />
 
 <img  alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/FireBaseContaTrocada.png" />
 
