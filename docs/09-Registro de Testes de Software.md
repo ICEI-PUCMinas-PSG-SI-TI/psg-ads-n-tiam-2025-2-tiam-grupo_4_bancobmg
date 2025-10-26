@@ -20,7 +20,7 @@
 | **CT08** | Tentar sacar sem conta cadastrada    | Solicitar saque sem conta configurada        | Exibir mensagem pedindo cadastro de conta        | **Sucesso**      | Pedro       |
 | **CT09** | Tentar sacar valor maior que o saldo | Inserir valor superior ao saldo atual        | Exibir alerta de “Saldo insuficiente”            | **Sucesso**      | Pedro       |
 | **CT10** | Validar valor do saque               | Inserir valor 0 ou vazio                     | Exibir mensagem de erro “Digite um valor válido” | **Sucesso**      | Pedro       |
-| **CT11** | Atualizar saldo pós-saque (futuro)   | Simular aprovação de saque                   | Atualizar saldo do usuário no Firestore          | **Sucesso**      | Pedro       |
+
 
 
 ## CT01 – Carregar conta existente
@@ -83,11 +83,6 @@ Descrição: Tentativa de saque com valor inválido (0 ou vazio).
 Resultado: Mensagem de erro exibida corretamente.
 📸 [Inserir imagem aqui]
 
-## CT11 – Atualizar saldo pós-saque (futuro)
-
-Descrição: Teste conceitual de atualização de saldo após aprovação de saque.
-Resultado: Saldo ajustado corretamente no Firestore (simulado).
-📸 [Inserir imagem aqui]
 
 ## Conclusão
 
