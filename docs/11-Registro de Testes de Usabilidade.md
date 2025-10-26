@@ -4,49 +4,43 @@ Objetivo
 
 Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Alteração de Conta Bancária e Solicitação de Saque, verificando se o usuário consegue realizar as operações de forma intuitiva e sem erros.
 
-## Participantes
-- Nome	Perfil	Experiência com Aplicativos	Observações
-- Pedro	Usuário principal (testador/desenvolvedor)	Alta (usuário experiente em apps financeiros e desenvolvimento)	Participou de todos os testes e relatou pontos de melhoria de UX.
+## Casos de Teste – AlterarConta.tsx
+| Código   | Caso                        | Ação                                          | Resultado Obtido                                      | Observações                                  |
+| -------- | --------------------------- | --------------------------------------------- | ----------------------------------------------------- | -------------------------------------------- |
+| **CT01** | Carregar conta existente    | Abrir tela “Alterar Conta” com usuário logado | ✅ Exibiu corretamente os dados bancários salvos       | Funcionamento conforme esperado              |
+| **CT02** | Cadastrar nova conta        | Preencher todos os campos e salvar            | ✅ Novo documento criado na coleção `contas_bancarias` | Salvo corretamente no Firestore              |
+| **CT03** | Atualizar conta existente   | Alterar dados e salvar                        | ✅ Documento existente atualizado                      | Mudanças refletidas imediatamente no console |
+| **CT04** | Validar campos obrigatórios | Tentar salvar sem preencher todos os campos   | ✅ Alert/Toast exibido informando campos obrigatórios  | Mensagem clara e compreensível               |
+| **CT05** | Cancelar operação           | Tocar em “Cancelar”                           | ✅ Retornou à tela anterior sem salvar alterações      | Fluxo de cancelamento correto                |
 
-## Cenários de Teste de Usabilidade
-| Código   | Caso de Uso                   | Objetivo                                                                     | Ações Realizadas                                           | Expectativa do Usuário                                             |
-| -------- | ----------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------ |
-| **US01** | Acessar tela de Alterar Conta | Verificar clareza na apresentação dos dados bancários e facilidade de edição | Usuário abre a tela e visualiza informações pré-carregadas | Interface deve ser simples e permitir editar dados sem dificuldade |
-| **US02** | Cadastrar nova conta          | Avaliar o fluxo de cadastro e feedback visual                                | Usuário preenche campos e salva                            | Aplicativo deve confirmar sucesso e retornar para tela anterior    |
-| **US03** | Solicitar saque               | Avaliar clareza da tela e confirmação de operação                            | Usuário informa valor e confirma saque                     | Sistema deve mostrar mensagem clara de sucesso                     |
-| **US04** | Exceções e validações         | Verificar feedback de erros                                                  | Usuário tenta sacar valor maior que o saldo                | Sistema deve exibir mensagem de erro clara (“Saldo insuficiente”)  |
-| **US05** | Navegação geral               | Avaliar a fluidez e consistência de navegação                                | Usuário alterna entre as telas de Saque e Alterar Conta    | Aplicativo deve manter responsividade e consistência visual        |
 
-## Resultados Observados
+## Casos de Teste – Saque.tsx
 
-| Código   | Observação                                                               | Resultado                          | Grau de Satisfação (1–5) |
-| -------- | ------------------------------------------------------------------------ | ---------------------------------- | ------------------------ |
-| **US01** | A tela carregou rapidamente e exibiu corretamente os dados do banco.     | **Sucesso**                        | ⭐⭐⭐⭐⭐                    |
-| **US02** | Campos intuitivos, mas recomendada máscara para agência/conta.           | **Sucesso Parcial (com sugestão)** | ⭐⭐⭐⭐☆                    |
-| **US03** | A solicitação de saque funcionou conforme esperado, com feedback visual. | **Sucesso**                        | ⭐⭐⭐⭐⭐                    |
-| **US04** | As mensagens de erro apareceram de forma clara (via Toast).              | **Sucesso**                        | ⭐⭐⭐⭐⭐                    |
-| **US05** | Navegação entre telas fluida e sem travamentos.                          | **Sucesso**                        | ⭐⭐⭐⭐⭐                    |
+| Código   | Caso                                 | Ação                                          | Resultado Obtido                                                      | Observações                                   |
+| -------- | ------------------------------------ | --------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------- |
+| **CT06** | Carregar saldo FGTS                  | Abrir tela “Saque” com usuário logado         | ✅ Saldo atual exibido corretamente, obtido de `saldos_fgts`           | Valor conferido com Firebase Console          |
+| **CT07** | Solicitar saque com saldo disponível | Inserir valor válido e confirmar              | ✅ Novo documento criado em `solicitacoes_saque` com status “PENDENTE” | Saque registrado corretamente                 |
+| **CT08** | Tentar sacar sem conta cadastrada    | Inserir valor e confirmar sem conta existente | ✅ Exibiu mensagem solicitando cadastro de conta                       | Mensagem clara para o usuário                 |
+| **CT09** | Tentar sacar valor maior que o saldo | Inserir valor acima do saldo atual            | ✅ Exibiu mensagem de “Saldo insuficiente”                             | Comportamento esperado                        |
+| **CT10** | Validar valor do saque               | Inserir campo vazio ou 0                      | ✅ Exibiu mensagem de erro “Digite um valor válido”                    | Validação de entrada funcionando corretamente |
+| **CT11** | Atualizar saldo após saque (futuro)  | Confirmar saque aprovado (admin)              | ⚠️ Implementação futura                                               | Ainda não disponível                          |
 
-💬 Relatos dos Usuários
 
-“O fluxo está bem direto e intuitivo. Seria interessante adicionar máscaras para o campo de agência e número da conta.”
-— Pedro (Testador)
+## Registro de Testes Executados
 
-“As mensagens de sucesso são claras, mas os alertas poderiam ter ícones visuais.”
-— Pedro (Testador)
+| Data           | Teste                                       | Resultado | Responsável |
+| -------------- | ------------------------------------------- | --------- | ----------- |
+| **26/10/2025** | CT01 – Carregar conta existente             | Sucesso   | Pedro       |
+| **26/10/2025** | CT02 – Cadastrar nova conta                 | Sucesso   | Pedro       |
+| **26/10/2025** | CT03 – Atualizar conta existente            | Sucesso   | Pedro       |
+| **26/10/2025** | CT04 – Validar campos obrigatórios          | Sucesso   | Pedro       |
+| **26/10/2025** | CT05 – Cancelar operação                    | Sucesso   | Pedro       |
+| **26/10/2025** | CT06 – Carregar saldo FGTS                  | Sucesso   | Pedro       |
+| **26/10/2025** | CT07 – Solicitar saque com saldo disponível | Sucesso   | Pedro       |
+| **26/10/2025** | CT08 – Tentar sacar sem conta cadastrada    | Sucesso   | Pedro       |
+| **26/10/2025** | CT09 – Tentar sacar valor maior que o saldo | Sucesso   | Pedro       |
+| **26/10/2025** | CT10 – Validar valor do saque               | Sucesso   | Pedro       |
 
-“O layout escuro é confortável e combina com a proposta do app.”
-— Pedro (Testador)
-
-## Análise Geral
-
-| Critério           | Descrição                                                       | Avaliação      |
-| ------------------ | --------------------------------------------------------------- | -------------- |
-| **Eficiência**     | O usuário conseguiu realizar todas as tarefas sem erros graves  |  **Aprovado** |
-| **Aprendizado**    | Interface compreendida sem necessidade de instruções adicionais |  **Aprovado** |
-| **Memorabilidade** | O fluxo é simples e fácil de repetir após uso inicial           |  **Aprovado** |
-| **Erros**          | Erros foram previstos e tratados corretamente                   |  **Aprovado** |
-| **Satisfação**     | Usuário considerou a experiência agradável e intuitiva          |  **Aprovado** |
 
 ## Conclusão
 
