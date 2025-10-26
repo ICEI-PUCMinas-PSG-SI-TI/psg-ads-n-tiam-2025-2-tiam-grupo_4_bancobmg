@@ -1,8 +1,59 @@
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+## Estrutura Geral do Layout
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+O layout do aplicativo segue uma estrutura vertical hierarquizada, voltada para o uso mobile.
+A organização prioriza clareza visual e usabilidade, com a logo posicionada na parte superior, seguida pelo conteúdo principal, centralizado na tela.
+
+📷 [Inserir imagem – Estrutura Base do Layout]
+
+Essa estrutura facilita o reconhecimento da marca e conduz o olhar do usuário naturalmente do topo (identidade da empresa) até as áreas de interação (botões e formulários).
+O design utiliza espaçamento consistente e alinhamento centralizado, o que contribui para uma sensação de equilíbrio e harmonia visual.
+
+## Identidade Visual
+
+A identidade visual é fortemente marcada pelas cores preto e amarelo, remetendo à marca Acert.
+Essas cores transmitem confiança, energia e profissionalismo, sendo ideais para um aplicativo financeiro.
+
+Preto: base sólida e elegante, que destaca o conteúdo.
+
+Amarelo: usado estrategicamente em elementos de destaque (logo, botões e ícones), criando contraste e atraindo a atenção do usuário para as ações principais.
+
+Branco: aplicado em textos e campos de entrada, garantindo legibilidade e leveza na composição.
+
+A tipografia é moderna e sem serifa, reforçando o aspecto digital e direto da marca.
+
+📷 [Inserir imagem – Telas com a Identidade Visual Aplicada]
+
+## Iconografia
+
+A iconografia utilizada é minimalista e funcional.
+Os ícones possuem traços simples e preenchimento coerente, alinhados com a proposta moderna do design.
+Eles têm como objetivo reforçar a usabilidade, ajudando o usuário a identificar rapidamente a função de cada botão ou seção.
+
+Exemplos:
+
+Ícone de perfil: utilizado para representar o usuário.
+
+Ícones de ações: usados para reforçar a função de compartilhamento e interação.
+
+
+📷 [Inserir imagem – Exemplos de Ícones Utilizados]
+
+## Aspectos de Responsividade
+
+O layout foi projetado para se adaptar a diferentes tamanhos de tela, mantendo sempre a legibilidade e o equilíbrio visual.
+Principais características de responsividade observadas:
+
+Componentes centralizados: garantem boa visualização em telas menores, sem necessidade de rolagem lateral.
+
+Botões e campos amplos: facilitam a interação em dispositivos touch.
+
+Logo redimensionável: ajusta-se proporcionalmente conforme a resolução do aparelho.
+
+Espaçamentos dinâmicos: preservam margens e padding adequados em diferentes modelos de smartphone.
+
+Essas decisões asseguram que o design mantenha sua integridade visual tanto em iPhone 13, 14 quanto em dispositivos Android de tamanhos semelhantes.
 
 > **Links Úteis**:
 >
