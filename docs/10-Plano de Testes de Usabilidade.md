@@ -1,11 +1,50 @@
 # Plano de Testes de Usabilidade
 
-O teste de usabilidade permite avaliar a qualidade da interface com o usuário da aplicação interativa. O Plano de Testes de Software é gerado a partir da especificação do sistema e consiste em casos de testes que deverão ser executados quando a implementação estiver parcial ou totalmente pronta.
+## Casos de Teste – AlterarConta.tsx
 
-As referências abaixo irão auxiliá-lo na geração do artefato "Plano de Testes de Usabilidade".
+| Código   | Caso                        | Ação                                          | Resultado Esperado                                 |
+| -------- | --------------------------- | --------------------------------------------- | -------------------------------------------------- |
+| **CT01** | Carregar conta existente    | Abrir tela “Alterar Conta” com usuário logado | Exibir dados bancários salvos do usuário           |
+| **CT02** | Cadastrar nova conta        | Preencher todos os campos e salvar            | Criar novo documento na coleção `contas_bancarias` |
+| **CT03** | Atualizar conta existente   | Alterar dados e salvar                        | Atualizar o documento existente no Firestore       |
+| **CT04** | Validar campos obrigatórios | Tentar salvar sem preencher todos os campos   | Exibir mensagem de erro via Alert/Toast            |
+| **CT05** | Cancelar operação           | Tocar em “Cancelar”                           | Retornar à tela anterior sem salvar alterações     |
 
-> **Links Úteis**:
-> - [Teste De Usabilidade: O Que É e Como Fazer Passo a Passo (neilpatel.com)](https://neilpatel.com/br/blog/teste-de-usabilidade/)
-> - [Teste de usabilidade: tudo o que você precisa saber! | by Jon Vieira | Aela.io | Medium](https://medium.com/aela/teste-de-usabilidade-o-que-voc%C3%AA-precisa-saber-39a36343d9a6/)
-> - [Planejando testes de usabilidade: o que (e o que não) fazer | iMasters](https://imasters.com.br/design-ux/planejando-testes-de-usabilidade-o-que-e-o-que-nao-fazer/)
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+
+## Casos de Teste – Saque.tsx
+
+| Código   | Caso                                 | Ação                                          | Resultado Esperado                                                 |
+| -------- | ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------ |
+| **CT06** | Carregar saldo FGTS                  | Abrir tela “Saque” com usuário logado         | Exibir saldo atual do usuário obtido de `saldos_fgts`              |
+| **CT07** | Solicitar saque com saldo disponível | Inserir valor válido e confirmar              | Criar novo documento em `solicitacoes_saque` com status “PENDENTE” |
+| **CT08** | Tentar sacar sem conta cadastrada    | Inserir valor e confirmar sem conta existente | Exibir mensagem solicitando cadastro de conta                      |
+| **CT09** | Tentar sacar valor maior que o saldo | Inserir valor acima do saldo atual            | Exibir mensagem de “Saldo insuficiente”                            |
+| **CT10** | Validar valor do saque               | Inserir campo vazio ou 0                      | Exibir mensagem de erro “Digite um valor válido”                   |
+| **CT11** | Atualizar saldo após saque (futuro)  | Confirmar saque aprovado (admin)              | Diminuir valor do saldo do usuário (implementação futura)          |
+
+
+
+## Registros de Testes
+
+| Data           | Teste                                       | Resultado | Responsável |
+| -------------- | ------------------------------------------- | --------- | ----------- |
+| **26/10/2025** | CT01 – Carregar conta existente             | Sucesso   | Pedro       |
+| **26/10/2025** | CT02 – Cadastrar nova conta                 | Sucesso   | Pedro       |
+| **26/10/2025** | CT03 – Atualizar conta existente            | Sucesso   | Pedro       |
+| **26/10/2025** | CT04 – Validar campos obrigatórios          | Sucesso   | Pedro       |
+| **26/10/2025** | CT05 – Cancelar operação                    | Sucesso   | Pedro       |
+| **26/10/2025** | CT06 – Carregar saldo FGTS                  | Sucesso   | Pedro       |
+| **26/10/2025** | CT07 – Solicitar saque com saldo disponível | Sucesso   | Pedro       |
+| **26/10/2025** | CT08 – Tentar sacar sem conta cadastrada    | Sucesso   | Pedro       |
+| **26/10/2025** | CT09 – Tentar sacar valor maior que o saldo | Sucesso   | Pedro       |
+| **26/10/2025** | CT10 – Validar valor do saque               | Sucesso   | Pedro       |
+| **26/10/2025** | CT11 – Atualizar saldo após saque (futuro)  | Sucesso   | Pedro       |
+
+
+Observações
+
+Todos os testes foram realizados com usuário autenticado via Firebase Auth.
+
+A sincronização com o Firestore foi validada visualmente via Firebase Console.
+
+Mensagens de sucesso e erro foram verificadas via Toast/Alert, conforme implementado em prompts.ts.
