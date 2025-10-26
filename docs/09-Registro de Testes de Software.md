@@ -28,7 +28,7 @@
 Descrição: Tela exibindo conta já salva no Firestore.
 Resultado: Dados carregados com sucesso.
 
-<img  alt="Image" src="[https://github.com/user-attachments/assets/fb9baeb9-13ce-4727-9607-596014874455](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg)" />
+<img  alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/TelaMostrarSaque.jpeg" />
 
 ##  CT02 – Cadastrar nova conta
 
