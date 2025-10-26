@@ -6,7 +6,7 @@
 |-----------|----------------|
 | **Funcionalidades Avaliadas** | Autenticação de usuário e validação de credenciais |
 | **Tela Testada** | index.tsx |
-| **Requisitos Relacionados** | O sistema deve permitir que o usuário acesse sua conta com credenciais válidas |
+| **Requisitos Relacionados** | O sistema deve permitir que o cliente realize cadastro utilizando o CPF como identificador. |
 | **Objetivo** | Validar o comportamento da aplicação durante o processo de login, incluindo tratamento de erros e redirecionamento para a tela principal |
 | **Grupo de Usuários** | Usuário não autenticado (com cadastro prévio no sistema) |
 | **Ferramentas Utilizadas** | Expo Go, React Developer Tools, Firebase Authentication Console |
@@ -14,7 +14,7 @@
 | **Critério de Sucesso** | Usuário autenticado com sucesso e redirecionado à tela principal; mensagem de erro exibida em caso de credenciais inválidas |
 | **Casos de Teste Executados** | CT01 – CT05 |
 | **Resultado** | Sucesso |
-| **Responsável** | [Robson] |
+| **Responsável** | Robson |
 
 
 ## Cenário 2 – Solicitação de Saque FGTS
