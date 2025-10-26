@@ -3,7 +3,7 @@
 ## Escopo
 
 - Os testes abrangeram as funcionalidades de:
-  - Tela de indicação de usuários (`IndicationScreen.tsx`)  
+  - Tela de indicação de usuários (`index.tsx`)  
   - Copiar link de indicação  
   - Contabilizar downloads realizados através do link  
   - Calcular e exibir bonificação para o usuário  
