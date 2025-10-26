@@ -38,7 +38,7 @@
 | **26/10/2025** | CT08 – Tentar sacar sem conta cadastrada    | Sucesso   | Pedro       |
 | **26/10/2025** | CT09 – Tentar sacar valor maior que o saldo | Sucesso   | Pedro       |
 | **26/10/2025** | CT10 – Validar valor do saque               | Sucesso   | Pedro       |
-| **26/10/2025** | CT11 – Atualizar saldo após saque (futuro)  | Sucesso   | Pedro       |
+
 
 
 Observações
