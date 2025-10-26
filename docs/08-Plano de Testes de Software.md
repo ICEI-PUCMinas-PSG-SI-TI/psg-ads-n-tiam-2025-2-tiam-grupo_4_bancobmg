@@ -5,7 +5,7 @@
 | **Item** | **Descrição** |
 |-----------|----------------|
 | **Funcionalidades Avaliadas** | Autenticação de usuário e validação de credenciais |
-| **Tela Testada** | index.tsx |
+| **Tela Testada** | `index.tsx` |
 | **Requisitos Relacionados** | O sistema deve permitir que o cliente realize cadastro utilizando o CPF como identificador. |
 | **Objetivo** | Validar o comportamento da aplicação durante o processo de login, incluindo tratamento de erros e redirecionamento para a tela principal |
 | **Grupo de Usuários** | Usuário não autenticado (com cadastro prévio no sistema) |
