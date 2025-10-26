@@ -70,7 +70,7 @@ Avaliar a usabilidade, clareza da interface e eficiência de uso das telas de Al
 - Incluir animações sutis de carregamento para reforçar feedback visual.
 
 - Resultado Final: O sistema atende aos critérios de usabilidade e está aprovado para uso.
-- Data de Execução dos Testes: 26/10/2025
+- Data de Execução dos Testes: 21/10/2025,22/10/2025, 26/10/2025
 - Responsável: Pedro, Robson.
 > **Links Úteis**:
 > - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
