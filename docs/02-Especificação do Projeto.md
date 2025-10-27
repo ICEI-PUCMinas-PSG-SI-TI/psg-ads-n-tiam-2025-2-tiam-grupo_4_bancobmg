@@ -213,12 +213,12 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 | Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Mariana Martins | Protótipo de Alta Fidelidade e Style Guide | | | ✔ | |
-| Lucas de Paula | Refinamento do Backlog e User Stories | | | ✔ | |
-| Gabriela Cristina| Desenvolvimento do Dashboard Principal | | | ✔ | |
-| Pedro Henrique | Integração de API Externa | | | ✔ | |
-| Robson Marcolino| Implementação dos Testes Unitários | | | ✔ | |
-| Nitai Nandi | Revisão de Código e Débitos Técnicos | | | ✔ | |
+| Mariana Martins | Protótipo de Alta Fidelidade e Style Guide |29/08/2025 | 22/09/2025  | ✔ |22/09/2025 |
+| Lucas de Paula | Refinamento do Backlog e User Stories | 29/08/2025|22/09/2025  | ✔ | 22/09/2025 |
+| Gabriela Cristina| Desenvolvimento do Dashboard Principal |22/09/2025  | 22/09/2025 | ✔ | 22/09/2025 |
+| Pedro Henrique | Integração de API Externa |29/08/2025 | 22/09/2025  | ✔ |29/08/2025 |
+| Robson Marcolino| Implementação dos Testes Unitários |29/08/2025 | 22/09/2025  | ✔ | 22/09/2025 |
+| Nitai Nandi | Revisão de Código e Débitos Técnicos |29/08/2025 | 22/09/2025  | ✔ |22/09/2025  |
 
 **Legenda:**
 * **✔** : terminado
@@ -231,12 +231,12 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 | Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Mariana Martins | Protótipo de Alta Fidelidade e Style Guide | | |  | |
-| Lucas de Paula | Refinamento do Backlog e User Stories | | |  | |
-| Gabriela Cristina| Desenvolvimento do Dashboard Principal | | |  | |
-| Pedro Henrique | Tela de Saque e Alterar Conta | | | ✔ | |
-| Robson Marcolino| Implementação dos Testes Unitários | | |  | |
-| Nitai Nandi | Revisão de Código e Débitos Técnicos | | |  | |
+| Mariana Martins | | 22/09/2025  |26/10/2025 | ✔  |26/10/2025 |
+| Lucas de Paula | Configurações BD | |26/10/2025 | ✔  |26/10/2025 |
+| Gabriela Cristina|  | 22/09/2025  | 26/10/2025| ✔  | 26/10/2025|
+| Pedro Henrique | Tela de Saque e Alterar Conta | | 26/10/2025| ✔ |26/10/2025 |
+| Robson Marcolino| Telas de Login e Cadastro | ✔  |26/10/2025 |  |26/10/2025 |
+| Nitai Nandi | Tela de Admin | 22/09/2025  | 26/10/2025 | ✔  |26/10/2025 |
 
 **Legenda:**
 * **✔** : terminado
