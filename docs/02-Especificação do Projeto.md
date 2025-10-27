@@ -232,10 +232,10 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 | Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Mariana Martins | | 22/09/2025  |26/10/2025 | ✔  |26/10/2025 |
-| Lucas de Paula | Configurações BD | |26/10/2025 | ✔  |26/10/2025 |
+| Lucas de Paula | Configurações BD |22/09/2025  |26/10/2025 | ✔  |26/10/2025 |
 | Gabriela Cristina| Notificações e agendamento de saque | 22/09/2025  | 26/10/2025| ✔  | 26/10/2025|
-| Pedro Henrique | Tela de Saque e Alterar Conta | | 26/10/2025| ✔ |26/10/2025 |
-| Robson Marcolino| Telas de Login e Cadastro |   |26/10/2025 | ✔ |26/10/2025 |
+| Pedro Henrique | Tela de Saque e Alterar Conta |22/09/2025  | 26/10/2025| ✔ |26/10/2025 |
+| Robson Marcolino| Telas de Login e Cadastro |  22/09/2025  |26/10/2025 | ✔ |26/10/2025 |
 | Nitai Nandi | Tela de Admin | 22/09/2025  | 26/10/2025 | ✔  |26/10/2025 |
 
 **Legenda:**
