@@ -21,7 +21,7 @@
 ## CT06 – Exibir link de indicação
 - **Descrição:** Verificar se o link é mostrado corretamente  
 - **Resultado:** Link exibido corretamente  
-- **Imagem:** <img alt="Imagem" src="https://github.com/user-attachments/assets/1edb2be8-1afd-423e-848b-6078e1eb8fe2" />
+<img alt="Imagem" src="https://github.com/user-attachments/assets/1edb2be8-1afd-423e-848b-6078e1eb8fe2" width="300" />
 
 ## CT07 – Copiar link de indicação
 - **Descrição:** Clicar em “Copiar Link”  
