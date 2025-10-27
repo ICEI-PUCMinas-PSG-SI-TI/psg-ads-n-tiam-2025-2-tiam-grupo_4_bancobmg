@@ -17,16 +17,16 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 
 | Código | Funcionalidade                         | Descrição do Teste                                  | Resultado Esperado                                | Resultado Obtido | Responsável |
 |---------|-----------------------------------------|----------------------------------------------------|--------------------------------------------------|------------------|--------------|
-| **CT11** | Carregar configurações existentes      | Abrir tela e exibir dados salvos no Firestore      | Exibir corretamente nome e preferências          | ✅ Sucesso        | Gabriela |
-| **CT12** | Alterar nome do usuário                | Modificar nome e salvar                            | Atualizar campo `nome` no Firestore              | ✅ Sucesso        | Gabriela |
-| **CT13** | Ativar/Desativar notificações          | Alternar o botão de notificações                   | Atualizar campo `notificacoes`                   | ✅ Sucesso        | Gabriela |
-| **CT14** | Atualização automática                 | Alternar a opção e salvar                          | Atualizar campo `atualizacaoAutomatica`          | ✅ Sucesso        | Gabriela |
-| **CT15** | Cache ativo (24h)                      | Ativar e verificar no Firestore                    | Atualizar campo `cacheAtivo`                     | ✅ Sucesso        | Gabriela |
-| **CT16** | Persistência no Firestore              | Conferir valores atualizados                       | Dados salvos corretamente                        | ✅ Sucesso        | Gabriela |
+| **CT01** | Carregar configurações existentes      | Abrir tela e exibir dados salvos no Firestore      | Exibir corretamente nome e preferências          | ✅ Sucesso        | Gabriela |
+| **CT02** | Alterar nome do usuário                | Modificar nome e salvar                            | Atualizar campo `nome` no Firestore              | ✅ Sucesso        | Gabriela |
+| **CT03** | Ativar/Desativar notificações          | Alternar o botão de notificações                   | Atualizar campo `notificacoes`                   | ✅ Sucesso        | Gabriela |
+| **CT04** | Atualização automática                 | Alternar a opção e salvar                          | Atualizar campo `atualizacaoAutomatica`          | ✅ Sucesso        | Gabriela |
+| **CT05** | Cache ativo (24h)                      | Ativar e verificar no Firestore                    | Atualizar campo `cacheAtivo`                     | ✅ Sucesso        | Gabriela |
+| **CT06** | Persistência no Firestore              | Conferir valores atualizados                       | Dados salvos corretamente                        | ✅ Sucesso        | Gabriela |
 
 ---
 
-##  CT11 – Carregar Configurações Existentes
+##  CT01 – Carregar Configurações Existentes
 
 **Descrição:** A tela exibe corretamente as informações atuais do usuário.  
 **Resultado:** Dados carregados com sucesso.
@@ -37,7 +37,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 
 ---
 
-##  CT12 – Alterar Nome do Usuário
+##  CT02 – Alterar Nome do Usuário
 
 **Descrição:** O nome foi alterado e salvo corretamente no Firestore.  
 **Resultado:** Campo `nome` atualizado com sucesso.
@@ -49,7 +49,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 <img width="1632" height="363" alt="Image" src="https://github.com/user-attachments/assets/1b16a1e3-e1f0-42f0-b90c-a9a6cd60f5e3" />
 ---
 
-##  CT13 – Ativar/Desativar Notificações
+##  CT03 – Ativar/Desativar Notificações
 
 **Descrição:** A alternância das notificações refletiu corretamente no Firestore.  
 **Resultado:** Campo `notificacoes` atualizado com sucesso.
@@ -60,7 +60,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 
 ---
 
-##  CT14 – Alterar Atualização Automática
+##  CT04 – Alterar Atualização Automática
 
 **Descrição:** A opção de atualização automática foi desativada corretamente.  
 **Resultado:** Campo `atualizacaoAutomatica = false` salvo no Firestore.
@@ -68,7 +68,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 <img width="1550" height="397" alt="Image" src="https://github.com/user-attachments/assets/c07656a4-f152-4a86-89b7-2ef2a94e5c55" />
 ---
 
-## CT15 – Ativar Cache Ativo (24h)
+## CT05 – Ativar Cache Ativo (24h)
 
 **Descrição:** A configuração de cache foi ativada corretamente e registrada no banco.  
 **Resultado:** Campo `cacheAtivo = true` salvo no Firestore.
@@ -79,7 +79,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 
 ---
 
-## CT16 – Persistência de Dados no Firestore
+## CT06 – Persistência de Dados no Firestore
 
 **Descrição:** Confirmação dos dados atualizados no Firestore.  
 **Resultado:** Registro salvo com sucesso na coleção `settings`.
