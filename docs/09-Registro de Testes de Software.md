@@ -20,6 +20,12 @@
 | **CT08** | Tentar sacar sem conta cadastrada    | Solicitar saque sem conta configurada        | Exibir mensagem pedindo cadastro de conta        | **Sucesso**      | Pedro       |
 | **CT09** | Tentar sacar valor maior que o saldo | Inserir valor superior ao saldo atual        | Exibir alerta de “Saldo insuficiente”            | **Sucesso**      | Pedro       |
 | **CT10** | Validar valor do saque               | Inserir valor 0 ou vazio                     | Exibir mensagem de erro “Digite um valor válido” | **Sucesso**      | Pedro       |
+| **CT12** | Carregar Relatório Atual | Abrir página de relatórios | Atualizar o relatório atual e exibir suas informações | **Sucesso**  | Nitai |
+| **CT13** | Carregar Relatório por Data | Inserir uma data e pesquisar um relatório | Exibir o relatório da data inserida, com suas informações | **Sucesso**  | Nitai |
+| **CT14** | Carregar Solicitações | Abrir página de Autenticação Manual | Carregar as solicitações Pendentes | **Sucesso**  | Nitai |
+| **CT15** | Deferir Solicitação | Selecionar o botão de Aceitar ou Negar solicitação | Altera o estado da solicitação e atualiza no banco de dados | **Sucesso**  | Nitai |
+| **CT16** | Carregar Saldos FGTS | Abrir página de Saldo | Carregar e exibir todos os Saldos FGTS registrados no sistema | **Sucesso**  | Nitai |
+| **CT17** | Alterar Saldo Manualmente | Alterar o Saldo de cliente registrado | Atualização do Saldo FGTS relacionado ao cliente | **Sucesso**  | Nitai |
 
 
 
@@ -101,6 +107,37 @@ Descrição: Tentativa de saque com valor inválido (0 ou vazio).
 Resultado: Mensagem de erro exibida corretamente.
 
 <img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/ErroValor0.jpeg" />
+
+## CT12 – Carregar Relatório Atual
+
+Descrição: Quando o Administrador abre a página de relatórios, ou seleciona a data atual para carregar o relatório, ele calcula as informações do relatório, registram no banco de dados e exibem na tela.
+Resultado: Atualizou o relatório atual e exibiu suas informações.
+
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/docs/img/CT12-1.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/docs/img/CT12-2.png" />
+
+## CT13 – Carregar Relatório por Data
+
+Descrição: Quando o Administrador seleciona uma data específica para carregar o relatório, ele busca as informações do relatório, se houver alguma naquele dia, e as exibem na tela.
+Resultado: Exibiu corretamente as informações do relatório.
+
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT13-1.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT13-2.png" />
+
+## CT14 – Carregar Solicitações
+
+Descrição: Quando o Administrador abre a página de Autenticação Manual, o sistema busca por todas as solicitações de saque registradas, e lhe dá a opção de deferi-las.
+Resultado: Exibiu corretamente as informações das solicitações.
+
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT14.png" />
+
+## CT15, CT16, CT17 – Deferir Solicitação, Carregar Saldos FGTS, Alterar Saldo Manualmente
+
+Descrição: Na página de Autenticação manual, o administrador pode deferir as solicitações, aceitando ou negando-as. Na página de Saldo, o sistema exibe todos os saldos FGTS registrados no sistema, e um campo onde o administrador pode alterar este saldo manualmente.
+Resultado: Aceitar as solicitações retirou corretamente o saldo da conta respectiva; Carregou os saldos corretamente, e o alterou com sucesso.
+
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT14151617.png" />
+
 
 
 ## Conclusão
