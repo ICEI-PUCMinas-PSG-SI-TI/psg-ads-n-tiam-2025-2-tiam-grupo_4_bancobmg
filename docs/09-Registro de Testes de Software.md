@@ -26,20 +26,20 @@
 ## CT07 – Copiar link de indicação
 - **Descrição:** Clicar em “Copiar Link”  
 - **Resultado:** Link copiado para a área de transferência  
- <img alt="Imagem" src="https://github.com/user-attachments/assets/c7852938-d884-4947-8693-7f32d7bef66e)" width="300" />
+ <img alt="Imagem" src="https://github.com/user-attachments/assets/c7852938-d884-4947-8693-7f32d7bef66e" width="300" />
 
 
 ## CT08 – Compartilhar link e contabilizar download
 - **Descrição:** Enviar link para outro dispositivo e realizar download  
 - **Resultado:** Download contabilizado corretamente no Firebase  
-- **Imagem:**  
+ <img alt="Imagem" src="https://github.com/user-attachments/assets/0448f4a8-9c3e-497d-8676-48a8610f5dae" width="300" /> 
 
 
 ## CT09 – Atualizar bonificação do usuário
 - **Descrição:** Conferir bonificação após downloads  
 - **Resultado:** Bonificação atualizada corretamente  
-- **Imagem:**  
-
+ <img alt="Imagem" src="https://github.com/user-attachments/assets/fbc58260-5cde-4127-a4e7-acccd05a491b" width="300" />
+  <img alt="Imagem" src="https://github.com/user-attachments/assets/442abae3-a070-4ab9-9c30-89b176a77e90" width="300" />
 
 
 
