@@ -78,7 +78,7 @@ O projeto usa Firebase. O ID do usuário será vinculado à autenticação do Fi
 |---------|--------|--------------|
 | Gabriela | Front-end | Implementação da tela Configurações e Firebase |
 | Gabriela | Back-end | Configuração do Firestore e regras |
-| [Nome 3] | QA | Testes e documentação |
+| Gabriela | QA | Testes e documentação |
 
 ---
 
