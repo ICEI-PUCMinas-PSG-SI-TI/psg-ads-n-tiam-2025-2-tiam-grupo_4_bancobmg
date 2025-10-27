@@ -5,7 +5,7 @@
 | **Item** | **Descrição** |
 |-----------|----------------|
 | **Funcionalidades Avaliadas** | Alteração de nome, ativação/desativação de notificações, atualização automática e cache ativo (24h) |
-| **Tela Testada** | `ConfiguracoesScreen.js` |
+| **Tela Testada** | `index.tsx` |
 | **Requisitos Relacionados** | RF-006 – Ativar/Desativar Notificações; RF-009 – Atualização de Saldos Agendada |
 | **Objetivo** | Validar o correto salvamento e sincronização das preferências do usuário no Firebase Firestore |
 | **Grupo de Usuários** | Usuário autenticado |
