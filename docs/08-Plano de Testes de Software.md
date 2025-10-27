@@ -1,19 +1,17 @@
 # Plano de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+## Cenário 1 – Tela de Configurações do Usuário
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
-
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
- 
-## Ferramentas de Testes (Opcional)
-
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+| **Item** | **Descrição** |
+|-----------|----------------|
+| **Funcionalidades Avaliadas** | Alteração de nome, ativação/desativação de notificações, atualização automática e cache ativo (24h) |
+| **Tela Testada** | `ConfiguracoesScreen.js` |
+| **Requisitos Relacionados** | RF-006 – Ativar/Desativar Notificações; RF-009 – Atualização de Saldos Agendada |
+| **Objetivo** | Validar o correto salvamento e sincronização das preferências do usuário no Firebase Firestore |
+| **Grupo de Usuários** | Usuário autenticado |
+| **Ferramentas Utilizadas** | Expo Go, Firebase Firestore Console, React Native Debugger |
+| **Procedimentos Executados** | 1. Acessar a tela de configurações.<br>2. Alterar o nome do usuário.<br>3. Ativar/desativar as opções de Notificações, Atualização Automática e Cache Ativo (24h).<br>4. Clicar em “Salvar Configurações” e verificar mensagem de sucesso.<br>5. Conferir persistência no Firestore. |
+| **Critério de Sucesso** | Exibição da mensagem “Configurações salvas com sucesso!” e atualização confirmada no banco de dados |
+| **Casos de Teste Executados** | CT06 – Alteração de Nome; CT07 – Ativar/Desativar Notificações; CT08 – Atualização Automática; CT09 – Cache Ativo |
+| **Resultado** | ✅ Sucesso |
+| **Responsável** | Gabriela |
