@@ -26,7 +26,7 @@
 ## CT07 – Copiar link de indicação
 - **Descrição:** Clicar em “Copiar Link”  
 - **Resultado:** Link copiado para a área de transferência  
-- **Imagem:**  
+ <img alt="Imagem" src="https://github.com/user-attachments/assets/c7852938-d884-4947-8693-7f32d7bef66e)" width="300" />
 
 
 ## CT08 – Compartilhar link e contabilizar download
