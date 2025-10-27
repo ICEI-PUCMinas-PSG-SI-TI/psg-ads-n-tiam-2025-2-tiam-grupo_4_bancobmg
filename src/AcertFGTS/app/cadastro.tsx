@@ -12,11 +12,26 @@ import {
   Platform,
   Alert,
   ScrollView,
+  ActivityIndicator, // 1. Adicionado para feedback de carregamento
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-// Objeto para armazenar o estado de cada requisito da senha
+// --- IMPORTS ATUALIZADOS DO FIREBASE ---
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  doc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+  limit, // 2. Adicionado 'collection', 'query', 'where', 'getDocs', 'limit'
+} from "firebase/firestore";
+import { auth, db } from "../firebaseConfig"; // Importa 'auth' e 'db'
+// --- FIM DOS IMPORTS ---
+
+// ... (validatePassword, PasswordRequirement, etc. continuam iguais)
 const initialRequirements = {
   length: false,
   number: false,
@@ -24,54 +39,37 @@ const initialRequirements = {
   uppercase: false,
   lowercase: false,
 };
-
-// Função para validar a senha e retornar a força e os requisitos atendidos
 const validatePassword = (password: string) => {
   const requirements = { ...initialRequirements };
   let score = 0;
-
-  // 1. Comprimento mínimo de 8 caracteres
   if (password.length >= 8) {
     requirements.length = true;
     score++;
   }
-
-  // 2. Mínimo de 2 números
   if ((password.match(/\d/g) || []).length >= 2) {
     requirements.number = true;
     score++;
   }
-
-  // 3. Mínimo de 1 caractere especial
   if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
     requirements.specialChar = true;
     score++;
   }
-
-  // 4. Mínimo de 1 letra maiúscula
   if (/[A-Z]/.test(password)) {
     requirements.uppercase = true;
     score++;
   }
-
-  // 5. Mínimo de 1 letra minúscula
   if (/[a-z]/.test(password)) {
     requirements.lowercase = true;
     score++;
   }
-
-  // Determina a força com base na pontuação
   let strength = "";
   if (password.length > 0) {
     if (score < 3) strength = "Fraca";
     else if (score < 5) strength = "Média";
     else if (score === 5) strength = "Forte";
   }
-
   return { strength, requirements };
 };
-
-// Componente para exibir os requisitos da senha
 const PasswordRequirement = ({ met, text }: { met: boolean; text: string }) => (
   <Text
     style={[styles.requirementText, { color: met ? "#4CAF50" : "#F44336" }]}
@@ -81,20 +79,23 @@ const PasswordRequirement = ({ met, text }: { met: boolean; text: string }) => (
 );
 
 export default function CadastroScreen() {
+  // ... (seus states: nomeCompleto, cpf, email, etc. continuam iguais)
   const [nomeCompleto, setNomeCompleto] = useState("");
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const router = useRouter();
-
   const [passwordStrength, setPasswordStrength] = useState("");
   const [passwordRequirements, setPasswordRequirements] =
     useState(initialRequirements);
-
   const [isSenhaVisible, setIsSenhaVisible] = useState(false);
   const [isConfirmarSenhaVisible, setIsConfirmarSenhaVisible] = useState(false);
 
+  // 3. Adicionado estado de 'loading'
+  const [loading, setLoading] = useState(false);
+
+  // ... (seus handlers: handleCpfChange, handlePasswordChange continuam iguais)
   const handleCpfChange = (text: string) => {
     const formatCPF = (value: string) => {
       const numericValue = value.replace(/[^\d]/g, "");
@@ -115,8 +116,6 @@ export default function CadastroScreen() {
     };
     setCpf(formatCPF(text));
   };
-
-  // handler para o campo de senha
   const handlePasswordChange = (text: string) => {
     setSenha(text);
     const validation = validatePassword(text);
@@ -124,18 +123,17 @@ export default function CadastroScreen() {
     setPasswordRequirements(validation.requirements);
   };
 
-  const handleCadastro = () => {
-    // 1. Validação se todos os campos estão preenchidos
+  // --- FUNÇÃO DE CADASTRO ---
+  const handleCadastro = async () => {
+    // 1. Validações locais
     if (!nomeCompleto || !cpf || !email || !senha || !confirmarSenha) {
       Alert.alert("Atenção", "Por favor, preencha todos os campos.");
       return;
     }
-    // 2. Validação se as senhas coincidem
     if (senha !== confirmarSenha) {
       Alert.alert("Atenção", "As senhas digitadas não coincidem.");
       return;
     }
-    // 3. Validação se a senha é forte (todos os requisitos cumpridos)
     if (passwordStrength !== "Forte") {
       Alert.alert(
         "Senha Inválida",
@@ -144,23 +142,69 @@ export default function CadastroScreen() {
       return;
     }
 
-    console.log("Novos dados de cadastro:", {
-      nomeCompleto,
-      cpf,
-      email,
-      senha,
-    });
-    Alert.alert("Cadastro Concluído!", "Sua conta foi criada com sucesso.", [
-      { text: "OK", onPress: () => router.back() },
-    ]);
+    setLoading(true);
+
+    try {
+      // --- PASSO 1: VERIFICAR CPF DUPLICADO (NOVO) ---
+      const cpfLimpo = cpf.replace(/[^\d]/g, "");
+      const admRef = collection(db, "administradores"); // Verificação de Administrador
+      const q1 = query(admRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot1 = await getDocs(q1);
+      const clientesRef = collection(db, "clientes"); // Verificação de Cliente
+      const q2 = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot2 = await getDocs(q2);
+
+      if (!querySnapshot1.empty || !querySnapshot2.empty) {
+        // Se querySnapshot.empty for FALSO, significa que encontrou um CPF
+        Alert.alert("Erro de Cadastro", "Este CPF já está em uso.");
+        setLoading(false);
+        return; // Para a execução
+      }
+
+      // --- PASSO 2: Criar usuário no FIREBASE AUTH ---
+      // (Se o CPF é único, tenta criar o usuário)
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+      const user = userCredential.user;
+
+      // --- PASSO 3: Salvar dados extras (Nome, CPF) no FIRESTORE ---
+      await setDoc(doc(db, "clientes", user.uid), {
+        nome: nomeCompleto,
+        cpf: cpfLimpo,
+        email: email,
+        data_cadastro: new Date(),
+      });
+
+      // --- SUCESSO! ---
+      Alert.alert(
+        "Cadastro Concluído!",
+        "Sua conta foi criada com sucesso. Você será redirecionado para o login.",
+        // Esta ação já cumpre seu requisito de ir para a tela de login
+        [{ text: "OK", onPress: () => router.push("/" as any) }]
+      );
+    } catch (error: any) {
+      // --- PASSO 4: Tratar erros (Auth ou Firestore) ---
+      if (error.code === "auth/email-already-in-use") {
+        // A verificação de E-mail duplicado é pega aqui
+        Alert.alert("Erro de Cadastro", "Este E-mail já está em uso.");
+      } else {
+        console.error(error);
+        Alert.alert("Erro", "Ocorreu um erro inesperado no cadastro.");
+      }
+    } finally {
+      setLoading(false); // Desativa o carregamento, independente de sucesso or erro
+    }
   };
 
-  // Função auxiliar para definir a cor do medidor de força
+  // ... (getStrengthColor continua igual)
   const getStrengthColor = (strength: string) => {
-    if (strength === "Fraca") return "#F44336"; // Vermelho
-    if (strength === "Média") return "#FF9800"; // Laranja
-    if (strength === "Forte") return "#4CAF50"; // Verde
-    return "#FFF"; // Cor padrão
+    if (strength === "Fraca") return "#F44336";
+    if (strength === "Média") return "#FF9800";
+    if (strength === "Forte") return "#4CAF50";
+    return "#FFF";
   };
 
   return (
@@ -171,6 +215,7 @@ export default function CadastroScreen() {
         style={{ flex: 1 }}
       >
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          {/* ... (Logo, Nome, CPF, Email, Senha, Medidor, Confirmar Senha... tudo igual) ... */}
           <View style={styles.logoContainer}>
             <Image
               source={require("../assets/images/logo.png")}
@@ -179,13 +224,13 @@ export default function CadastroScreen() {
             />
           </View>
 
-          {/* Campos Nome, CPF e Email (sem alterações) */}
           <View style={styles.inputGroup}>
             <Text style={styles.label}>NOME COMPLETO</Text>
             <TextInput
               style={styles.input}
               value={nomeCompleto}
               onChangeText={setNomeCompleto}
+              editable={!loading} // Desativa edição enquanto carrega
             />
           </View>
           <View style={styles.inputGroup}>
@@ -198,6 +243,7 @@ export default function CadastroScreen() {
               value={cpf}
               onChangeText={handleCpfChange}
               maxLength={14}
+              editable={!loading}
             />
           </View>
           <View style={styles.inputGroup}>
@@ -208,10 +254,10 @@ export default function CadastroScreen() {
               onChangeText={setEmail}
               keyboardType="email-address"
               autoCapitalize="none"
+              editable={!loading}
             />
           </View>
 
-          {/* --- CAMPO DE SENHA  --- */}
           <View style={styles.inputGroup}>
             <Text style={styles.label}>SENHA</Text>
             <View style={styles.passwordInputContainer}>
@@ -220,9 +266,11 @@ export default function CadastroScreen() {
                 value={senha}
                 onChangeText={handlePasswordChange}
                 secureTextEntry={!isSenhaVisible}
+                editable={!loading}
               />
               <TouchableOpacity
                 onPress={() => setIsSenhaVisible(!isSenhaVisible)}
+                disabled={loading}
               >
                 <Ionicons
                   name={isSenhaVisible ? "eye-off" : "eye"}
@@ -234,9 +282,9 @@ export default function CadastroScreen() {
             </View>
           </View>
 
-          {/* --- MEDIDOR DE FORÇA E REQUISITOS --- */}
           {senha.length > 0 && (
             <View style={styles.passwordFeedbackContainer}>
+              {/* ... (Medidor de força) ... */}
               <Text style={styles.strengthLabel}>
                 Força da senha:{" "}
                 <Text
@@ -273,23 +321,37 @@ export default function CadastroScreen() {
             </View>
           )}
 
-          {/* --- CAMPO DE CONFIRMAR SENHA --- */}
           <View style={styles.inputGroup}>
             <Text style={styles.label}>CONFIRMAR SENHA</Text>
-            <TextInput
-              style={styles.input}
-              value={confirmarSenha}
-              onChangeText={setConfirmarSenha}
-              secureTextEntry
-            />
+            <View style={styles.passwordInputContainer}>
+              <TextInput
+                style={styles.passwordInputField}
+                value={confirmarSenha}
+                onChangeText={setConfirmarSenha}
+                secureTextEntry={!isConfirmarSenhaVisible}
+                editable={!loading}
+              />
+              <TouchableOpacity
+                onPress={() =>
+                  setIsConfirmarSenhaVisible(!isConfirmarSenhaVisible)
+                }
+                disabled={loading}
+              >
+                <Ionicons
+                  name={isConfirmarSenhaVisible ? "eye-off" : "eye"}
+                  size={24}
+                  color="#888"
+                  style={styles.eyeIcon}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
 
-          {/* Mostra o feedback de confirmação apenas se o campo não estiver vazio */}
           {confirmarSenha.length > 0 && (
             <Text
               style={[
                 styles.passwordConfirmationText,
-                { color: senha === confirmarSenha ? "#4CAF50" : "#F44336" }, // Verde se for igual, Vermelho se for diferente
+                { color: senha === confirmarSenha ? "#4CAF50" : "#F44336" },
               ]}
             >
               {senha === confirmarSenha
@@ -298,10 +360,22 @@ export default function CadastroScreen() {
             </Text>
           )}
 
-          <TouchableOpacity style={styles.button} onPress={handleCadastro}>
-            <Text style={styles.buttonText}>CADASTRAR</Text>
+          {/* --- BOTÃO DE CADASTRO ATUALIZADO --- */}
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleCadastro}
+            disabled={loading}
+          >
+            {loading ? (
+              <ActivityIndicator size="small" color="#000" />
+            ) : (
+              <Text style={styles.buttonText}>CADASTRAR</Text>
+            )}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => router.back()}>
+          <TouchableOpacity
+            onPress={() => router.push("/" as any)}
+            disabled={loading}
+          >
             <Text style={styles.linkText}>Já tenho uma conta</Text>
           </TouchableOpacity>
         </ScrollView>
@@ -310,7 +384,6 @@ export default function CadastroScreen() {
   );
 }
 
-// Estilos
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#000" },
   keyboardView: { flex: 1 },
@@ -368,7 +441,6 @@ const styles = StyleSheet.create({
   },
   buttonText: { color: "#000", fontSize: 18, fontWeight: "bold" },
   linkText: { color: "#FFC107", fontSize: 16, marginTop: 10 },
-  // Estilos para o feedback da senha
   passwordFeedbackContainer: {
     width: "100%",
     padding: 10,
@@ -380,7 +452,7 @@ const styles = StyleSheet.create({
     width: "100%",
     fontSize: 12,
     fontWeight: "bold",
-    marginTop: -10, // Puxa o texto para mais perto do input acima
+    marginTop: -10,
     marginBottom: 10,
     paddingLeft: 5,
   },
@@ -389,9 +461,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 8,
   },
-  requirementsContainer: {
-    // Estilos para o container dos requisitos, se necessário
-  },
+  requirementsContainer: {},
   requirementText: {
     fontSize: 12,
     marginBottom: 2,

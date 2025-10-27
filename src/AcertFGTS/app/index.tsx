@@ -1,5 +1,3 @@
-// src/app/index.tsx
-
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -13,17 +11,23 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  ActivityIndicator, // Adicionado para feedback de carregamento
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+
+// --- IMPORTS DO FIREBASE ---
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { collection, query, where, getDocs, limit } from "firebase/firestore";
+import { auth, db } from "../firebaseConfig"; // Importa auth e db do seu config
+// --- FIM DOS IMPORTS ---
 
 //Função para formatar o CPF
 const formatCPF = (value: string) => {
   // Remove tudo que não for dígito
   const numericValue = value.replace(/[^\d]/g, "");
-
   const truncatedValue = numericValue.slice(0, 11);
-
   // Aplica a máscara
   if (truncatedValue.length > 9) {
     return truncatedValue.replace(
@@ -35,16 +39,15 @@ const formatCPF = (value: string) => {
   } else if (truncatedValue.length > 3) {
     return truncatedValue.replace(/(\d{3})(\d{3})/, "$1.$2");
   }
-
   return truncatedValue;
 };
 
 export default function LoginScreen() {
   const [cpf, setCpf] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
-  const router = useRouter();
-
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false); // Estado de carregamento
+  const router = useRouter();
 
   // Criando um handler para atualizar o estado com o CPF formatado
   const handleCpfChange = (text: string) => {
@@ -52,7 +55,7 @@ export default function LoginScreen() {
     setCpf(formattedCpf);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Adicionar logica de validação
     // Exemplo simples:
     if (!cpf || !senha) {
@@ -64,8 +67,92 @@ export default function LoginScreen() {
     console.log("CPF:", cpf);
     console.log("Senha:", senha);
 
+    try {
+      // --- PASSO 1: Achar o E-mail usando o CPF ---
+      const cpfLimpo = cpf.replace(/[^\d]/g, "");
+      const AdmRef = collection(db, "administradores");
+      const clientesRef = collection(db, "clientes");
+
+      // Cria a consulta: "SELECT * FROM administradores WHERE cpf == cpfLimpo LIMIT 1"
+      const q1 = query(AdmRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot1 = await getDocs(q1);
+
+      // Cria a consulta: "SELECT * FROM clientes WHERE cpf == cpfLimpo LIMIT 1"
+      const q2 = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
+      const querySnapshot2 = await getDocs(q2);
+
+      if (querySnapshot1.empty && querySnapshot2.empty) {
+        // Se não achou o CPF
+        Alert.alert("Erro", "CPF não encontrado.");
+        setLoading(false);
+        return;
+      }
+
+      var IsAdm = false;
+      // Se achou, pegue o e-mail do documento
+      var uData;
+      var emailDoUsuario;
+      if (querySnapshot2.empty)
+      {
+        // Dados do Administrador
+        uData = querySnapshot1.docs[0].data();
+        emailDoUsuario = uData.email;
+        IsAdm = true;
+      }
+      else
+      {
+        // Dados do Cliente
+        // Dados do Administrador
+        uData = querySnapshot2.docs[0].data();
+        emailDoUsuario = uData.email;
+        IsAdm = false;
+      }
+
+      // --- PASSO 2: Fazer login no FIREBASE AUTH com o E-mail encontrado ---
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        emailDoUsuario,
+        senha
+      );
+
+      // --- PASSO 3: Salvar o Token e dados do usuário ---
+      const token = await userCredential.user.getIdToken();
+      await AsyncStorage.setItem("@user_token", token);
+
+      const userData = {
+        uid: userCredential.user.uid,
+        email: emailDoUsuario,
+        nome: uData.nome,
+      };
+      await AsyncStorage.setItem("@user_data", JSON.stringify(userData));
+
+      // --- SUCESSO! ----
+      // Use 'replace' para o usuário não poder "voltar" para a tela de login
+      if (IsAdm)
+        router.replace("/ADM/home_ADM" as any);
+      else
+        router.replace("/home" as any);
+    } catch (error: any) {
+      if (
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/invalid-credential"
+      ) {
+        Alert.alert("Erro", "Senha incorreta.");
+      } else {
+        console.error(error);
+        Alert.alert("Erro", "Não foi possível fazer login.");
+      }
+    } finally {
+      setLoading(false); // Desativa o carregamento
+    }
+    /* 
     // Se a validação for bem-sucedida, navegue para a tela principal.
-    router.push("/home" as any);
+    if (cpf == "999.999.999-99" && senha == "99999999999") 
+      router.push("/ADM/home_ADM" as any);
+    else
+      router.push("/home" as any);
+    setLoading(true); // Ativa o carregamento
+    */
   };
 
   return (
@@ -108,11 +195,11 @@ export default function LoginScreen() {
               placeholderTextColor="#999"
               value={senha}
               onChangeText={setSenha}
-              // A visibilidade é controlada pelo estado
               secureTextEntry={!isPasswordVisible}
             />
             <TouchableOpacity
               onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+              disabled={loading} // Desativa o botão de olho durante o carregamento
             >
               <Ionicons
                 name={isPasswordVisible ? "eye-off" : "eye"}
@@ -124,16 +211,28 @@ export default function LoginScreen() {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>ENTRAR</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleLogin}
+          disabled={loading} // Desativa o botão durante o carregamento
+        >
+          {loading ? (
+            <ActivityIndicator size="small" color="#000" />
+          ) : (
+            <Text style={styles.buttonText}>ENTRAR</Text>
+          )}
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push("/cadastro" as any)}>
+        <TouchableOpacity
+          onPress={() => router.push("/cadastro" as any)}
+          disabled={loading}
+        >
           <Text style={styles.linkText}>Cadastro</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => router.push("/recuperar-senha" as any)}
+          disabled={loading}
         >
           <Text style={styles.linkText}>Esqueci minha senha</Text>
         </TouchableOpacity>
@@ -142,6 +241,7 @@ export default function LoginScreen() {
   );
 }
 
+// Seus estilos (idênticos ao que você postou)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -196,12 +296,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   passwordInputField: {
-    flex: 1, // Faz o campo de texto ocupar todo o espaço disponível
+    flex: 1,
     fontSize: 16,
     color: "#333",
   },
   eyeIcon: {
-    marginLeft: 10, // Espaço entre o texto e o ícone
+    marginLeft: 10,
   },
   button: {
     width: "100%",

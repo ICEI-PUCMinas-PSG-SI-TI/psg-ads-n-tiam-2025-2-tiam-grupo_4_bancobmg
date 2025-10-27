@@ -22,7 +22,16 @@
 | **CT10** | Validar valor do saque               | Inserir campo vazio ou 0                      | Exibir mensagem de erro “Digite um valor válido”                   |
 | **CT11** | Atualizar saldo após saque (futuro)  | Confirmar saque aprovado (admin)              | Diminuir valor do saldo do usuário (implementação futura)          |
 
+## Casos de Teste - Administrador
 
+| Código | Caso | Ação | Resultado Esperado |
+|---------|------|------|--------------------|
+| CT12 | Carregar Relatório Atual | Abrir página de relatórios | Atualizar o relatório atual e exibir suas informações |
+| CT13 | Carregar Relatório por Data | Inserir uma data e pesquisar um relatório | Exibir o relatório da data inserida, com suas informações |
+| CT14 | Carregar Solicitações | Abrir página de Autenticação Manual | Carregar as solicitações Pendentes |
+| CT15 | Deferir Solicitação | Selecionar o botão de Aceitar ou Negar solicitação | Altera o estado da solicitação e atualiza no banco de dados |
+| CT16 | Carregar Saldos FGTS | Abrir página de Saldo | Carregar e exibir todos os Saldos FGTS registrados no sistema |
+| CT17 | Alterar Saldo Manualmente | Alterar o Saldo de cliente registrado | Atualização do Saldo FGTS relacionado ao cliente |
 
 ## Registros de Testes
 
@@ -38,6 +47,7 @@
 | **26/10/2025** | CT08 – Tentar sacar sem conta cadastrada    | Sucesso   | Pedro       |
 | **26/10/2025** | CT09 – Tentar sacar valor maior que o saldo | Sucesso   | Pedro       |
 | **26/10/2025** | CT10 – Validar valor do saque               | Sucesso   | Pedro       |
+| **26/10/2025** | CT12 – CT17             | Sucesso   | Nitai      |
 
 
 
