@@ -32,7 +32,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 **Resultado:** Dados carregados com sucesso.
 
 <p align="center">
-  <img src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/img/Captura%20de%20tela%202025-10-26%20213334.png" width="600px">
+  <img src="https://github.com/user-attachments/assets/2d2cc16b-240c-4d3a-be1c-ddf468e2766d" width="600px">
 </p>
 
 ---
@@ -43,9 +43,10 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 **Resultado:** Campo `nome` atualizado com sucesso.
 
 <p align="center">
-  <img src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/img/Captura%20de%20tela%202025-10-26%20213408.png" width="600px">
+  <img src="https://github.com/user-attachments/assets/8bd89e0d-ed77-4131-94c5-6c32a99d4b0e" width="600px">
 </p>
 
+<img width="1632" height="363" alt="Image" src="https://github.com/user-attachments/assets/1b16a1e3-e1f0-42f0-b90c-a9a6cd60f5e3" />
 ---
 
 ##  CT13 – Ativar/Desativar Notificações
@@ -54,7 +55,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 **Resultado:** Campo `notificacoes` atualizado com sucesso.
 
 <p align="center">
-  <img src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/img/WhatsApp%20Image%202025-10-26%20at%2021.49.55%20(2).jpeg" width="600px">
+  <img src="https://github.com/user-attachments/assets/617d27de-3a21-4b3c-9d7a-e9f956f5c50e" width="600px">
 </p>
 
 ---
@@ -64,10 +65,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 **Descrição:** A opção de atualização automática foi desativada corretamente.  
 **Resultado:** Campo `atualizacaoAutomatica = false` salvo no Firestore.
 
-<p align="center">
-  <img src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/img/WhatsApp%20Image%202025-10-26%20at%2021.49.55%20(3).jpeg" width="600px">
-</p>
-
+<img width="1550" height="397" alt="Image" src="https://github.com/user-attachments/assets/c07656a4-f152-4a86-89b7-2ef2a94e5c55" />
 ---
 
 ## CT15 – Ativar Cache Ativo (24h)
@@ -76,7 +74,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 **Resultado:** Campo `cacheAtivo = true` salvo no Firestore.
 
 <p align="center">
-  <img src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/img/WhatsApp%20Image%202025-10-26%20at%2021.49.55%20(4).jpeg" width="600px">
+  <img src="https://github.com/user-attachments/assets/93e18b1a-775a-44b4-ad9a-a4ac3582f2c7" width="600px">
 </p>
 
 ---
@@ -86,9 +84,7 @@ Todos os testes foram realizados com usuário autenticado e integração ao **Fi
 **Descrição:** Confirmação dos dados atualizados no Firestore.  
 **Resultado:** Registro salvo com sucesso na coleção `settings`.
 
-<p align="center">
-  <img src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/main/docs/img/WhatsApp%20Image%202025-10-26%20at%2021.49.55%20(5).jpeg" width="600px">
-</p>
+<img width="1604" height="387" alt="Image" src="https://github.com/user-attachments/assets/55dd7076-0f80-4225-8fcb-5afdd3aac37a" />
 
 ---
 
