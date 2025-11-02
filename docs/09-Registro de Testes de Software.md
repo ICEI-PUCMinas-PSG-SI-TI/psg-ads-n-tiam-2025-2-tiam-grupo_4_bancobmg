@@ -44,8 +44,6 @@
 
 
 
-## CT10 - Mensagem de confirmação 
-Descrição:  Verificar mensagens ao copiar link e após download  
-Resultado: Mensagem de sucesso exibida corretamente 
+
 
 
