@@ -113,7 +113,7 @@ Resultado: Mensagem de erro exibida corretamente.
 Descrição: Quando o Administrador abre a página de relatórios, ou seleciona a data atual para carregar o relatório, ele calcula as informações do relatório, registram no banco de dados e exibem na tela.
 Resultado: Atualizou o relatório atual e exibiu suas informações.
 
-<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/docs/img/CT12-1.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/a63cb712c5da0953049f766a9b3415dd1396a20b/docs/img/CT12-1.png" />
 <img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/docs/img/CT12-2.png" />
 
 ## CT13 – Carregar Relatório por Data
