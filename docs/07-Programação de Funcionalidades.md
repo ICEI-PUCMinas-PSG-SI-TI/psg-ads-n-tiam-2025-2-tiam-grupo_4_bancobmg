@@ -131,7 +131,7 @@ export default app;
 
 
 ---
-#### Lucas [Seu Nome Completo]
+#### Lucas de Paula Silva
 
 RF-001 O sistema deve permitir o cadastro de novos usuários com validação de CPF e e-mail únicos.
 RF-015 O sistema deve permitir o login de usuários existentes usando CPF e senha, recuperando o e-mail associado.
