@@ -8,21 +8,20 @@ Avaliar a usabilidade, clareza da interface e eficiência de uso da tela de **In
 
 | Código   | Caso                                | Ação                                           | Resultado Obtido                                      | Observações                                  |
 | -------- | ----------------------------------- | --------------------------------------------- | ----------------------------------------------------- | -------------------------------------------- |
-| **CT06** | Exibir link de indicação            | Abrir a tela de indicação com usuário logado | ✅ Link exibido corretamente                          | Interface clara e link visível               |
-| **CT07** | Copiar link de indicação            | Clicar no botão “Copiar Link”                | ✅ Link copiado para a área de transferência         | Funcionalidade funcionando corretamente     |
-| **CT08** | Compartilhar link e contabilizar download | Enviar o link para outro dispositivo e realizar download/cadastro | ✅ Download registrado corretamente no Firebase      | Contabilização precisa e confiável           |
-| **CT09** | Atualizar bonificação               | Conferir bonificação após downloads          | ✅ Bonificação do usuário atualizada corretamente    | Bonificação refletida em tempo real          |
-| **CT10** | Mensagem de confirmação             | Verificar mensagens exibidas ao copiar link ou após download | ✅ Mensagem de sucesso exibida corretamente          | Feedback claro para o usuário                |
+| **CT01** | Exibir link de indicação            | Abrir a tela de indicação com usuário logado | ✅ Link exibido corretamente                          | Interface clara e link visível               |
+| **CT02** | Copiar link de indicação            | Clicar no botão “Copiar Link”                | ✅ Link copiado para a área de transferência         | Funcionalidade funcionando corretamente     |
+| **CT03** | Compartilhar link e contabilizar download | Enviar o link para outro dispositivo e realizar download/cadastro | ✅ Download registrado corretamente no Firebase      | Contabilização precisa e confiável           |
+| **CT04** | Atualizar bonificação               | Conferir bonificação após downloads          | ✅ Bonificação do usuário atualizada corretamente    | Bonificação refletida em tempo real          |
+
 
 ## Registros de Testes
 
 | Data           | Teste                                               | Resultado | Responsável |
 | -------------- | -------------------------------------------------- | --------- | ----------- |
-| **26/10/2025** | CT06 – Exibir link de indicação                     | Sucesso   | Mariana     |
-| **26/10/2025** | CT07 – Copiar link de indicação                     | Sucesso   | Mariana     |
-| **26/10/2025** | CT08 – Compartilhar link e contabilizar download   | Sucesso   | Mariana     |
-| **26/10/2025** | CT09 – Atualizar bonificação do usuário            | Sucesso   | Mariana     |
-| **26/10/2025** | CT10 – Verificar mensagens de confirmação          | Sucesso   | Mariana     |
+| **26/10/2025** | CT01 – Exibir link de indicação                     | Sucesso   | Mariana     |
+| **26/10/2025** | CT02 – Copiar link de indicação                     | Sucesso   | Mariana     |
+| **26/10/2025** | CT03 – Compartilhar link e contabilizar download   | Sucesso   | Mariana     |
+| **26/10/2025** | CT04 – Atualizar bonificação do usuário            | Sucesso   | Mariana     |
 
 ## Conclusão
 
