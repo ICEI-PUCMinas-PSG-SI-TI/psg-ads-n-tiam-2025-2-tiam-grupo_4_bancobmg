@@ -2,14 +2,11 @@
 
 ## Requisitos Atendidos
 
+####  Pedro Henrique Rodrigues Evangelista 
 RF-002
 O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.
 
-
-RF-011
-O sistema deve disponibilizar módulo de gerenciamento de conta bancária para recebimento.
-
-
+RF-014	O sistema deve criar solicitação de saque para o cliente
 
 ---
 
@@ -121,7 +118,7 @@ export default app;
 **Ferramenta:** Trello ou GitHub Projects  
 **Status:**
 - RF-002 ✅ Concluído  
-- RF-011 ✅ Concluído  
+- RF-014 ✅ Concluído  
 - Integração Firebase ✅ Concluído  
 
 ---
@@ -131,7 +128,6 @@ export default app;
 |---------|--------|--------------|
 | Pedro | Front-end | Implementação da tela Saque e AlterarConta |
 | Pedro | Back-end | CRUDS e configurações das telas de Saque e AlterarConta |
-| [Nome 3] | QA | Testes e documentação |
 
 ---
 
