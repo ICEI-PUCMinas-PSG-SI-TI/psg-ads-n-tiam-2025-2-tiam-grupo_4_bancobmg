@@ -105,6 +105,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-011 | O sistema deve disponibilizar módulo de gerenciamento de conta bancária para recebimento.| MÉDIA      |
 | RF-012 | O sistema deve criar programa de indicação com rastreamento de downloads e bonificação.| MÉDIA      |
 | RF-013 | O sistema deve integrar chat de suporte dentro do app.| BAIXA      |
+| RF-014 | O sistema deve criar solicitação de saque para o cliente | ALTA     |
 
 
 
