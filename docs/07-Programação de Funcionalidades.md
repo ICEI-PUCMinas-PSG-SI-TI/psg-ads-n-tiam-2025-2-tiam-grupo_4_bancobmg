@@ -221,10 +221,11 @@ export default app;
 Quadro de Gestão
 Ferramenta: Trello ou GitHub Projects Status:
 
-RF-001 ✅ Concluído (Cadastro de usuários com validação de CPF)
-RF-015 ✅ Concluído (Login de usuários por CPF)
-RF-016 ✅ Concluído (Recuperação de senha por CPF)
-RF-017 ✅ Concluído (Autenticação e vínculo de dados do usuário)
+- RF-001 ✅ Concluído (Cadastro de usuários com validação de CPF)
+- RF-015 ✅ Concluído (Login de usuários por CPF)
+- RF-016 ✅ Concluído (Recuperação de senha por CPF)
+- RF-017 ✅ Concluído (Autenticação e vínculo de dados do usuário)
+  
 | Membro | Função | Contribuição |
 |---------|--------|--------------|
 | Lucas | Front-end | Implementação da tela de login, cadastro e alterar senha |
