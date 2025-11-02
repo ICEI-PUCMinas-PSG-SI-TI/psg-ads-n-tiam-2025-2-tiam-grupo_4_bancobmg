@@ -117,8 +117,12 @@ export default app;
 ## Quadro de Gestão
 **Ferramenta:** Trello ou GitHub Projects  
 **Status:**
+- RF-001 ✅ Concluído
 - RF-002 ✅ Concluído  
-- RF-014 ✅ Concluído  
+- RF-014 ✅ Concluído
+- RF-015 ✅ Concluído
+- RF-016 ✅ Concluído
+- RF-017 ✅ Concluído   
 - Integração Firebase ✅ Concluído  
 
 ---
@@ -128,6 +132,8 @@ export default app;
 |---------|--------|--------------|
 | Pedro | Front-end | Implementação da tela Saque e AlterarConta |
 | Pedro | Back-end | CRUDS e configurações das telas de Saque e AlterarConta |
+| Lucas | Front-end | Implementação da tela de login, cadastro e alterar senha |
+| Lucas | Back-end | CRUDS e configurações das telas login, cadastro e alterar senha |
 
 ---
 
