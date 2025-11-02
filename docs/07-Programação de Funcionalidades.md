@@ -133,10 +133,10 @@ export default app;
 ---
 #### Lucas de Paula Silva
 
-RF-001 O sistema deve permitir o cadastro de novos usuários com validação de CPF e e-mail únicos.
-RF-015 O sistema deve permitir o login de usuários existentes usando CPF e senha, recuperando o e-mail associado.
-RF-016 O sistema deve permitir que o usuário solicite a recuperação de senha via e-mail, utilizando o CPF para identificar a conta.
-RF-017 O sistema deve autenticar o usuário e vincular seus dados (nome, CPF, e-mail) ao seu UID do Firebase Auth.
+- RF-001 O sistema deve permitir o cadastro de novos usuários com validação de CPF e e-mail únicos.
+- RF-015 O sistema deve permitir o login de usuários existentes usando CPF e senha, recuperando o e-mail associado.
+- RF-016 O sistema deve permitir que o usuário solicite a recuperação de senha via e-mail, utilizando o CPF para identificar a conta.
+- RF-017 O sistema deve autenticar o usuário e vincular seus dados (nome, CPF, e-mail) ao seu UID do Firebase Auth.
 
 ---
 
