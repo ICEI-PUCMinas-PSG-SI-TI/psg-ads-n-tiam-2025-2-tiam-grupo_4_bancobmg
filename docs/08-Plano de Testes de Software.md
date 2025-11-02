@@ -23,7 +23,7 @@
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | **Funcionalidades Avaliadas** | Consulta de saldo e criação de solicitações de saque                                                           |
 | **Tela Testada**              | `Saque.tsx`                                                                                                    |
-| **Requisitos Relacionados**   | O sistema deve permitir ao usuário visualizar o saldo e realizar solicitações de saque                         |
+| **Requisitos Relacionados**   | RF-014	O sistema deve criar solicitação de saque para o cliente                    |
 | **Objetivo**                  | Validar o comportamento da aplicação durante o fluxo de saque, incluindo validações e integração com Firestore |
 | **Grupo de Usuários**         | Usuário autenticado (com conta bancária cadastrada e saldo positivo)                                           |
 | **Ferramentas Utilizadas**    | Expo Go, Firebase Firestore Console, React Developer Tools                                                     |
