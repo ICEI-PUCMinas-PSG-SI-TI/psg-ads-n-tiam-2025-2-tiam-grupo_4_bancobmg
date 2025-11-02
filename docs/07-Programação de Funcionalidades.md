@@ -7,8 +7,8 @@
 ---
 
 ## Requisitos Atendidos
-- **RF-010:** Sistema de Indicação de Usuários  
-- **RF-013:** Contabilizar indicações de usuários  
+- **RF-012:**   Contabilizar indicações e bonificações de usuários
+- **RF-013:** Link para indicação  
 
 ---
 
@@ -69,7 +69,7 @@ A autenticação utiliza **Firebase Authentication**, garantindo que cada indica
 **Ferramenta:** GitHub Projects  
 
 **Status:**
-- RF-010 ✅ Concluído  
+- RF-012 ✅ Concluído  
 - RF-013 ✅ Concluído  
 - Integração Firebase ✅ Concluído  
 
