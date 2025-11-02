@@ -106,7 +106,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-012 | O sistema deve criar programa de indicação com rastreamento de downloads e bonificação.| MÉDIA      |
 | RF-013 | O sistema deve integrar chat de suporte dentro do app.| BAIXA      |
 | RF-014 | O sistema deve criar solicitação de saque para o cliente | ALTA     |
-
+| RF-015 | O sistema deve permitir que o cliente consiga recuperar sua senha.| ALTA       |
+| RF-016 | O sistema deve permitir que o cliente faça login utilizando o CPF como identificador.| ALTA       |
+| RF-017 | O sistema deve informar ao usuário, ao fazer cadastro ou recuperar senha, o nível da senha dele (forte, média ou fraca).| ALTA       |
 
 
 ### Requisitos não Funcionais
