@@ -109,6 +109,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-015 | O sistema deve permitir que o cliente consiga recuperar sua senha.| ALTA       |
 | RF-016 | O sistema deve permitir que o cliente faça login utilizando o CPF como identificador.| ALTA       |
 | RF-017 | O sistema deve informar ao usuário, ao fazer cadastro ou recuperar senha, o nível da senha dele (forte, média ou fraca).| ALTA       |
+| RF-018 | O sistema deve permitir que um administrador faça login utilizando o CPF como identificador.| ALTA       |
+| RF-019 | O sistema deve permitir que um administrador visualize todos os relatórios gerados, podendo buscar por data.| ALTA       |
 
 
 ### Requisitos não Funcionais
