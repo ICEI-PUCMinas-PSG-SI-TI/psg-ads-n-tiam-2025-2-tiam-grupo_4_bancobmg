@@ -235,3 +235,49 @@ Ferramenta: Trello ou GitHub Projects Status:
 ## Comentários
 A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem e persistência de preferências do usuário.
 
+---
+#### Nitai Nandi
+
+- RF-007 O sistema deve gerar relatórios diários com a quantidade de clientes que utilizam o app, clientes que possuem saldo, clientes que sacaram e não sacaram, clientes não autorizados e total de saldo gerado no dia. Permitindo exportação para BI ou planilha.
+- RF-018 O sistema deve permitir que um administrador faça login utilizando o CPF como identificador.
+- RF-019 O sistema deve permitir que um administrador visualize todos os relatórios gerados, podendo buscar por data.
+
+---
+
+*A coleção `relatórios` no Firestore armazena os dados dos relatórios de uso gerados no dia:*
+
+| Campo | Tipo | Descrição |
+| :--- | :--- | :--- |
+| **uid** (ID do documento) | String | ID único do relatório |
+| **data** | Timestamp | Data onde o relatório foi gerado |
+| **qtde_cliente_com_saldo** | Number | A quantidade de clientes com saldo no dia de geração |
+| **qtde_clientes** | Number | A quantidade total de clientes registrados no sistema |
+| **qtde_clientes_nao_autorizados** | Number | A quantidade de clientes que não foram autorizados a finalizar o saque de seu saldo |
+| **qtde_clientes_sacaram** | Number | A quantidade de clientes que realizaram saque no dia de geração |
+| **saldo_gerado** | Number | A quantidade total de saldo FGTS gerado no dia |
+
+
+---
+
+## Código-fonte
+Implementado em:
+- `src/AcertFGTS/app/ADM/home_ADM.tsx` (Tela de Relatórios)
+
+---
+
+Quadro de Gestão
+Ferramenta: Trello ou GitHub Projects Status:
+
+- RF-001 ✅ Concluído (Cadastro de usuários com validação de CPF)
+- RF-015 ✅ Concluído (Login de usuários por CPF)
+- RF-016 ✅ Concluído (Recuperação de senha por CPF)
+- RF-017 ✅ Concluído (Autenticação e vínculo de dados do usuário)
+  
+| Membro | Função | Contribuição |
+|---------|--------|--------------|
+| Nitai | Front-end | Tela de Relatórios |
+| Nitai | Back-end | Tela de Relatórios |
+
+## Comentários
+A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem e persistência de preferências do usuário.
+
