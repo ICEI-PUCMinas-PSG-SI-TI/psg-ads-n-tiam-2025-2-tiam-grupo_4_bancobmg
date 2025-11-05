@@ -136,7 +136,7 @@ Resultado: Exibiu corretamente as informações das solicitações.
 Descrição: Na página de Autenticação manual, o administrador pode deferir as solicitações, aceitando ou negando-as. Na página de Saldo, o sistema exibe todos os saldos FGTS registrados no sistema, e um campo onde o administrador pode alterar este saldo manualmente.
 Resultado: Aceitar as solicitações retirou corretamente o saldo da conta respectiva; Carregou os saldos corretamente, e o alterou com sucesso.
 
-<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT14151617.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/806c89b609f5e64c0938536644623afa999656ff/docs/img/CT14151617.gif" />
 
 
 
