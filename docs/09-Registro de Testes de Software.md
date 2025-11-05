@@ -114,22 +114,22 @@ Descrição: Quando o Administrador abre a página de relatórios, ou seleciona 
 Resultado: Atualizou o relatório atual e exibiu suas informações.
 
 <img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/a63cb712c5da0953049f766a9b3415dd1396a20b/docs/img/CT12-1.png" />
-<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/docs/img/CT12-2.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/bd16f27b03a4e9b042082711e9f6c512235a570b/docs/img/CT12-2.png " />
 
 ## CT13 – Carregar Relatório por Data
 
 Descrição: Quando o Administrador seleciona uma data específica para carregar o relatório, ele busca as informações do relatório, se houver alguma naquele dia, e as exibem na tela.
 Resultado: Exibiu corretamente as informações do relatório.
 
-<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT13-1.png" />
-<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT13-2.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/bd16f27b03a4e9b042082711e9f6c512235a570b/docs/img/CT13-1.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/bd16f27b03a4e9b042082711e9f6c512235a570b/docs/img/CT13-2.png" />
 
 ## CT14 – Carregar Solicitações
 
 Descrição: Quando o Administrador abre a página de Autenticação Manual, o sistema busca por todas as solicitações de saque registradas, e lhe dá a opção de deferi-las.
 Resultado: Exibiu corretamente as informações das solicitações.
 
-<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/550f28719940a0b6c58d41202172d3a5e973094b/docs/img/CT14.png" />
+<img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/bd16f27b03a4e9b042082711e9f6c512235a570b/docs/img/CT14.png"/>
 
 ## CT15, CT16, CT17 – Deferir Solicitação, Carregar Saldos FGTS, Alterar Saldo Manualmente
 
