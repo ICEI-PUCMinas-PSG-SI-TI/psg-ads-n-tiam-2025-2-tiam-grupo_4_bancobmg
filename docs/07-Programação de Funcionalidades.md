@@ -245,6 +245,7 @@ A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem 
 ---
 
 *A coleção `relatórios` no Firestore armazena os dados dos relatórios de uso gerados no dia:*
+* Acesso ao colocar o CPF "99999999999" e senha "99999999999" na página de log-in
 
 | Campo | Tipo | Descrição |
 | :--- | :--- | :--- |
