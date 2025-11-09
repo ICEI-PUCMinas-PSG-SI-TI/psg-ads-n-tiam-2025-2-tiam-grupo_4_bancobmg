@@ -280,3 +280,62 @@ Quadro de Gestão
 ## Comentários
 A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem e persistência de preferências do usuário.
 
+---
+#### Gabriela Cristina
+
+- **RF-006:** O sistema deve permitir ao usuário ativar ou desativar notificações.  
+- **RF-009:** O sistema deve permitir a atualização automática de saldos de forma agendada.  
+
+---
+
+### Coleção no Firestore
+
+A coleção `settings` armazena as configurações individuais de cada usuário, permitindo **persistência em nuvem** e **sincronização automática** entre dispositivos.
+
+| Campo | Tipo | Descrição |
+| :--- | :--- | :--- |
+| **nome** | String | Nome do usuário configurado no app |
+| **notificacoes** | Boolean | Indica se o usuário deseja receber notificações |
+| **atualizacaoAutomatica** | Boolean | Define se o saldo será atualizado automaticamente |
+| **cacheAtivo** | Boolean | Ativa o cache local por 24 horas |
+| **updatedAt** | String | Data e hora da última atualização das configurações |
+
+---
+
+## Código-fonte
+
+Implementado em:
+- `app/(tabs)/index.tsx` → Tela de Configurações  
+- `src/firebase.js` → Configuração do Firebase  
+
+---
+## Comentários
+A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem e persistência de preferências do usuário.Mas ainda não conectei ao Firabase do grupo.
+
+### Arquivo: `src/firebase.js`
+
+```javascript
+import { getApps, initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCQUqoF9hvzRZh8BQlHyziAN_OZneKxGyg",
+  authDomain: "backbmg.firebaseapp.com",
+  projectId: "backbmg",
+  storageBucket: "backbmg.firebasestorage.app",
+  messagingSenderId: "181160227579",
+  appId: "1:181160227579:web:cf2ef9db7f1a4236daf65e",
+  measurementId: "G-11RV1Z5L4F"
+};
+
+// Inicializa apenas uma vez
+let app;
+if (!getApps().length) {
+  app = initializeApp(firebaseConfig);
+} else {
+  app = getApps()[0];
+}
+
+const db = getFirestore(app);
+
+export { db };
