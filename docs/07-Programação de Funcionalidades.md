@@ -339,3 +339,41 @@ if (!getApps().length) {
 const db = getFirestore(app);
 
 export { db };
+---
+#### Mariana Martins
+
+- **RF-011:** O sistema deve permitir ao usuário **copie um código de indicação exclusivo**.  
+- **RF-012:** O sistema deve **contabilizar o número de downloads e bonificação** realizados por meio do código de indicação.  
+
+---
+
+### Coleção no Firestore
+
+A coleção `indicacoes` armazena os códigos de indicação gerados pelos usuários e o número de downloads realizados por cada código.  
+Isso garante **rastreamento automático**, **persistência em nuvem** e **atualização em tempo real** das bonificações.
+
+| **Campo** | **Tipo** | **Descrição** |
+| :--- | :--- | :--- |
+| **usuario** | String | Nome ou ID do usuário que gerou o código |
+| **codigo** | String | Código de indicação gerado automaticamente |
+| **downloads** | Number | Quantidade de downloads feitos com o código |
+| **bonificacao** | Number | Valor total da bonificação acumulada |
+| **createdAt** | String | Data e hora em que o código foi criado |
+
+---
+
+## Código-fonte
+
+Implementado em:  
+- `app/(tabs)/indicacao.tsx` → Tela de Indicação  
+- `src/firebase.js` → Configuração do Firebase  
+
+---
+
+## Comentários
+
+A tela foi integrada ao **Firebase Firestore**, permitindo gerar códigos únicos, contabilizar downloads e calcular automaticamente as bonificações.  
+A sincronização em nuvem garante que os dados de indicação fiquem atualizados entre todos os dispositivos do usuário.
+
+
+
