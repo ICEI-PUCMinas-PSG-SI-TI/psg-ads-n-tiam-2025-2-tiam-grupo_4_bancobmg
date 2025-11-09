@@ -283,16 +283,13 @@ A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem 
 
 
 ---
-# **Mariana Martins**
-
-## **Requisitos Funcionais**
-
+#### **Mariana Martins**
 - **RF-011:** O sistema deve permitir ao usuário **copiar um código de indicação exclusivo**.  
 - **RF-012:** O sistema deve **contabilizar o número de downloads e bonificação** realizados por meio do código de indicação.  
 
 ---
 
-## **Coleção no Firestore**
+### **Coleção no Firestore**
 
 A coleção **`indicacoes`** armazena os códigos de indicação gerados pelos usuários e o número de downloads realizados por cada código.  
 Isso garante **rastreamento automático**, **persistência em nuvem** e **atualização em tempo real** das bonificações.
