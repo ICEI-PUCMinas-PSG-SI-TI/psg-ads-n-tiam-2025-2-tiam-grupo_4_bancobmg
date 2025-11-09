@@ -340,6 +340,8 @@ const db = getFirestore(app);
 
 export { db };
 ---
+
+
 #### Mariana Martins
 
 - **RF-011:** O sistema deve permitir ao usuário **copie um código de indicação exclusivo**.  
