@@ -292,7 +292,7 @@ A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem 
 ### **Coleção no Firestore**
 
 A coleção **`indicacoes`** armazena os códigos de indicação gerados pelos usuários e o número de downloads realizados por cada código.  
-Isso garante **rastreamento automático**, **persistência em nuvem** e **atualização em tempo real** das bonificações.
+Isso garante **rastreamento automático** e **atualização em tempo real** das bonificações.
 
 | **Campo** | **Tipo** | **Descrição** |
 | :--- | :--- | :--- |
@@ -314,8 +314,8 @@ Implementado em:
 
 ## **Comentários**
 
-A tela foi integrada ao **Firebase Firestore**, permitindo gerar códigos únicos, contabilizar downloads e calcular automaticamente as bonificações.  
-A **sincronização em nuvem** garante que os dados de indicação fiquem atualizados entre todos os dispositivos do usuário.
+A tela foi integrada ao **Firebase Firestore**, permitindo gerar códigos, contabilizar downloads e calcular automaticamente as bonificações.  
+A **sincronização em nuvem** garante que os dados de indicação fiquem atualizados entre todos os dispositivos.
 
 ---
 #### Gabriela Cristina
