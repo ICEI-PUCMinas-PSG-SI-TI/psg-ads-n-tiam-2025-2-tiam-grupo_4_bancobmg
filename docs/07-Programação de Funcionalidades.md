@@ -266,12 +266,10 @@ Implementado em:
 ---
 
 Quadro de Gestão
-Ferramenta: Trello ou GitHub Projects Status:
 
-- RF-001 ✅ Concluído (Cadastro de usuários com validação de CPF)
-- RF-015 ✅ Concluído (Login de usuários por CPF)
-- RF-016 ✅ Concluído (Recuperação de senha por CPF)
-- RF-017 ✅ Concluído (Autenticação e vínculo de dados do usuário)
+- RF-007 ✅ Concluído
+- RF-018 ✅ Concluído
+- RF-019 ✅ Concluído
   
 | Membro | Função | Contribuição |
 |---------|--------|--------------|
