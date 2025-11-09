@@ -339,19 +339,23 @@ if (!getApps().length) {
 const db = getFirestore(app);
 
 export { db };
+
+
+---
+# **Mariana Martins**
+
 ---
 
+## **Requisitos Funcionais**
 
-#### Mariana Martins
-
-- **RF-011:** O sistema deve permitir ao usuário **copie um código de indicação exclusivo**.  
+- **RF-011:** O sistema deve permitir ao usuário **copiar um código de indicação exclusivo**.  
 - **RF-012:** O sistema deve **contabilizar o número de downloads e bonificação** realizados por meio do código de indicação.  
 
 ---
 
-### Coleção no Firestore
+## **Coleção no Firestore**
 
-A coleção `indicacoes` armazena os códigos de indicação gerados pelos usuários e o número de downloads realizados por cada código.  
+A coleção **`indicacoes`** armazena os códigos de indicação gerados pelos usuários e o número de downloads realizados por cada código.  
 Isso garante **rastreamento automático**, **persistência em nuvem** e **atualização em tempo real** das bonificações.
 
 | **Campo** | **Tipo** | **Descrição** |
@@ -364,7 +368,7 @@ Isso garante **rastreamento automático**, **persistência em nuvem** e **atuali
 
 ---
 
-## Código-fonte
+## **Código-fonte**
 
 Implementado em:  
 - `app/(tabs)/indicacao.tsx` → Tela de Indicação  
@@ -372,10 +376,8 @@ Implementado em:
 
 ---
 
-## Comentários
+## **Comentários**
 
 A tela foi integrada ao **Firebase Firestore**, permitindo gerar códigos únicos, contabilizar downloads e calcular automaticamente as bonificações.  
-A sincronização em nuvem garante que os dados de indicação fiquem atualizados entre todos os dispositivos do usuário.
-
-
+A **sincronização em nuvem** garante que os dados de indicação fiquem atualizados entre todos os dispositivos do usuário.
 
