@@ -26,7 +26,10 @@
 | **CT15** | Deferir Solicitação | Selecionar o botão de Aceitar ou Negar solicitação | Altera o estado da solicitação e atualiza no banco de dados | **Sucesso**  | Nitai |
 | **CT16** | Carregar Saldos FGTS | Abrir página de Saldo | Carregar e exibir todos os Saldos FGTS registrados no sistema | **Sucesso**  | Nitai |
 | **CT17** | Alterar Saldo Manualmente | Alterar o Saldo de cliente registrado | Atualização do Saldo FGTS relacionado ao cliente | **Sucesso**  | Nitai |
-
+| **CT18** | Efetuar login | Fazer o login do cliente | Login feito com sucesso | **Sucesso**  | Lucas |
+| **CT19** | Efetuar Cadastro | Fazer o cadastro do cliente | Cadastro feito com sucesso | **Sucesso**  | Lucas |
+| **CT20** | Efetuar Recuperar Senha | Recuperar a senha do cliente | senha recuperada com sucesso | **Sucesso**  | Lucas |
+| **CT21** | Efetuar cadastro com senha fraca | Colocar uma senha fraca para impedir o cadastro | Cadastro não efetuado | **Sucesso**  | Lucas |
 
 
 ## CT01 – Carregar conta existente
@@ -138,6 +141,34 @@ Resultado: Aceitar as solicitações retirou corretamente o saldo da conta respe
 
 <img alt="Image" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/806c89b609f5e64c0938536644623afa999656ff/docs/img/CT14151617.gif" />
 
+## CT18 – Efetuar Login
+
+Descrição: Ao colocar o CPF e a senha, ao clicar em "Entrar" o usuario tera feito o login com sucesso
+Resultado: Login efetuado com sucesso
+
+<img width="419" height="925" alt="Captura de tela 2025-11-14 130913" src="https://github.com/user-attachments/assets/2bacd822-3b4d-4ba6-b75f-68329cf42f65" />
+
+## CT19 – Efetuar Cadastro
+
+Descrição: Ao colocar o Nome completo, CPF, Email, a senha e confirmar a senha e clicar em "Cadastrar" o usuario tera feito o cadastro com sucesso
+Resultado: Cadastro efetuado com sucesso
+
+<img width="418" height="921" alt="Captura de tela 2025-11-14 131011" src="https://github.com/user-attachments/assets/634f917d-8d1f-47c5-a690-1564acff6a58" />
+
+## CT19 – Efetuar Recuperação de Senha
+
+Descrição: Ao colocar o CPF e clicar em "Enviar link", um email chegara na conta do usuario para ele recuperar sua senha.
+Resultado: Recuperação efetuado com sucesso
+
+<img width="418" height="904" alt="Captura de tela 2025-11-14 131029" src="https://github.com/user-attachments/assets/43a20e56-9c8d-4e12-8cfe-f6f9a5d30ec2" />
+
+
+## CT21 – Efetuar Cadastro Senha Fraca
+
+Descrição: Ao colocar o Nome completo, CPF, Email, a senha fraca e confirmar a senha fraca e clicar em "Cadastrar" o usuario nao conseguirá efetuar o cadastro por conta da senha fraca
+Resultado: Cadastro não efetuado
+
+<img width="421" height="925" alt="Captura de tela 2025-11-14 130956" src="https://github.com/user-attachments/assets/9f55c816-7718-4602-ae6d-2cf70a0a51e0" />
 
 
 ## Conclusão
