@@ -7,7 +7,6 @@ import {
   Image,
   TextInput,
   Alert,
-  Linking,
 } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import { StatusBar } from "expo-status-bar";
@@ -17,36 +16,52 @@ import { db } from "../../config/firebaseConfig";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export default function IndexScreen() {
-  const link = "https://acert.com/indique123";
   const valorPorIndicacao = 10;
   const [totalIndicacoes, setTotalIndicacoes] = useState(0);
+  const [link, setLink] = useState("");
 
-  // Registrar indicação no Firestore
-  const registrarIndicacao = async () => {
+  // Gera um novo link único
+  const gerarLink = () => {
+    const codigo = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const novoLink = `https://acert.com/indique-${codigo}`;
+    setLink(novoLink);
+  };
+
+  // Registrar indicação no Firestore — aceita linkOpcional ou usa o state 'link'
+  const registrarIndicacao = async (linkOpcional = link) => {
+    if (!linkOpcional) {
+      Alert.alert("Erro", "Link inválido ao registrar indicação.");
+      return;
+    }
+
     try {
       await addDoc(collection(db, "indicacoes"), {
-        link,
-        data: new Date().toISOString(),
+        link: linkOpcional,
+        data: new Date(), // salva como Timestamp
       });
-      buscarIndicacoes(); 
+      await buscarIndicacoes();
     } catch (error) {
-      console.error("Erro ao registrar:", error);
-      Alert.alert("Erro", "Não foi possível registrar a indicação.");
+      console.error("Erro ao registrar indicação:", error);
+      Alert.alert("Erro ao registrar indicação", String(error));
     }
   };
 
-  // Copiar link
+  // Copiar link: copia, registra e gera novo link
   const copiarLink = async () => {
-    await Clipboard.setStringAsync(link);
-    Alert.alert("Link copiado!", "O link foi copiado para sua área de transferência.");
-    await registrarIndicacao();
-  };
+    if (!link) {
+      Alert.alert("Aviso", "Ainda não há link gerado. Tente novamente.");
+      return;
+    }
 
-  // Abrir WhatsApp
-  const abrirWhatsApp = async () => {
-    await registrarIndicacao();
-    const url = "https://wa.me/?text=" + encodeURIComponent(`Conheça a Acert! ${link}`);
-    Linking.openURL(url);
+    try {
+      await Clipboard.setStringAsync(link);
+      Alert.alert("Link copiado!", "O link foi copiado para sua área de transferência.");
+      await registrarIndicacao(link);
+      gerarLink();
+    } catch (error) {
+      console.error("Erro ao copiar link:", error);
+      Alert.alert("Erro", String(error));
+    }
   };
 
   // Buscar total de indicações
@@ -59,8 +74,26 @@ export default function IndexScreen() {
     }
   };
 
+  // Inicialização
   useEffect(() => {
+    gerarLink();
     buscarIndicacoes();
+  }, []);
+
+ 
+  useEffect(() => {
+    Alert.alert(
+      "Lembrete ✨",
+      "Não se esqueça de indicar um amigo hoje e ganhar R$10 por cada indicação!",
+      [{ text: "Ok" }]
+    );
+  }, []);
+
+  
+  useEffect(() => {
+    const hora = new Date().getHours();
+    const saudacao = hora < 12 ? "Bom dia! ☀️" : hora < 18 ? "Boa tarde! 🌤️" : "Boa noite! 🌙";
+    Alert.alert(saudacao, "Seja bem-vindo(a) ao programa de indicações da Acert!");
   }, []);
 
   const totalGanho = totalIndicacoes * valorPorIndicacao;
@@ -81,17 +114,15 @@ export default function IndexScreen() {
       {/* Título */}
       <Text style={styles.title}>INDIQUE A ACERT</Text>
 
-      {/* Texto combinado (convite + valor ganho) */}
+      {/* Texto explicativo */}
       <Text style={styles.description}>
         Convide seus amigos para conhecer a Acert e ganhe R$ {valorPorIndicacao},00 por cada indicação!
       </Text>
 
-      {/* Contador de indicações */}
+      {/* Contadores */}
       <Text style={[styles.description, { marginBottom: 10 }]}>
         Total de indicações: {totalIndicacoes}
       </Text>
-
-      {/* Valor total */}
       <Text style={[styles.description, { marginBottom: 30 }]}>
         Total ganho: R$ {totalGanho},00
       </Text>
@@ -103,15 +134,6 @@ export default function IndexScreen() {
           <Text style={styles.buttonText}>Copiar link</Text>
         </TouchableOpacity>
       </View>
-
-      {/* Botão do WhatsApp */}
-      <TouchableOpacity style={styles.whatsappButton} onPress={abrirWhatsApp}>
-        <Image
-          source={require("../../assets/images/whatsapp-icon.png")}
-          style={styles.whatsappImage}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
     </LinearGradient>
   );
 }
@@ -159,7 +181,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: { color: "#000", fontSize: 18, fontWeight: "bold" },
-  whatsappButton: { alignItems: "center", marginTop: 20 },
-  whatsappImage: { width: 60, height: 60 },
 });
 
