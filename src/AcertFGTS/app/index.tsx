@@ -205,7 +205,7 @@ export default function LoginScreen() {
         <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
             {/* IMAGEM LOCAL - AUMENTADA PARA 300x300 */}
             <Image 
-                source={require('./canvas.png')} 
+                source={require('./docs/img/LogoAcert.png')} 
                 style={{ width: 300, height: 300 }} 
                 resizeMode="contain" 
             />
