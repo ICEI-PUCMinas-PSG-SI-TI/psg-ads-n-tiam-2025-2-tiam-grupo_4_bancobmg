@@ -1,121 +1,174 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
   Text,
   View,
   TextInput,
   TouchableOpacity,
-  Image,
   SafeAreaView,
   StatusBar,
   KeyboardAvoidingView,
   Platform,
   Alert,
-  ActivityIndicator, // Adicionado para feedback de carregamento
+  ActivityIndicator,
+  Animated,
+  Easing,
+  Dimensions,
+  Image, 
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
 
-// --- IMPORTS DO FIREBASE ---
+// --- IMPORTS DO FIREBASE (Descomente para usar no projeto real) ---
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, getDocs, limit } from "firebase/firestore";
-import { auth, db } from "../firebaseConfig"; // Importa auth e db do seu config
-// --- FIM DOS IMPORTS ---
+import { auth, db } from "./firebaseConfig"; 
 
-//Função para formatar o CPF
+// --- FUNÇÕES AUXILIARES ---
 const formatCPF = (value: string) => {
-  // Remove tudo que não for dígito
-  const numericValue = value.replace(/[^\d]/g, "");
-  const truncatedValue = numericValue.slice(0, 11);
-  // Aplica a máscara
-  if (truncatedValue.length > 9) {
-    return truncatedValue.replace(
-      /(\d{3})(\d{3})(\d{3})(\d{2})/,
-      "$1.$2.$3-$4"
-    );
-  } else if (truncatedValue.length > 6) {
-    return truncatedValue.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3");
-  } else if (truncatedValue.length > 3) {
-    return truncatedValue.replace(/(\d{3})(\d{3})/, "$1.$2");
-  }
-  return truncatedValue;
+  const v = value.replace(/\D/g, "").slice(0, 11);
+  if (v.length > 9) return v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+  if (v.length > 6) return v.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3");
+  if (v.length > 3) return v.replace(/(\d{3})(\d{3})/, "$1.$2");
+  return v;
 };
 
+const { height } = Dimensions.get('window');
+
 export default function LoginScreen() {
+  // Estados
   const [cpf, setCpf] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [loading, setLoading] = useState(false); // Estado de carregamento
+  const [loading, setLoading] = useState(false);
+  
+  // Estados da Splash Screen
+  const [appIsReady, setAppIsReady] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(1)).current; // Opacidade da Splash
+  const scaleAnim = useRef(new Animated.Value(0.9)).current; // Pulsação do Logo na Splash
+
+  // Animações de Entrada da Tela de Login
+  const loginLogoY = useRef(new Animated.Value(-50)).current; // Logo vem de cima
+  const loginLogoOpacity = useRef(new Animated.Value(0)).current;
+
+  const loginInputY = useRef(new Animated.Value(50)).current; // Inputs vêm de baixo
+  const loginInputOpacity = useRef(new Animated.Value(0)).current;
+
+  const loginButtonY = useRef(new Animated.Value(50)).current; // Botões vêm de baixo (com delay)
+  const loginButtonOpacity = useRef(new Animated.Value(0)).current;
+
   const router = useRouter();
 
-  // Criando um handler para atualizar o estado com o CPF formatado
+  // --- EFEITO 1: SPLASH SCREEN ---
+  useEffect(() => {
+    // Animação de "Respiração" do Logo
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(scaleAnim, {
+          toValue: 1.1,
+          duration: 1500,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(scaleAnim, {
+          toValue: 0.9,
+          duration: 1500,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+
+    // Simula carregamento e transição
+    const timer = setTimeout(() => {
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 800,
+        useNativeDriver: true,
+      }).start(() => {
+        setAppIsReady(true);
+      });
+    }, 3500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // --- EFEITO 2: ENTRADA DOS ELEMENTOS DE LOGIN ---
+  useEffect(() => {
+    if (appIsReady) {
+      // Sequência de Animações (Stagger)
+      Animated.parallel([
+        // 1. Logo desce suavemente
+        Animated.timing(loginLogoOpacity, { toValue: 1, duration: 800, useNativeDriver: true }),
+        Animated.spring(loginLogoY, { toValue: 0, friction: 6, useNativeDriver: true }),
+
+        // 2. Inputs sobem (com pequeno delay)
+        Animated.sequence([
+            Animated.delay(200),
+            Animated.parallel([
+                Animated.timing(loginInputOpacity, { toValue: 1, duration: 600, useNativeDriver: true }),
+                Animated.spring(loginInputY, { toValue: 0, friction: 7, useNativeDriver: true }),
+            ])
+        ]),
+
+        // 3. Botões sobem (com mais delay)
+        Animated.sequence([
+            Animated.delay(400),
+            Animated.parallel([
+                Animated.timing(loginButtonOpacity, { toValue: 1, duration: 600, useNativeDriver: true }),
+                Animated.spring(loginButtonY, { toValue: 0, friction: 7, useNativeDriver: true }),
+            ])
+        ])
+      ]).start();
+    }
+  }, [appIsReady]);
+
   const handleCpfChange = (text: string) => {
-    const formattedCpf = formatCPF(text);
-    setCpf(formattedCpf);
+    setCpf(formatCPF(text));
   };
 
+  // --- LÓGICA DE LOGIN ---
   const handleLogin = async () => {
-    // Adicionar logica de validação
-    // Exemplo simples:
     if (!cpf || !senha) {
       Alert.alert("Erro", "Por favor, preencha o CPF e a senha.");
       return;
     }
-
-    console.log("Tentando logar com:");
-    console.log("CPF:", cpf);
-    console.log("Senha:", senha);
+    setLoading(true);
 
     try {
-      // --- PASSO 1: Achar o E-mail usando o CPF ---
+      // Lógica Firebase
       const cpfLimpo = cpf.replace(/[^\d]/g, "");
       const AdmRef = collection(db, "administradores");
       const clientesRef = collection(db, "clientes");
 
-      // Cria a consulta: "SELECT * FROM administradores WHERE cpf == cpfLimpo LIMIT 1"
-      const q1 = query(AdmRef, where("cpf", "==", cpfLimpo), limit(1));
-      const querySnapshot1 = await getDocs(q1);
-
-      // Cria a consulta: "SELECT * FROM clientes WHERE cpf == cpfLimpo LIMIT 1"
-      const q2 = query(clientesRef, where("cpf", "==", cpfLimpo), limit(1));
-      const querySnapshot2 = await getDocs(q2);
+      const [querySnapshot1, querySnapshot2] = await Promise.all([
+        getDocs(query(AdmRef, where("cpf", "==", cpfLimpo), limit(1))),
+        getDocs(query(clientesRef, where("cpf", "==", cpfLimpo), limit(1)))
+      ]);
 
       if (querySnapshot1.empty && querySnapshot2.empty) {
-        // Se não achou o CPF
         Alert.alert("Erro", "CPF não encontrado.");
         setLoading(false);
         return;
       }
 
-      var IsAdm = false;
-      // Se achou, pegue o e-mail do documento
-      var uData;
-      var emailDoUsuario;
-      if (querySnapshot2.empty)
-      {
-        // Dados do Administrador
+      let IsAdm = false;
+      let uData;
+      let emailDoUsuario;
+
+      if (!querySnapshot1.empty) {
         uData = querySnapshot1.docs[0].data();
         emailDoUsuario = uData.email;
         IsAdm = true;
-      }
-      else
-      {
-        // Dados do Cliente
-        // Dados do Administrador
+      } else {
         uData = querySnapshot2.docs[0].data();
         emailDoUsuario = uData.email;
         IsAdm = false;
       }
 
-      // --- PASSO 2: Fazer login no FIREBASE AUTH com o E-mail encontrado ---
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        emailDoUsuario,
-        senha
-      );
-
-      // --- PASSO 3: Salvar o Token e dados do usuário ---
+      const userCredential = await signInWithEmailAndPassword(auth, emailDoUsuario, senha);
       const token = await userCredential.user.getIdToken();
       await AsyncStorage.setItem("@user_token", token);
 
@@ -126,122 +179,162 @@ export default function LoginScreen() {
       };
       await AsyncStorage.setItem("@user_data", JSON.stringify(userData));
 
-      // --- SUCESSO! ----
-      // Use 'replace' para o usuário não poder "voltar" para a tela de login
-      if (IsAdm)
-        router.replace("/ADM/home_ADM" as any);
-      else
-        router.replace("/home" as any);
+      if (IsAdm) router.replace("/ADM/home_ADM" as any);
+      else router.replace("/home" as any);
     } catch (error: any) {
-      if (
-        error.code === "auth/wrong-password" ||
-        error.code === "auth/invalid-credential"
-      ) {
-        Alert.alert("Erro", "Senha incorreta.");
-      } else {
-        console.error(error);
-        Alert.alert("Erro", "Não foi possível fazer login.");
-      }
+      console.error(error);
+      Alert.alert("Login", "Erro ao conectar. Verifique suas credenciais.");
     } finally {
-      setLoading(false); // Desativa o carregamento
+      setLoading(false);
     }
-    /* 
-    // Se a validação for bem-sucedida, navegue para a tela principal.
-    if (cpf == "999.999.999-99" && senha == "99999999999") 
-      router.push("/ADM/home_ADM" as any);
-    else
-      router.push("/home" as any);
-    setLoading(true); // Ativa o carregamento
-    */
   };
 
+  // --- RENDER 1: SPLASH SCREEN ---
+  if (!appIsReady) {
+    return (
+      <Animated.View style={[styles.splashContainer, { opacity: fadeAnim }]}>
+        <StatusBar barStyle="light-content" backgroundColor="#000" />
+        
+        <LinearGradient
+          colors={['#1F1F1F', '#000000']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
+          style={StyleSheet.absoluteFill}
+        />
+        
+        <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
+            {/* IMAGEM LOCAL - AUMENTADA PARA 300x300 */}
+            <Image 
+                source={require('./canvas.png')} 
+                style={{ width: 300, height: 300 }} 
+                resizeMode="contain" 
+            />
+        </Animated.View>
+        
+        <View style={{ marginTop: 50, alignItems: 'center' }}>
+            <ActivityIndicator size="large" color="#FFC107" />
+            <Text style={styles.loadingText}>CARREGANDO</Text>
+        </View>
+      </Animated.View>
+    );
+  }
+
+  // --- RENDER 2: TELA DE LOGIN ---
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#000" />
+      
+      <LinearGradient
+        colors={['#2C2C2C', '#121212', '#000000']} 
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={StyleSheet.absoluteFill}
+      />
 
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.keyboardView}
       >
-        <View style={styles.logoContainer}>
-          <Image
-            source={require("../assets/images/logo.png")}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-        </View>
-
-        <Text style={styles.title}>LOGIN</Text>
-
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>CPF</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="000.000.000-00"
-            placeholderTextColor="#999"
-            keyboardType="numeric"
-            value={cpf}
-            onChangeText={handleCpfChange}
-            maxLength={14} //11 números + 2 pontos + 1 traço
-          />
-        </View>
-
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Senha</Text>
-          <View style={styles.passwordInputContainer}>
-            <TextInput
-              style={styles.passwordInputField}
-              placeholder="Digite sua senha"
-              placeholderTextColor="#999"
-              value={senha}
-              onChangeText={setSenha}
-              secureTextEntry={!isPasswordVisible}
+        {/* Logo Animado */}
+        <Animated.View style={[
+            styles.logoContainer, 
+            { opacity: loginLogoOpacity, transform: [{ translateY: loginLogoY }] }
+        ]}>
+            {/* IMAGEM LOCAL - Usando estilo 'logo' aumentado */}
+            <Image 
+                source={require('./canvas.png')} 
+                style={styles.logo} 
+                resizeMode="contain" 
             />
+        </Animated.View>
+
+        {/* Inputs Animados */}
+        <Animated.View style={{ 
+            width: '100%', 
+            opacity: loginInputOpacity, 
+            transform: [{ translateY: loginInputY }] 
+        }}>
+            <View style={styles.inputGroup}>
+            <Text style={styles.label}>CPF</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="000.000.000-00"
+                placeholderTextColor="#999"
+                keyboardType="numeric"
+                value={cpf}
+                onChangeText={handleCpfChange}
+                maxLength={14}
+                editable={!loading}
+            />
+            </View>
+
+            <View style={styles.inputGroup}>
+            <Text style={styles.label}>Senha</Text>
+            <View style={styles.passwordInputContainer}>
+                <TextInput
+                style={styles.passwordInputField}
+                placeholder="Digite sua senha"
+                placeholderTextColor="#999"
+                value={senha}
+                onChangeText={setSenha}
+                secureTextEntry={!isPasswordVisible}
+                editable={!loading}
+                />
+                <TouchableOpacity
+                onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+                disabled={loading}
+                >
+                <Ionicons
+                    name={isPasswordVisible ? "eye-off" : "eye"}
+                    size={24}
+                    color="#888"
+                    style={styles.eyeIcon}
+                />
+                </TouchableOpacity>
+            </View>
+            </View>
+        </Animated.View>
+
+        {/* Botões Animados */}
+        <Animated.View style={{ 
+            width: '100%', 
+            alignItems: 'center',
+            opacity: loginButtonOpacity, 
+            transform: [{ translateY: loginButtonY }] 
+        }}>
             <TouchableOpacity
-              onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-              disabled={loading} // Desativa o botão de olho durante o carregamento
+            style={[styles.button, loading && { opacity: 0.7 }]}
+            onPress={handleLogin}
+            disabled={loading}
             >
-              <Ionicons
-                name={isPasswordVisible ? "eye-off" : "eye"}
-                size={24}
-                color="#888"
-                style={styles.eyeIcon}
-              />
+            {loading ? (
+                <ActivityIndicator size="small" color="#000" />
+            ) : (
+                <Text style={styles.buttonText}>ENTRAR</Text>
+            )}
             </TouchableOpacity>
-          </View>
-        </View>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleLogin}
-          disabled={loading} // Desativa o botão durante o carregamento
-        >
-          {loading ? (
-            <ActivityIndicator size="small" color="#000" />
-          ) : (
-            <Text style={styles.buttonText}>ENTRAR</Text>
-          )}
-        </TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => router.push("/cadastro" as any)}
+            disabled={loading}
+            >
+            <Text style={styles.linkText}>Cadastro</Text>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => router.push("/cadastro" as any)}
-          disabled={loading}
-        >
-          <Text style={styles.linkText}>Cadastro</Text>
-        </TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => router.push("/recuperar-senha" as any)}
+            disabled={loading}
+            >
+            <Text style={styles.linkText}>Esqueci minha senha</Text>
+            </TouchableOpacity>
+        </Animated.View>
 
-        <TouchableOpacity
-          onPress={() => router.push("/recuperar-senha" as any)}
-          disabled={loading}
-        >
-          <Text style={styles.linkText}>Esqueci minha senha</Text>
-        </TouchableOpacity>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
 
-// Seus estilos (idênticos ao que você postou)
+// --- ESTILOS ---
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -254,17 +347,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   logoContainer: {
-    marginBottom: 30,
+    marginBottom: 50,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
   logo: {
-    width: 120,
-    height: 120,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#FFF",
-    marginBottom: 30,
+      width: 320, // Aumentado para 320 (era 200)
+      height: 180, // Aumentado para 180 (era 100)
   },
   inputGroup: {
     width: "100%",
@@ -273,27 +364,34 @@ const styles = StyleSheet.create({
   label: {
     color: "#FFF",
     fontSize: 14,
-    marginBottom: 5,
+    marginBottom: 8,
     textAlign: "left",
     width: "100%",
+    fontWeight: "600",
+    letterSpacing: 0.5,
+    marginLeft: 2,
   },
   input: {
     width: "100%",
-    height: 50,
-    backgroundColor: "#FFF",
-    borderRadius: 8,
+    height: 55,
+    backgroundColor: "rgba(255,255,255,0.95)",
+    borderRadius: 10,
     paddingHorizontal: 15,
     fontSize: 16,
     color: "#333",
+    borderWidth: 1,
+    borderColor: "#FFF",
   },
   passwordInputContainer: {
     width: "100%",
-    height: 50,
-    backgroundColor: "#FFF",
-    borderRadius: 8,
+    height: 55,
+    backgroundColor: "rgba(255,255,255,0.95)",
+    borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 15,
+    borderWidth: 1,
+    borderColor: "#FFF",
   },
   passwordInputField: {
     flex: 1,
@@ -305,22 +403,45 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "100%",
-    height: 50,
+    height: 55,
     backgroundColor: "#FFC107",
-    borderRadius: 8,
+    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 30,
     marginBottom: 20,
+    shadowColor: "#FFC107",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
   },
   buttonText: {
     color: "#000",
     fontSize: 18,
     fontWeight: "bold",
+    letterSpacing: 1,
   },
   linkText: {
     color: "#FFC107",
-    fontSize: 16,
-    marginTop: 10,
+    fontSize: 15,
+    marginTop: 15,
+    fontWeight: "500",
+    letterSpacing: 0.5,
   },
+  // Splash Styles
+  splashContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "#000",
+    zIndex: 100,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  loadingText: {
+    color: "#FFC107",
+    marginTop: 20,
+    fontWeight: "bold",
+    letterSpacing: 3,
+    fontSize: 14,
+  }
 });
