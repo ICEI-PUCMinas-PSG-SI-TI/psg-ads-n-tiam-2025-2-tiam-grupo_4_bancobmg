@@ -131,7 +131,7 @@ export default function LoginScreen() {
 
       // --- SUCESSO! ----
       // Use 'replace' para o usuário não poder "voltar" para a tela de login
-      router.replace("/Home" as any);
+      router.replace("../Home" as any);
     } catch (error: any) {
       if (
         error.code === "auth/wrong-password" ||
@@ -206,10 +206,7 @@ export default function LoginScreen() {
         </View>
 
         <TouchableOpacity
-          style={[
-            styles.button,
-            loading && styles.buttonDisabled
-          ]}
+          style={[styles.button, loading && styles.buttonDisabled]}
           onPress={handleLogin}
           disabled={loading}
         >

@@ -1,32 +1,32 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { LinearGradient } from "expo-linear-gradient";
-import { useRouter } from "expo-router";
+import { useRouter, useFocusEffect } from "expo-router"; // Importar useFocusEffect
 import { collection, getDocs, limit, query, where } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react"; // Importar useCallback
 import {
-    ActivityIndicator,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { db } from "../firebaseConfig";
-import colors from "./styles/colors";
+import { FontAwesome } from "@expo/vector-icons"; // Para icone caso nao tenha foto
+import { auth, db } from "../../firebaseConfig"; // Importar auth
+import colors from "../styles/colors";
 
 export default function HomeScreen() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saldo, setSaldo] = useState<number>(0);
 
-  const carregarSaldo = async () => {
+  // Novos estados para perfil
+  const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
+  const [nomeUsuario, setNomeUsuario] = useState("Usuário");
+
+  // Função para buscar o saldo no Firestore
+  const carregarSaldo = async (userId: string) => {
     try {
-      const userData = await AsyncStorage.getItem("@user_data");
-      if (!userData) return;
-
-      const user = JSON.parse(userData);
-      const userId = user.uid;
-
       const saldoRef = collection(db, "saldos_fgts");
       const q = query(saldoRef, where("id_cliente", "==", userId), limit(1));
       const resultado = await getDocs(q);
@@ -37,14 +37,42 @@ export default function HomeScreen() {
       }
     } catch (e) {
       console.log("Erro ao carregar saldo:", e);
-    } finally {
-      setLoading(false);
     }
   };
 
-  useEffect(() => {
-    carregarSaldo();
-  }, []);
+  // useFocusEffect executa toda vez que a tela ganha foco (ex: voltando da aba Perfil)
+  useFocusEffect(
+    useCallback(() => {
+      const carregarDados = async () => {
+        setLoading(true);
+        try {
+          // 1. Pega dados frescos do Auth (Foto e Nome)
+          const user = auth.currentUser;
+
+          if (user) {
+            setFotoPerfil(user.photoURL);
+            setNomeUsuario(user.displayName || "Usuário");
+
+            // 2. Carrega o saldo usando o ID do Auth
+            await carregarSaldo(user.uid);
+          } else {
+            // Fallback se não tiver auth (ex: usar AsyncStorage antigo)
+            const userData = await AsyncStorage.getItem("@user_data");
+            if (userData) {
+              const parsedUser = JSON.parse(userData);
+              await carregarSaldo(parsedUser.uid);
+            }
+          }
+        } catch (e) {
+          console.log("Erro geral:", e);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      carregarDados();
+    }, [])
+  );
 
   const formatar = (valor: number) =>
     valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -57,7 +85,7 @@ export default function HomeScreen() {
       {/* Header Logo */}
       <View style={styles.header}>
         <Image
-          source={require("../assets/images/logo.png")}
+          source={require("../../assets/images/logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -69,8 +97,18 @@ export default function HomeScreen() {
       {/* Card principal */}
       <View style={styles.card}>
         <View style={styles.cardHeader}>
-          <View style={styles.profileImage} />
-          <Text style={styles.profileName}>Olá, Usuário!</Text>
+          {/* Lógica da Imagem de Perfil */}
+          <View style={styles.imageContainer}>
+            {fotoPerfil ? (
+              <Image source={{ uri: fotoPerfil }} style={styles.profileImage} />
+            ) : (
+              <View style={[styles.profileImage, styles.placeholderImage]}>
+                <FontAwesome name="user" size={35} color="#888" />
+              </View>
+            )}
+          </View>
+
+          <Text style={styles.profileName}>Olá, {nomeUsuario}!</Text>
         </View>
 
         <View style={styles.cardBody}>
@@ -98,12 +136,14 @@ export default function HomeScreen() {
 
       {/* Container dos botões secundários */}
       <View style={styles.buttonsContainer}>
-        {/* Botão ALTERAR CONTA */}
+        {/* Botão ALTERAR CONTA (Agora leva para a aba, se preferir) */}
         <TouchableOpacity
           style={styles.whiteButton}
-          onPress={() => router.push("/AlterarConta")}
+          onPress={() => router.push("/(tabs)/AlterarConta")}
         >
-          <Text style={styles.whiteButtonText}>Alterar conta de recebimento</Text>
+          <Text style={styles.whiteButtonText}>
+            Alterar conta de recebimento
+          </Text>
         </TouchableOpacity>
 
         {/* Botão INDICAR ACERT */}
@@ -160,12 +200,28 @@ const styles = StyleSheet.create({
     borderBottomColor: "#333",
   },
 
+  imageContainer: {
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
+  },
+
   profileImage: {
     width: 75,
     height: 75,
-    borderRadius: 38,
+    borderRadius: 38, // Metade da largura para ser redondo
     backgroundColor: "#444",
-    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: colors.yellow, // Borda amarela para destacar
+  },
+
+  placeholderImage: {
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#555",
   },
 
   profileName: {
@@ -208,7 +264,7 @@ const styles = StyleSheet.create({
   },
 
   buttonsContainer: {
-    marginTop: 15,      
+    marginTop: 15,
     alignItems: "center",
     gap: 15,
   },
