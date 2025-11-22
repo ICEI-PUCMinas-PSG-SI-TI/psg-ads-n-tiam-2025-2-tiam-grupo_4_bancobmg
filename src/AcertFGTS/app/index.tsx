@@ -102,7 +102,6 @@ export default function LoginScreen() {
       else
       {
         // Dados do Cliente
-        // Dados do Administrador
         uData = querySnapshot2.docs[0].data();
         emailDoUsuario = uData.email;
         IsAdm = false;
