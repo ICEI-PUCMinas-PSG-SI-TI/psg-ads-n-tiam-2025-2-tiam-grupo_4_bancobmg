@@ -1,20 +1,16 @@
-// src/services/firebase.js
-import { initializeApp, getApps } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// Substitua pelos valores do seu Firebase (copie do console)
 const firebaseConfig = {
-  apiKey: "AIzaSyCQUqoF9hvzRZh8BQlHyziAN_OZneKxGyg",
-  authDomain: "backbmg.firebaseapp.com",
-  projectId: "backbmg",
-  storageBucket: "backbmg.firebasestorage.app",
-  messagingSenderId: "181160227579",
-  appId: "1:181160227579:web:cf2ef9db7f1a4236daf65e",
-  measurementId: "G-11RV1Z5L4F"
+  apiKey: "AIzaSyAlUStEYMljcmngnygtL2L4SV0L61Q9wKI",
+  authDomain: "acertfgts.firebaseapp.com",
+  projectId: "acertfgts",
+  storageBucket: "acertfgts.firebasestorage.app",
+  messagingSenderId: "754475243879",
+  appId: "1:754475243879:web:52c09cd91d27b8c1e7b7c2",
+  measurementId: "G-PY1X5FB0XZ"
 };
 
-
-// Inicializa apenas uma vez
 let app;
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
@@ -25,3 +21,4 @@ if (!getApps().length) {
 const db = getFirestore(app);
 
 export { db };
+
