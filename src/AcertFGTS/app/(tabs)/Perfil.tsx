@@ -500,6 +500,14 @@ export default function PerfilScreen() {
               <MaterialIcons name="chevron-right" size={24} color="#666" />
             </TouchableOpacity>
 
+            {/* Botão Configurações avançadas */}
+            <TouchableOpacity 
+              style={styles.actionButton}
+              onPress={() => router.push("/Configuracao")}
+            >
+              <Text style={styles.actionText}>Configurações Avançadas</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.logoutButton}
               onPress={handleLogout}
