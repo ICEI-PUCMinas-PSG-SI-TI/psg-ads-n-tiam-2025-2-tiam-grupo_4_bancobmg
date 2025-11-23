@@ -1,163 +1,130 @@
-import { FlatList, View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from "react-native";
+import { FlatList, View, Text, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform } from "react-native";
 import React, { useState, useEffect } from "react";
 
 // --- IMPORTS DO FIREBASE ---
 import { Timestamp, doc, getDoc, addDoc, updateDoc, collection, query, where, getDocs, limit } from "firebase/firestore";
 import { auth, db } from "../../firebaseConfig"; // Importa auth e db do seu config
 
+type FGTSItem = {
+  id: string;
+  id_cliente: string;
+  valor: number;
+  // anything else you have
+};
+type FGTSMap = Record<string, FGTSItem>;
+
 export default function ADMFGTSManagement() {
 
   //Dados
-  const [Clientes, setClientes] = useState<any[]>([]);
+  const [Clientes, setClientes] = useState<Record<string, any>>({});
   const [FGTS, setFGTS] = useState<any[]>([]);
-  const [QueryType, setQueryType] = useState("cpf");
-  const [Query, setQuery] = useState("");
+  const [fgtsValues, setFgtsValues] = useState<Record<string, string>>({});
 
-  var CJ;
-
-  useEffect(() =>
-  {
+  useEffect(() => {
     RefreshClientes();
-    GetConjoined();
   }, [])
 
   const RefreshClientes = async () => {
     const CliDB = collection(db, "clientes");
     let res = await getDocs(CliDB);
-    const clientes = res.docs.map(doc => ({id: doc.id, ...doc.data()}));
+    const clientesArr = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    const clientes = Object.fromEntries(
+      clientesArr.map(c => [c.id, c])
+    );
 
     const fgtsDB = collection(db, "saldos_fgts");
     let res2 = await getDocs(fgtsDB);
-    const fgts = res2.docs.map(doc => ({id: doc.id, ...doc.data()}));
+    const fgts = res2.docs.map(doc => ({ id: doc.id, ...doc.data() })) as FGTSItem[];
 
+    const temp: Record<string, string> = {};
+    fgts.forEach(item => {
+      temp[item.id] = String(item.valor ?? "");
+    });
+
+    setFgtsValues(temp);
     setClientes(clientes);
     setFGTS(fgts);
-
-    CJ = GetConjoined();
-  }
-  
-  const ChangeStatus = async (item: any, Accept: boolean) =>
-  {
-    RefreshClientes();
-
-    console.log(item.id);
-    let ref = doc(db, "solicitacoes_saque", item.id);
-    const r = await getDoc(ref);
-    if (r.exists())
-    {
-      console.log("Updating status to " + item.status);
-      /*await updateDoc(ref, {
-        status: item.status
-      })//*/
-      if (Accept) // Actually take away the FGTS
-      {
-        const fgtsDB = collection(db, "saldos_fgts");
-        let q = query(fgtsDB, where("id_cliente", "==", r.data().id_cliente), limit(1))
-        let fgts = await getDocs(q);
-        let fgtsRef = doc(fgtsDB, fgts.docs[0].id);
-        if ((await getDoc(fgtsRef)).exists())
-        {
-          let lastValue = fgts.docs[0].data().valor;
-          console.log("New FGTS value: " + (lastValue - item.valor));
-          /*await updateDoc(fgtsRef, {
-            valor: (lastValue - item.valor)
-          })//*/
-        }
-        else
-        {
-          console.log("What?? Error either in the Id of client OR FGTS of said client!!!!!");
-        }
-      }
-    }
-    else
-      console.log("Solicitação não encontrada!");
   }
 
-  const GetConjoined = () =>
-  {
-    const Conjoined: { [key: string]: any[] } = {};
-
-    FGTS.forEach(f => {
-      if (!Conjoined[f.id_cliente]) Conjoined[f.id_cliente] = [];
-      Conjoined[f.id_cliente].push(f);
-    });
-    Clientes.forEach(c => {
-      if (!Conjoined[c.id]) Conjoined[c.id] = [];
-      Conjoined[c.id].push(c);
-    })
-    console.log(Conjoined);
-    CJ = Conjoined;
-    setCon(Conjoined);
-    return Conjoined;
-  }
-
-  const handleFGTSChange = async (item: any, text:string) => 
-  {
-    try
-    {
+  const handleFGTSChange = async (item: any, text: string) => {
+    try {
       const newval = Number(text);
       if (item.valor < 0) item.valor = 0;
 
       let ref = doc(db, "saldos_fgts", item.id);
       const r = await getDoc(ref);
-      if (r.exists())
-      {
+      if (r.exists()) {
         console.log("New FGTS value: " + newval);
         await updateDoc(ref, {
           valor: newval
         })
       }
     }
-    catch (e)
-    {
+    catch (e) {
       console.log(e);
     }
-    RefreshClientes(); //TODO: Optimize this crap so it doesn't take ages to type
+    RefreshClientes();
   }
 
-  const [Con, setCon] = useState({});
-
   return (
-    <View style={styles.Main}>
-      <ScrollView style={styles.card}>
-        <Text style={styles.text}>Gerenciamento de FGTS</Text>
-        <View style={styles.container2}>
-          <Text style={styles.text}>Saldos FGTS:</Text>
-          <FlatList
-            data={FGTS}
-            keyExtractor={item => item.key}
-            renderItem={({ item }) => (
-            <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
-              <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
-                <Text>ID Saldo: {item.id}</Text>
-                <Text>Usuário: </Text>
+    <KeyboardAvoidingView
+      style={styles.Main}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={200}
+    >
+      <View style={styles.Main}>
+        <View style={styles.card}>
+          <Text style={styles.text}>Gerenciamento de FGTS</Text>
+          <View style={styles.container2}>
+            <FlatList
+              data={FGTS}
+              keyExtractor={item => item.key}
+
+              ListHeaderComponent={
                 <View>
-                  <Text>Id Usuário: {item.id_cliente}</Text>
+                  <Text style={styles.text}>Saldos FGTS:</Text>
                 </View>
-                <Text>Saldo FGTS: R$</Text>
-                <TextInput
-            style={styles.input}
-            placeholder="1000"
-            placeholderTextColor="#999"
-            keyboardType="numeric"
-            value={item.valor}
-            onChangeText={text => handleFGTSChange(item, text)}
-          />
-              </View>   
-            </View>
-            )}
-          />
+              }
+
+              renderItem={({ item }) => (
+                <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
+                  <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
+                    <Text>ID Saldo: {item.id}</Text>
+                    <Text>Usuário: {Clientes[item.id_cliente]?.nome}</Text>
+                    <View>
+                      <Text>Id Usuário: {item.id_cliente}</Text>
+                    </View>
+                    <Text>Saldo FGTS: R$</Text>
+                    <TextInput
+                      style={styles.input}
+                      placeholder="1000"
+                      placeholderTextColor="#999"
+                      keyboardType="numeric"
+                      value={String(fgtsValues[item.id])}
+                      onChangeText={(text) =>
+                        setFgtsValues(v => ({ ...v, [item.id]: text }))
+                      }
+                      onEndEditing={() => handleFGTSChange(item, fgtsValues[item.id])}
+                    />
+                  </View>
+                </View>
+              )}
+
+              ListFooterComponent={
+                <View style={styles.container}>
+                  <TouchableOpacity style={styles.button}
+                    onPress={() => RefreshClientes()}
+                  >
+                    <Text>Atualizar Saldos</Text>
+                  </TouchableOpacity>
+                </View>
+              }
+            />
+          </View>
         </View>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.button}
-              onPress={() => RefreshClientes()}
-            >
-              <Text>Atualizar Saldos</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-    </View>
-    
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -175,6 +142,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   container2: {
+    flex: 1,
     padding: 20,
     marginTop: 5,
     justifyContent: "center",
@@ -229,7 +197,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "rgba(255, 255, 255, 1)",
     borderRadius: 12,
-    marginBottom: 24,
+    margin: 24,
     borderWidth: 1,
     borderColor: "#333",
     padding: 20

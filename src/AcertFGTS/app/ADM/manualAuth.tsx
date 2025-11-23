@@ -1,4 +1,4 @@
-import { FlatList, View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from "react-native";
+import { FlatList, View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import React, { useState, useEffect } from "react";
 
 // --- IMPORTS DO FIREBASE ---
@@ -8,6 +8,7 @@ import { auth, db } from "../../firebaseConfig"; // Importa auth e db do seu con
 export default function ADMManualAuth() {
 
   //Dados
+  const [Clientes, setClientes] = useState<Record<string, any>>({});
   const [Solicitations, setSolicitations] = useState<any[]>([]);
 
   useEffect(() =>
@@ -20,27 +21,16 @@ export default function ADMManualAuth() {
     let res = await getDocs(SolDB);
     const sols = res.docs.map(doc => ({id: doc.id, ...doc.data()}));
 
-    // TODO: Connecting Client instances to the solicitation 
-    /*const clientIds = sols.map(sol => sol.id);
-    const clientsMap: { [key: string]: any } = {};
+    const CliDB = collection(db, "clientes");
+    let res2 = await getDocs(CliDB);
+    const clientesArr = res2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-    await Promise.all(
-      clientIds.map(async id => {
-        const clientRef = doc(db, "clientes", id);
-        const clientSnap = await clientRef.get();
-        if (clientSnap.exists()) {
-          clientsMap[id] = clientSnap.data();
-        }
-      })
-    ); 
+    const clientes = Object.fromEntries(
+      clientesArr.map(c => [c.id, c])
+    );
 
-
-    const merged = sols.map(sol => ({
-      ...sol,
-      client: clientsMap[sol.id_cliente] || null
-    }));*/
+    setClientes(clientes);
     setSolicitations(sols);
-    //console.log(Solicitations);
   }
   
   const ChangeStatus = async (item: any, Accept: boolean) =>
@@ -73,7 +63,7 @@ export default function ADMManualAuth() {
           await updateDoc(fgtsRef, {
             valor: (lastValue - item.valor)
           })//*/
-          Alert.alert("Saldo retirado com sucesso");
+          Alert.alert("Sucesso", "Saldo retirado com sucesso");
         }
         else
         {
@@ -82,7 +72,7 @@ export default function ADMManualAuth() {
       }
       else
       {
-        Alert.alert("Saldo negado com sucesso");
+        Alert.alert("Sucesso", "Saldo negado com sucesso");
       }
     }
     else
@@ -93,47 +83,56 @@ export default function ADMManualAuth() {
 
   return (
     <View style={styles.Main}>
-      <ScrollView style={styles.card}>
+      <View style={styles.card}>
         <Text style={styles.text}>Autenticação Manual</Text>
         <View style={styles.container2}>
-          <Text style={styles.text}>Solicitações:</Text>
           <FlatList
             data={Solicitations}
             keyExtractor={item => item.id}
+
+            ListHeaderComponent={
+              <View>
+                <Text style={styles.text}>Solicitações:</Text>
+              </View>
+            }
+
             renderItem={({ item }) => (
             <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
               <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
                 <Text>ID: {item.id}</Text>
                 <Text>Data de Solicitação: {(new Date(item.data_solicitacao.seconds*1000).toLocaleDateString("pt-BR"))}</Text>
-                <Text>Usuário:</Text>
+                <Text>Usuário: {Clientes[item.id_cliente]?.nome}</Text>
                 <View>
                   <Text>Id Usuário: {item.id_cliente}</Text>
                 </View>
                 <Text>Status: {item.status}</Text>
                 <Text>Quantidade Solicitada: {item.valor}</Text>
-                <TouchableOpacity style={styles.acceptbutton}
+                <TouchableOpacity style={[styles.acceptbutton, item.status != "PENDENTE" && { opacity: 0.5 }]}
                   onPress={() => ChangeStatus(item, true)}
+                  disabled={item.status != "PENDENTE"}
                   >
                   <Text>Aceitar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.dismissbutton}
+                <TouchableOpacity style={[styles.dismissbutton, item.status != "PENDENTE" && { opacity: 0.5 }]}
                   onPress={() => ChangeStatus(item, false)}
+                  disabled={item.status != "PENDENTE"}
                   >
                   <Text>Negar</Text>
                 </TouchableOpacity>
               </View>   
             </View>
             )}
+
+            ListFooterComponent={
+              <View style={styles.container}>
+                <TouchableOpacity style={styles.button} onPress={() => RefreshSolicitation()}>
+                  <Text>Atualizar Solicitações</Text>
+                </TouchableOpacity>
+              </View>
+            }
           />
         </View>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.button}
-              onPress={() => RefreshSolicitation()}
-            >
-              <Text>Atualizar Solicitações</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+      </View>
     </View>
     
   );
@@ -147,6 +146,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000"
   },
   container: {
+    padding: 3,
     flex: 1,
     marginTop: 2,
     justifyContent: "center",
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "rgba(255, 255, 255, 1)",
     borderRadius: 12,
-    marginBottom: 24,
+    margin: 24,
     borderWidth: 1,
     borderColor: "#333",
     padding: 20

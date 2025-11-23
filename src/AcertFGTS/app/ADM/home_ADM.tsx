@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useFocusEffect } from "expo-router";
 
 // --- IMPORTS DO FIREBASE ---
 import { Timestamp, doc, addDoc, updateDoc, collection, query, where, getDocs, limit } from "firebase/firestore";
@@ -19,10 +20,14 @@ export default function ADMHomeScreen() {
   const [RelatorioTexto, setRelatorioTexto] = useState("Relatório Atual (" + SelectedDate + ")");
   const [ErrorText, setErrorText] = useState("");
 
-  useEffect(() =>
-  {
-    RefreshAndStoreToday();
-  }, [])
+  useFocusEffect(
+    useCallback(() => {
+      RefreshAndStoreToday();
+  
+      // no cleanup needed usually  
+      return () => {};
+    }, [])
+  );
 
   const handleDateChange = (date: string) => {
     if (date.length == 2 || date.length == 5)
@@ -50,7 +55,6 @@ export default function ADMHomeScreen() {
     }
     else
     {
-      // TODO: Fazer busca de relatório a partir da data especificada
       const relatoriosDB = collection(db, "relatorios");
       let q = query(relatoriosDB);
       const res = await getDocs(q);
@@ -95,8 +99,6 @@ export default function ADMHomeScreen() {
       {
         setErrorText("Não há relatórios salvos");
       }
-    
-      
     }
   };
 
@@ -328,7 +330,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "rgba(255, 255, 255, 1)",
     borderRadius: 12,
-    marginBottom: 24,
+    margin: 24,
     borderWidth: 1,
     borderColor: "#333",
     padding: 20,
