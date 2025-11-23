@@ -1,4 +1,4 @@
-import { FlatList, View, Text, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { FlatList, View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from "react-native";
 import React, { useState, useEffect } from "react";
 
 // --- IMPORTS DO FIREBASE ---
@@ -60,7 +60,7 @@ export default function ADMManualAuth() {
       await updateDoc(ref, {
         status: item.status
       })//*/
-      if (Accept) // Actually take away the FGTS cash
+      if (Accept) // Actually take away the FGTS
       {
         const fgtsDB = collection(db, "saldos_fgts");
         let q = query(fgtsDB, where("id_cliente", "==", r.data().id_cliente), limit(1))
@@ -73,12 +73,16 @@ export default function ADMManualAuth() {
           await updateDoc(fgtsRef, {
             valor: (lastValue - item.valor)
           })//*/
-          
+          Alert.alert("Saldo retirado com sucesso");
         }
         else
         {
           console.log("What?? Error either in the Id of client OR FGTS of said client!!!!!");
         }
+      }
+      else
+      {
+        Alert.alert("Saldo negado com sucesso");
       }
     }
     else

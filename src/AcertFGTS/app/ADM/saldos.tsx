@@ -130,7 +130,7 @@ export default function ADMFGTSManagement() {
             <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
               <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
                 <Text>ID Saldo: {item.id}</Text>
-                <Text>Usuário:</Text>
+                <Text>Usuário: </Text>
                 <View>
                   <Text>Id Usuário: {item.id_cliente}</Text>
                 </View>

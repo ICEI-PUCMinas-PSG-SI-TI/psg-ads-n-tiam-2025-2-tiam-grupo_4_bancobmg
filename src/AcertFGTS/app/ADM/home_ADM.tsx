@@ -156,8 +156,8 @@ export default function ADMHomeScreen() {
 
       console.log("Negados OK! " + ClientesNegados);
 
-      // Clientes que Sacaram (Apenas os aceitos, também pode ser feito para os pendentes)
-      q = query(solicitacoesDB, where("status", "==", "ACEITO"), where("data_solicitacao", ">=", start));
+      // Clientes que Sacaram
+      q = query(solicitacoesDB, where("status", "==", "PENDENTE"), where("data_solicitacao", ">=", start));
       const solAceitos = await getDocs(q);
       const groupedAceitos: { [key: string]: number } = {};
 

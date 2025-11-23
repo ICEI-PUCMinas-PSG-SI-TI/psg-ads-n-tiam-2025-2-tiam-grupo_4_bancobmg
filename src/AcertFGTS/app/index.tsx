@@ -26,13 +26,27 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, getDocs, limit } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig"; 
 
+// Importar a função para popular dados
+import { popularDadosExemplo } from "../scripts/populateData";
+
 // --- FUNÇÕES AUXILIARES ---
+//Função para formatar o CPF
 const formatCPF = (value: string) => {
-  const v = value.replace(/\D/g, "").slice(0, 11);
-  if (v.length > 9) return v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-  if (v.length > 6) return v.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3");
-  if (v.length > 3) return v.replace(/(\d{3})(\d{3})/, "$1.$2");
-  return v;
+  // Remove tudo que não for dígito
+  const numericValue = value.replace(/[^\d]/g, "");
+  const truncatedValue = numericValue.slice(0, 11);
+  // Aplica a máscara
+  if (truncatedValue.length > 9) {
+    return truncatedValue.replace(
+      /(\d{3})(\d{3})(\d{3})(\d{2})/,
+      "$1.$2.$3-$4"
+    );
+  } else if (truncatedValue.length > 6) {
+    return truncatedValue.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3");
+  } else if (truncatedValue.length > 3) {
+    return truncatedValue.replace(/(\d{3})(\d{3})/, "$1.$2");
+  }
+  return truncatedValue;
 };
 
 const { height } = Dimensions.get('window');
@@ -126,10 +140,33 @@ export default function LoginScreen() {
   }, [appIsReady]);
 
   const handleCpfChange = (text: string) => {
-    setCpf(formatCPF(text));
+    const formattedCpf = formatCPF(text);
+    setCpf(formattedCpf);
   };
 
   // --- LÓGICA DE LOGIN ---
+  // Função para verificar e criar saldo FGTS se não existir
+  const verificarECriarSaldoFGTS = async (userId: string) => {
+    try {
+      // Verificar se já existe saldo FGTS para o usuário
+      const saldoRef = collection(db, "saldos_fgts");
+      const q = query(saldoRef, where("id_cliente", "==", userId), limit(1));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        // Se não existe saldo, criar dados de exemplo
+        console.log("Criando saldo FGTS inicial para o usuário:", userId);
+        await popularDadosExemplo(userId);
+      } else {
+        console.log("Saldo FGTS já existe para o usuário");
+      }
+    } catch (error) {
+      console.error("Erro ao verificar/criar saldo FGTS:", error);
+      // Não mostrar alerta para o usuário, pois isso não deve impedir o login
+    }
+  };
+
+  // --- LÓGICA DE LOGIN COM CPF (FIREBASE + FIRESTORE) ---
   const handleLogin = async () => {
     if (!cpf || !senha) {
       Alert.alert("Erro", "Por favor, preencha o CPF e a senha.");
@@ -138,7 +175,7 @@ export default function LoginScreen() {
     setLoading(true);
 
     try {
-      // Lógica Firebase
+      // --- PASSO 1: Achar o E-mail usando o CPF ---
       const cpfLimpo = cpf.replace(/[^\d]/g, "");
       const AdmRef = collection(db, "administradores");
       const clientesRef = collection(db, "clientes");
@@ -180,10 +217,22 @@ export default function LoginScreen() {
       await AsyncStorage.setItem("@user_data", JSON.stringify(userData));
 
       if (IsAdm) router.replace("/ADM/home_ADM" as any);
-      else router.replace("/home" as any);
+      else 
+      {
+        // --- PASSO 4: VERIFICAR E CRIAR SALDO FGTS SE NÃO EXISTIR ---
+        await verificarECriarSaldoFGTS(userCredential.user.uid);
+        router.replace("../Home" as any);
+      }
     } catch (error: any) {
-      console.error(error);
-      Alert.alert("Login", "Erro ao conectar. Verifique suas credenciais.");
+      if (
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/invalid-credential"
+      ) {
+        Alert.alert("Erro", "Senha incorreta.");
+      } else {
+        console.error(error);
+        Alert.alert("Erro", "Não foi possível fazer login.");
+      }
     } finally {
       setLoading(false);
     }
@@ -248,6 +297,8 @@ export default function LoginScreen() {
             />
         </Animated.View>
 
+        <Text style={styles.title}>LOGIN</Text>
+
         {/* Inputs Animados */}
         <Animated.View style={{ 
             width: '100%', 
@@ -303,7 +354,7 @@ export default function LoginScreen() {
             transform: [{ translateY: loginButtonY }] 
         }}>
             <TouchableOpacity
-            style={[styles.button, loading && { opacity: 0.7 }]}
+            style={[styles.button, loading && styles.buttonDisabled]}
             onPress={handleLogin}
             disabled={loading}
             >
@@ -347,7 +398,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   logoContainer: {
-    marginBottom: 50,
+    marginBottom: 30,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
@@ -356,6 +407,12 @@ const styles = StyleSheet.create({
   logo: {
       width: 320, // Aumentado para 320 (era 200)
       height: 180, // Aumentado para 180 (era 100)
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#FFF",
+    marginBottom: 30,
   },
   inputGroup: {
     width: "100%",
@@ -415,6 +472,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 8,
+  },
+  buttonDisabled: {
+    backgroundColor: "#666",
+    opacity: 0.6,
   },
   buttonText: {
     color: "#000",

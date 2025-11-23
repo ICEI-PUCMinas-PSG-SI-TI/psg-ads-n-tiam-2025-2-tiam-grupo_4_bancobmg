@@ -8,6 +8,7 @@ import {
   TextInput,
   Alert,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import * as Clipboard from "expo-clipboard";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
@@ -62,6 +63,11 @@ export default function IndexScreen() {
       console.error("Erro ao copiar link:", error);
       Alert.alert("Erro", String(error));
     }
+  };
+  const navigation = useNavigation();
+  
+  const voltar = async () => {
+    navigation.goBack();
   };
 
   // Buscar total de indicações
@@ -134,6 +140,10 @@ export default function IndexScreen() {
           <Text style={styles.buttonText}>Copiar link</Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity onPress={voltar}>
+          <Text style={styles.subTitle}>Voltar</Text>
+        </TouchableOpacity>
     </LinearGradient>
   );
 }
@@ -151,6 +161,14 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 10,
+  },
+  subTitle: {
+    color: "#FFD700",
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 10,
     marginBottom: 10,
   },
   description: { color: "#FFF", fontSize: 16, textAlign: "center", marginBottom: 20 },

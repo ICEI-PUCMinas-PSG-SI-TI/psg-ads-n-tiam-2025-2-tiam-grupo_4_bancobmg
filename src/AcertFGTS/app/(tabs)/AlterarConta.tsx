@@ -1,9 +1,27 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
-import { addDoc, collection, doc, getDocs, limit, query, updateDoc, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  limit,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { PROMPTS } from "../../assets/prompts";
 import { auth, db } from "../../firebaseConfig";
 import colors from "../styles/colors";
@@ -104,7 +122,10 @@ export default function AlterarContaScreen() {
 
   if (carregando) {
     return (
-      <LinearGradient colors={colors.fundo as [string, string]} style={styles.container}>
+      <LinearGradient
+        colors={colors.fundo as [string, string]}
+        style={styles.container}
+      >
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.yellow} />
           <Text style={styles.loadingText}>Carregando...</Text>
@@ -114,13 +135,17 @@ export default function AlterarContaScreen() {
   }
 
   return (
-    <LinearGradient 
+    <LinearGradient
       colors={colors.fundo as [string, string]}
       style={styles.container}
     >
       {/* Header com Logo */}
       <View style={styles.header}>
-        <Image source={require("../../assets/images/logo.png")} style={styles.logo} resizeMode="contain" />
+        <Image
+          source={require("../../assets/images/logo.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
       </View>
 
       {/* Conteúdo Centralizado */}
@@ -162,28 +187,45 @@ export default function AlterarContaScreen() {
             <Text style={styles.label}>Tipo de conta</Text>
             <View style={styles.tipoContainer}>
               <TouchableOpacity
-                style={[styles.tipoBtn, tipo === "corrente" && styles.tipoBtnAtivo]}
+                style={[
+                  styles.tipoBtn,
+                  tipo === "corrente" && styles.tipoBtnAtivo,
+                ]}
                 onPress={() => setTipo("corrente")}
               >
-                <Text style={[styles.tipoText, tipo === "corrente" && styles.tipoTextAtivo]}>Corrente</Text>
+                <Text
+                  style={[
+                    styles.tipoText,
+                    tipo === "corrente" && styles.tipoTextAtivo,
+                  ]}
+                >
+                  Corrente
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.tipoBtn, tipo === "poupanca" && styles.tipoBtnAtivo]}
+                style={[
+                  styles.tipoBtn,
+                  tipo === "poupanca" && styles.tipoBtnAtivo,
+                ]}
                 onPress={() => setTipo("poupanca")}
               >
-                <Text style={[styles.tipoText, tipo === "poupanca" && styles.tipoTextAtivo]}>Poupança</Text>
+                <Text
+                  style={[
+                    styles.tipoText,
+                    tipo === "poupanca" && styles.tipoTextAtivo,
+                  ]}
+                >
+                  Poupança
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
 
         {/* Botões */}
-        <TouchableOpacity 
-          style={[
-            styles.primaryButton, 
-            loading && styles.buttonDisabled
-          ]} 
+        <TouchableOpacity
+          style={[styles.primaryButton, loading && styles.buttonDisabled]}
           onPress={handleSalvar}
           disabled={loading}
         >
@@ -196,8 +238,8 @@ export default function AlterarContaScreen() {
           )}
         </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.secondaryButton} 
+        <TouchableOpacity
+          style={styles.secondaryButton}
           onPress={() => router.back()}
           disabled={loading}
         >

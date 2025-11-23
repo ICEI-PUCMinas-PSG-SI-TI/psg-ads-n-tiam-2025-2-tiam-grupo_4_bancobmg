@@ -4,9 +4,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addDoc, collection, getDocs, limit, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { PROMPTS } from "../../assets/prompts";
-import { auth, db } from "../../firebaseConfig";
-import colors from "../styles/colors";
+import { PROMPTS } from "../assets/prompts";
+import { auth, db } from "../firebaseConfig";
+import colors from "./styles/colors";
 
 export default function SaqueScreen() {
   const [valor, setValor] = useState("");
@@ -65,7 +65,7 @@ export default function SaqueScreen() {
         PROMPTS.SAQUE.CONTA_NAO_CADASTRADA,
         [
           { text: "Cancelar", style: "cancel" },
-          { text: "Cadastrar Conta", onPress: () => router.push("/Saque/AlterarConta") },
+          { text: "Cadastrar Conta", onPress: () => router.push("/AlterarConta") },
         ]
       );
       return;
@@ -133,7 +133,7 @@ export default function SaqueScreen() {
     >
       {/* Header com Logo */}
       <View style={styles.header}>
-        <Image source={require("../../assets/images/logo.png")} style={styles.logo} resizeMode="contain" />
+        <Image source={require("../assets/images/logo.png")} style={styles.logo} resizeMode="contain" />
       </View>
 
       {/* Conteúdo Centralizado */}
@@ -193,7 +193,7 @@ export default function SaqueScreen() {
         {/* Link secundário */}
         <TouchableOpacity 
           style={styles.secondaryButton} 
-          onPress={() => router.push("/Saque/AlterarConta")}
+          onPress={() => router.push("/AlterarConta")}
         >
           <Text style={styles.secondaryButtonText}>
             {conta ? "Alterar conta de recebimento" : "Cadastrar conta de recebimento"}
