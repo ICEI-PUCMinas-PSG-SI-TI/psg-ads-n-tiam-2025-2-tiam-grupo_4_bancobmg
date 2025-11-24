@@ -16,6 +16,7 @@ import {
   ActivityIndicator,
   Alert,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -139,6 +140,10 @@ export default function AlterarContaScreen() {
       colors={colors.fundo as [string, string]}
       style={styles.container}
     >
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 50 }}
+        showsVerticalScrollIndicator={false}
+      >
       {/* Header com Logo */}
       <View style={styles.header}>
         <Image
@@ -240,12 +245,13 @@ export default function AlterarContaScreen() {
 
         <TouchableOpacity
           style={styles.secondaryButton}
-          onPress={() => router.back()}
+          onPress={() => router.push("/(tabs)/Home")}
           disabled={loading}
         >
           <Text style={styles.secondaryButtonText}>Cancelar</Text>
         </TouchableOpacity>
       </View>
+      </ScrollView>
     </LinearGradient>
   );
 }

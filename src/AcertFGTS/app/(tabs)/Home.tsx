@@ -1,3 +1,4 @@
+import { FontAwesome } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter, useFocusEffect } from "expo-router"; // Importar useFocusEffect
@@ -6,12 +7,12 @@ import React, { useState, useCallback } from "react"; // Importar useCallback
 import {
   ActivityIndicator,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons"; // Para icone caso nao tenha foto
 import { auth, db } from "../../firebaseConfig"; // Importar auth
 import colors from "../styles/colors";
 
@@ -40,7 +41,6 @@ export default function HomeScreen() {
     }
   };
 
-  // useFocusEffect executa toda vez que a tela ganha foco (ex: voltando da aba Perfil)
   useFocusEffect(
     useCallback(() => {
       const carregarDados = async () => {
@@ -82,6 +82,13 @@ export default function HomeScreen() {
       colors={colors.fundo as [string, string]}
       style={styles.container}
     >
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: 40,
+          alignItems: "center",
+        }}
+        showsVerticalScrollIndicator={false}
+      >
       {/* Header Logo */}
       <View style={styles.header}>
         <Image
@@ -112,7 +119,9 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.cardBody}>
-          <Text style={styles.cardTitle}>Saldo disponível para saque</Text>
+          <Text style={styles.cardTitle}>
+            Saldo disponível para saque
+          </Text>
 
           {loading ? (
             <ActivityIndicator
@@ -136,7 +145,6 @@ export default function HomeScreen() {
 
       {/* Container dos botões secundários */}
       <View style={styles.buttonsContainer}>
-        {/* Botão ALTERAR CONTA (Agora leva para a aba, se preferir) */}
         <TouchableOpacity
           style={styles.whiteButton}
           onPress={() => router.push("/(tabs)/AlterarConta")}
@@ -154,6 +162,7 @@ export default function HomeScreen() {
           <Text style={styles.whiteButtonText}>Indicar a Acert</Text>
         </TouchableOpacity>
       </View>
+      </ScrollView>
     </LinearGradient>
   );
 }
