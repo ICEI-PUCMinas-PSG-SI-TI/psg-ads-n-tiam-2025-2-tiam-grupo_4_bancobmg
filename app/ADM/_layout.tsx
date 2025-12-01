@@ -1,6 +1,6 @@
-import React from "react";
-import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons"; // Usaremos ícones para as abas
+import { Tabs } from "expo-router";
+import React from "react";
 
 export default function AppLayout() {
   return (
@@ -44,6 +44,17 @@ export default function AppLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+  name="chamados_ADM"
+  options={{
+    title: "Chamados",
+    tabBarIcon: ({ color }) => (
+      <Ionicons name="chatbubbles-outline" size={24} color={color} />
+    ),
+  }}
+/>
+
     </Tabs>
   );
 }

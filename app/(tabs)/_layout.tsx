@@ -1,6 +1,6 @@
-import { Tabs } from "expo-router";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
-import { View, StyleSheet } from "react-native";
+import { Tabs } from "expo-router";
+import { StyleSheet, View } from "react-native";
 import colors from "../styles/colors"; // Ajuste o caminho conforme sua pasta styles
 
 export default function TabLayout() {

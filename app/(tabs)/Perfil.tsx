@@ -512,6 +512,20 @@ export default function PerfilScreen() {
               style={styles.logoutButton}
               onPress={handleLogout}
             >
+
+{/* Botão Abrir Chamado */}
+<TouchableOpacity
+  style={styles.actionButton}
+  onPress={() => router.push("/AbrirChamado")}
+>
+  <View style={styles.actionIcon}>
+    <MaterialIcons name="support-agent" size={24} color={colors.yellow} />
+  </View>
+  <Text style={styles.actionText}>Abrir Chamado</Text>
+  <MaterialIcons name="chevron-right" size={24} color="#666" />
+</TouchableOpacity>
+
+
               <Text style={styles.logoutText}>Sair do aplicativo</Text>
             </TouchableOpacity>
           </View>
