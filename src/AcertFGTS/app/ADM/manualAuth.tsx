@@ -41,7 +41,6 @@ export default function ADMManualAuth() {
       item.status = "NEGADO";
     RefreshSolicitation();
 
-    console.log(item.id);
     let ref = doc(db, "solicitacoes_saque", item.id);
     const r = await getDoc(ref);
     if (r.exists())
@@ -81,52 +80,70 @@ export default function ADMManualAuth() {
     RefreshSolicitation();
   }
 
+  // ALTERA COR DO CARD CONFORME STATUS
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "ACEITO":
+        return "#c8ffcc"; // verde claro
+      case "NEGADO":
+        return "#ffb3b3"; // vermelho claro
+      default:
+        return "#fff"; // padrão
+    }
+  };
+
   return (
     <View style={styles.Main}>
       <View style={styles.card}>
-        <Text style={styles.text}>Autenticação Manual</Text>
+        <Text style={styles.titleText}>Autenticação Manual</Text>
         <View style={styles.container2}>
           <FlatList
             data={Solicitations}
             keyExtractor={item => item.id}
+            style={styles.smallmargin}
 
             ListHeaderComponent={
               <View>
-                <Text style={styles.text}>Solicitações:</Text>
+                <Text style={styles.titleText}>Solicitações:</Text>
               </View>
             }
 
             renderItem={({ item }) => (
-            <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
-              <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
-                <Text>ID: {item.id}</Text>
-                <Text>Data de Solicitação: {(new Date(item.data_solicitacao.seconds*1000).toLocaleDateString("pt-BR"))}</Text>
-                <Text>Usuário: {Clientes[item.id_cliente]?.nome}</Text>
+            <View style={[styles.solicitationCard, { backgroundColor: getStatusColor(item.status) }]}>
+              <Text style={styles.field}>ID: {item.id}</Text>
+
+              <Text style={styles.field}>
+                  Data de Solicitação:{" "}
+                  {new Date(item.data_solicitacao.seconds * 1000).toLocaleDateString("pt-BR")}
+                </Text>
+
+                <Text style={styles.field}>Usuário: {Clientes[item.id_cliente]?.nome}</Text>
                 <View>
                   <Text>Id Usuário: {item.id_cliente}</Text>
                 </View>
-                <Text>Status: {item.status}</Text>
-                <Text>Quantidade Solicitada: {item.valor}</Text>
+                <Text style={styles.field}>Status: {item.status}</Text>
+
+                <Text style={styles.field}>Quantidade Solicitada: R$ {item.valor}</Text>
                 <TouchableOpacity style={[styles.acceptbutton, item.status != "PENDENTE" && { opacity: 0.5 }]}
                   onPress={() => ChangeStatus(item, true)}
                   disabled={item.status != "PENDENTE"}
                   >
-                  <Text>Aceitar</Text>
+                  <Text style={styles.buttonLabel}>Aceitar</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity style={[styles.dismissbutton, item.status != "PENDENTE" && { opacity: 0.5 }]}
                   onPress={() => ChangeStatus(item, false)}
                   disabled={item.status != "PENDENTE"}
                   >
-                  <Text>Negar</Text>
+                  <Text style={styles.buttonLabel}>Negar</Text>
                 </TouchableOpacity>
-              </View>   
             </View>
             )}
 
             ListFooterComponent={
               <View style={styles.container}>
-                <TouchableOpacity style={styles.button} onPress={() => RefreshSolicitation()}>
-                  <Text>Atualizar Solicitações</Text>
+                <TouchableOpacity style={styles.updateButton} onPress={() => RefreshSolicitation()}>
+                  <Text style={styles.buttonLabel}>Atualizar Solicitações</Text>
                 </TouchableOpacity>
               </View>
             }
@@ -145,10 +162,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#000"
   },
+  titleText: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#000",
+    marginBottom: 10,
+  },
   container: {
-    padding: 3,
-    flex: 1,
-    marginTop: 2,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -157,8 +177,32 @@ const styles = StyleSheet.create({
     marginTop: 5,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    backgroundColor: "#eee",
     borderRadius: 8
+  },
+  solicitationCard: {
+    padding: 15,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#444",
+    marginBottom: 12,
+    width: "100%",
+  },
+  field: {
+    fontSize: 16,
+    marginBottom: 4,
+    color: "#111",
+  },
+  updateButton: {
+    backgroundColor: "#FFC107",
+    padding: 10,
+    borderRadius: 10,
+  },
+  acceptbutton: {
+    backgroundColor: "#2cde3e",
+    padding: 8,
+    borderRadius: 8,
+    marginTop: 10,
   },
   text: {
     fontSize: 24,
@@ -190,26 +234,27 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: "#FFC107"
   },
-  acceptbutton: {
-    flex: 1,
-    borderRadius: 8,
-    padding: 5,
-    marginTop: 10,
-    backgroundColor: "#2cde3e"
+  smallmargin: {
+    marginBottom: 10
   },
   dismissbutton: {
-    flex: 1,
+    backgroundColor: "#de382c",
+    padding: 8,
     borderRadius: 8,
-    padding: 5,
     marginTop: 10,
-    backgroundColor: "#de382c"
+  },
+  buttonLabel: {
+    fontSize: 16,
+    color: "#000",
+    textAlign: "center",
+    fontWeight: "bold",
   },
   card: {
-    backgroundColor: "rgba(255, 255, 255, 1)",
+    backgroundColor: "#fff",
     borderRadius: 12,
-    margin: 24,
-    borderWidth: 1,
-    borderColor: "#333",
-    padding: 20
+    padding: 20,
+    margin: 30,
+    marginBottom: 20,
+    width: "95%",
   },
 });

@@ -1,12 +1,15 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView, Platform } from "react-native";
 import { useState, useEffect, useCallback } from "react";
 import { useFocusEffect } from "expo-router";
+import { useRouter } from "expo-router";
 
 // --- IMPORTS DO FIREBASE ---
+import { signOut} from "firebase/auth";
 import { Timestamp, doc, addDoc, updateDoc, collection, query, where, getDocs, limit } from "firebase/firestore";
 import { auth, db } from "../../firebaseConfig"; // Importa auth e db do seu config
 
 export default function ADMHomeScreen() {
+  const router = useRouter();
 
   //Dados
   const [QtdeUsuarios, setQtdeUsuarios] = useState(0);
@@ -80,7 +83,7 @@ export default function ADMHomeScreen() {
           const relatorio = r.docs[0].data();
           console.log(relatorio);
           setQtdeUsuarios(relatorio.qtde_clientes);
-          setQtdeUsuariosComSaldo(relatorio.qtde_cliente_com_saldo);
+          setQtdeUsuariosComSaldo(relatorio.qtde_clientes_com_saldo);
           setQtdeUsuariosNaoAutorizados(relatorio.qtde_clientes_nao_autorizados);
           setQtdeUsuariosSacaram(relatorio.qtde_clientes_sacaram);
           setSaldoGerado(relatorio.saldo_gerado);
@@ -238,6 +241,15 @@ export default function ADMHomeScreen() {
     )
   }
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      router.replace("/");
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível sair.");
+    }
+  };
+
   return (
     <View style={styles.Main}>
       <View style={styles.card}>
@@ -270,7 +282,14 @@ export default function ADMHomeScreen() {
               <Text>Carregar Relatório</Text>
           </TouchableOpacity>
         </View>
+        
       </View>
+      <TouchableOpacity
+              style={styles.logoutButton}
+              onPress={handleLogout}
+            >
+              <Text style={styles.logoutText}>Sair do aplicativo</Text>
+            </TouchableOpacity>
     </View>
     
   );
@@ -331,8 +350,12 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 1)",
     borderRadius: 12,
     margin: 24,
+    marginTop: 40,
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: "#333",
     padding: 20,
   },
+  logoutButton: { padding: 0, alignItems: "center", marginBottom: 50 },
+  logoutText: { color: "#FF4444", fontSize: 16 },
 });

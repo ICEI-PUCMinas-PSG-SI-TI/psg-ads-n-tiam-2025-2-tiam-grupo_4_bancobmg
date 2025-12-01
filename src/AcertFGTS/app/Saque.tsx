@@ -199,6 +199,15 @@ export default function SaqueScreen() {
             {conta ? "Alterar conta de recebimento" : "Cadastrar conta de recebimento"}
           </Text>
         </TouchableOpacity>
+                
+                {/* Botão de Cancelar */}
+<TouchableOpacity
+  style={styles.secondaryButton}
+  onPress={() => router.push("/(tabs)/Home")}
+>
+  <Text style={styles.secondaryButtonText}>Cancelar</Text>
+</TouchableOpacity>
+
       </View>
     </LinearGradient>
   );

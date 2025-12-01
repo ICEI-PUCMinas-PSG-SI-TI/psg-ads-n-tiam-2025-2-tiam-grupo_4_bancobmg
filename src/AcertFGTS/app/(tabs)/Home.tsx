@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "rgba(26, 26, 26, 0.85)",
     borderRadius: 12,
-    marginBottom: 10,
+    marginBottom: 15,
     borderWidth: 1,
     borderColor: "#333",
   },
@@ -211,10 +211,6 @@ const styles = StyleSheet.create({
 
   imageContainer: {
     marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
     elevation: 5,
   },
 
@@ -275,6 +271,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     marginTop: 15,
     alignItems: "center",
+    width: "100%",
     gap: 15,
   },
 

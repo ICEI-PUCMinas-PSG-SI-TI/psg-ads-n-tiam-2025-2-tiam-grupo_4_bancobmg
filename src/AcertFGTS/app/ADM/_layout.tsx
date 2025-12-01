@@ -44,6 +44,17 @@ export default function AppLayout() {
           ),
         }}
       />
+      
+      <Tabs.Screen
+  name="chamados_ADM"
+  options={{
+    title: "Chamados",
+    tabBarIcon: ({ color }) => (
+      <Ionicons name="chatbubbles-outline" size={24} color={color} />
+    ),
+  }}
+/>
+
     </Tabs>
   );
 }
