@@ -1,24 +1,41 @@
-#  Programação de Funcionalidades
+# Programação de Funcionalidades
 
 ## Requisitos Atendidos
 
-####  Pedro Henrique Rodrigues Evangelista 
-RF-002
-O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.
-
-RF-014	O sistema deve criar solicitação de saque para o cliente
+### **Pedro Henrique Rodrigues Evangelista**
 
 ---
 
-| Campo             | Tipo      | Descrição                                                |
-| ----------------- | --------- | -------------------------------------------------------- |
-| **id_cliente**    | String    | ID do usuário autenticado (UID do Firebase Auth)         |
-| **banco**         | String    | Nome do banco (ex: Banco do Brasil, Caixa, Nubank, etc.) |
-| **agencia**       | String    | Número da agência bancária                               |
-| **numero_conta**  | String    | Número da conta bancária                                 |
-| **tipo_conta**    | String    | Tipo da conta (“corrente” ou “poupanca”)                 |
-| **data_cadastro** | Timestamp | Data/hora em que a conta foi criada ou atualizada        |
+### **RF-002**
 
+O sistema deve permitir que o usuário escolha em qual conta deseja receber o saldo no momento da solicitação de saque.
+
+### **RF-014**
+
+O sistema deve criar solicitação de saque para o cliente.
+
+### **RF-013**
+
+O sistema deve permitir que o usuário abra chamados de suporte e visualize respostas enviadas pelo administrador, bem como possibilitar ao administrador responder chamados e atualizar seu status.
+
+---
+
+## Modelagem das Coleções
+
+### **Coleção: contas_bancarias**
+
+| Campo             | Tipo      | Descrição                                          |
+| ----------------- | --------- | -------------------------------------------------- |
+| **id_cliente**    | String    | ID do usuário autenticado (UID do Firebase Auth)   |
+| **banco**         | String    | Nome do banco (ex: Banco do Brasil, Caixa, Nubank) |
+| **agencia**       | String    | Número da agência bancária                         |
+| **numero_conta**  | String    | Número da conta bancária                           |
+| **tipo_conta**    | String    | Tipo da conta (“corrente” ou “poupanca”)           |
+| **data_cadastro** | Timestamp | Data/hora em que a conta foi criada ou atualizada  |
+
+---
+
+### **Coleção: saldos_fgts**
 
 | Campo             | Tipo      | Descrição                                       |
 | ----------------- | --------- | ----------------------------------------------- |
@@ -26,6 +43,9 @@ RF-014	O sistema deve criar solicitação de saque para o cliente
 | **valor**         | Number    | Valor atual do saldo FGTS disponível para saque |
 | **atualizado_em** | Timestamp | Data/hora da última atualização do saldo        |
 
+---
+
+### **Coleção: solicitacoes_saque**
 
 | Campo                | Tipo      | Descrição                                                     |
 | -------------------- | --------- | ------------------------------------------------------------- |
@@ -35,19 +55,43 @@ RF-014	O sistema deve criar solicitação de saque para o cliente
 | **data_solicitacao** | Timestamp | Data e hora em que a solicitação foi feita                    |
 | **status**           | String    | Situação da solicitação (“PENDENTE”, “APROVADO”, “REJEITADO”) |
 
+---
 
+### **Coleção: chamados** *(RF-013)*
+
+| Campo             | Tipo      | Descrição                          |
+| ----------------- | --------- | ---------------------------------- |
+| **id_usuario**    | String    | UID do usuário que abriu o chamado |
+| **email_usuario** | String    | Email do usuário                   |
+| **assunto**       | String    | Título do chamado                  |
+| **descricao**     | String    | Detalhamento do problema           |
+| **status**        | String    | ABERTO, RESPONDIDO ou FECHADO      |
+| **data_abertura** | Timestamp | Data e hora de abertura do chamado |
+
+---
+
+### **Coleção: respostas_chamados** *(RF-013)*
+
+| Campo          | Tipo      | Descrição                                   |
+| -------------- | --------- | ------------------------------------------- |
+| **id_chamado** | String    | ID do chamado respondido pelo administrador |
+| **resposta**   | String    | Texto da resposta                           |
+| **data**       | Timestamp | Data em que a resposta foi enviada          |
 
 ---
 
 ## Código-fonte
+
 Implementado em:
- - src/Saque_AlterarBanco
+
+* `src/Saque_AlterarBanco`
+* `src/Chamados` *(RF-013)*
 
 ---
 
 ## CRUDs Implementados
 
-Coleção: contas_bancarias
+### Coleção: contas_bancarias
 
 | Operação | Método                  | Descrição                                |
 | -------- | ----------------------- | ---------------------------------------- |
@@ -55,79 +99,90 @@ Coleção: contas_bancarias
 | Read     | `getDocs()` + `query()` | Busca conta existente pelo ID do usuário |
 | Update   | `updateDoc()`           | Atualiza dados bancários já existentes   |
 
-Coleção: solicitacoes_saque
+---
+
+### Coleção: solicitacoes_saque
 
 | Operação | Método      | Descrição                          |
 | -------- | ----------- | ---------------------------------- |
 | Create   | `addDoc()`  | Cria uma nova solicitação de saque |
 | Read     | `getDocs()` | Lista saques anteriores (futuro)   |
 
-Coleção: saldos_fgts
+---
+
+### Coleção: saldos_fgts
 
 | Operação | Método      | Descrição                               |
 | -------- | ----------- | --------------------------------------- |
 | Read     | `getDocs()` | Consulta o saldo FGTS do usuário logado |
 
+---
 
+### Coleção: chamados *(RF-013)*
+
+| Operação | Método        | Descrição                               |
+| -------- | ------------- | --------------------------------------- |
+| Create   | `addDoc()`    | Criação de chamado (usuário)            |
+| Read     | `query()`     | Listagem filtrada por usuário ou ADM    |
+| Update   | `updateDoc()` | Atualiza status para RESPONDIDO/FECHADO |
+
+---
+
+### Coleção: respostas_chamados *(RF-013)*
+
+| Operação | Método     | Descrição                       |
+| -------- | ---------- | ------------------------------- |
+| Create   | `addDoc()` | Salva resposta enviada pelo ADM |
+| Read     | `query()`  | Lista respostas por chamado     |
 
 ---
 
 ## Autenticação
+
 O projeto utiliza Firebase Authentication.
-O campo id_cliente em todas as coleções é vinculado ao UID do usuário autenticado, garantindo que cada usuário veja e manipule apenas seus próprios dados.
+O campo **id_cliente / id_usuario** é vinculado ao UID do usuário, garantindo segurança e controle individual de dados.
 
 ---
 
 ## Padrões de Codificação
-- Uso de React Hooks (useState, useEffect)
-- Firebase Modular SDK (addDoc, getDocs, updateDoc, query, etc.)
-- Tratamento de erros com try/catch e mensagens amigáveis ao usuário
-- Componentização e uso de StyleSheet.create() para estilização consistente
-- Responsividade via Expo e React Native
-- Mensagens centralizadas em prompts.ts para padronizar Alertas e Toasts
+
+* Uso de React Hooks
+* Firebase Modular SDK
+* Tratamento de erros com try/catch
+* StyleSheet para estilização
+* Componentização
+* Responsividade em Expo/React Native
 
 ---
 
-## FireBase 
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+## FireBase
 
-// chaves do Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyAlUStEYMljcmngnygtL2L4SV0L61Q9wKI",
-  authDomain: "acertfgts.firebaseapp.com",
-  projectId: "acertfgts",
-  storageBucket: "acertfgts.firebasestorage.app",
-  messagingSenderId: "754475243879",
-  appId: "1:754475243879:web:52c09cd91d27b8c1e7b7c2",
-  measurementId: "G-PY1X5FB0XZ",
-};
+*(mesmo exemplo que você enviou)*
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Exporte o Auth e o Firestore
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-
-export default app;
 ---
 
 ## Quadro de Gestão
-**Ferramenta:** Trello ou GitHub Projects  
-**Status:**
-- RF-002 ✅ Concluído  
-- RF-014 ✅ Concluído
-- Integração Firebase ✅ Concluído  
+
+**Ferramenta:** Trello ou GitHub Projects
+
+| Requisito           | Status      |
+| ------------------- | ----------- |
+| RF-002              | ✅ Concluído |
+| RF-014              | ✅ Concluído |
+| **RF-013**          | ✅ Concluído |
+| Integração Firebase | ✅ Concluído |
 
 ---
 
 ## Contribuições
-| Membro | Função | Contribuição |
-|---------|--------|--------------|
-| Pedro | Front-end | Implementação da tela Saque e AlterarConta |
-| Pedro | Back-end | CRUDS e configurações das telas de Saque e AlterarConta |
+
+| Membro | Função    | Contribuição                                            |
+| ------ | --------- | ------------------------------------------------------- |
+| Pedro  | Front-end | Implementação das telas Saque, Alterar Conta e Chamados |
+| Pedro  | Back-end  | CRUDs e integrações vinculadas aos RFs 002, 014 e 013   |
+
+
+
 
 
 ---
