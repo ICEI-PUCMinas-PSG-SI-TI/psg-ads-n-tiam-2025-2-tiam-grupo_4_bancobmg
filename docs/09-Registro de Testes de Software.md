@@ -30,6 +30,8 @@
 | **CT19** | Efetuar Cadastro | Fazer o cadastro do cliente | Cadastro feito com sucesso | **Sucesso**  | Lucas |
 | **CT20** | Efetuar Recuperar Senha | Recuperar a senha do cliente | senha recuperada com sucesso | **Sucesso**  | Lucas |
 | **CT21** | Efetuar cadastro com senha fraca | Colocar uma senha fraca para impedir o cadastro | Cadastro não efetuado | **Sucesso**  | Lucas |
+| **CT22** | **Abrir chamado** (RF-013)     | Usuário envia assunto/descrição       | Criar documento na coleção `chamados` com status “ABERTO” | **Sucesso**      | Pedro       |
+| **CT23** | **Responder chamado** (RF-013) | ADM clica no chamado e envia resposta | Criar documento em `respostas_chamados` e mudar status    | **Sucesso**      | Pedro       |
 
 
 ## CT01 – Carregar conta existente
@@ -169,6 +171,52 @@ Descrição: Ao colocar o Nome completo, CPF, Email, a senha fraca e confirmar a
 Resultado: Cadastro não efetuado
 
 <img width="421" height="925" alt="Captura de tela 2025-11-14 130956" src="https://github.com/user-attachments/assets/9f55c816-7718-4602-ae6d-2cf70a0a51e0" />
+
+
+---
+
+## **CT22 – Abrir chamado (Usuário)**
+
+**Descrição:**
+O usuário acessa a tela de suporte, insere *assunto* e *descrição* e envia o chamado.
+
+**Resultado esperado:**
+Registro criado na coleção `chamados` com os campos:
+
+* assunto
+* descricao
+* email_usuario
+* id_usuario
+* status: **ABERTO**
+* data_abertura (Timestamp)
+
+**Resultado:** Sucesso — chamado salvo no Firestore.
+
+<img width="421" height="925" alt="Captura de tela 2025-11-14 130956" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/e173f69570b2deb59f2a0306a1ec44fe1315be54/docs/img/ClienteChamado.png" />
+
+---
+
+## **CT23 – Responder chamado (Administrador)**
+
+**Descrição:**
+O administrador acessa a tela `ChamadosADM.tsx`, seleciona um chamado e digita uma resposta.
+
+**Resultado esperado:**
+
+* Criar documento em `respostas_chamados` contendo:
+
+  * id_chamado
+  * resposta
+  * data_resposta
+* Atualizar o chamado original para:
+
+  * status: **RESPONDIDO**
+
+**Resultado:** Sucesso — resposta salva e status alterado.
+
+<img width="421" height="925" alt="Captura de tela 2025-11-14 130956" src="https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-ads-n-tiam-2025-2-tiam-grupo_4_bancobmg/blob/e173f69570b2deb59f2a0306a1ec44fe1315be54/docs/img/ADMChamado.png" />
+
+---
 
 
 ## Conclusão
