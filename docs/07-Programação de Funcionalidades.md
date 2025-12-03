@@ -284,8 +284,8 @@ Ferramenta: Trello ou GitHub Projects Status:
 | Membro | Função | Contribuição |
 |---------|--------|--------------|
 | Robson | Front-end | tela de login |
-| Lucas | Front-end | cadastro e alterar senha |
-| Lucas | Back-end | CRUDS e configurações das telas login, cadastro e alterar senha |
+| Lucas | Front-end | cadastro, alterar senha, tela de login e tela de perfil|
+| Lucas | Back-end | CRUDS e configurações das telas login, cadastro, alterar senha e tela de perfil|
 
 ## Comentários
 A tela foi integrada ao Firebase Firestore, garantindo sincronização em nuvem e persistência de preferências do usuário.
