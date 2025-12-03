@@ -52,6 +52,26 @@
 | **Responsável**               | Pedro                                                                                                   |
 
 
+---
+
+## **Cenário 4 – Gerenciamento de Chamados de Suporte (RF-013)**
+
+| Item                          | Descrição                                                                                                              |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Funcionalidades Avaliadas** | Abertura de chamado pelo usuário, listagem de chamados e resposta pelo administrador                                   |
+| **Tela Testada**              | `Chamados.tsx` (usuário) e `ChamadosADM.tsx` (administrador)                                                           |
+| **Requisitos Relacionados**   | O sistema deve permitir que o usuário abra chamados de suporte e visualizar respostas, e o ADM deve responder chamados |
+| **Objetivo**                  | Garantir que o fluxo de abertura, listagem e resposta de chamados funcione de ponta a ponta                            |
+| **Grupo de Usuários**         | Usuário autenticado (cliente) e Administrador                                                                          |
+| **Ferramentas Utilizadas**    | Expo Go, Firebase Firestore Console, Expo Router, React Native Debugger                                                |
+| **Procedimentos Executados**  | Abrir tela de chamados, enviar assunto e descrição, verificar persistência; ADM responder e usuário visualizar         |
+| **Critério de Sucesso**       | Chamado criado com sucesso, resposta persistida e status atualizado para “RESPONDIDO”                                  |
+| **Casos de Teste Executados** | CT01 – CT03                                                                                                            |
+| **Resultado**                 | Sucesso                                                                                                                |
+| **Responsável**               | Pedro                                                                                                                  |
+
+
+
 
 
 
