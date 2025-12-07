@@ -33,8 +33,8 @@ export default function ChamadosADM() {
 
       // Ordena por data_abertura se existir
       lista.sort((a, b) => {
-        const tA = a.data_abertura?.seconds ?? 0;
-        const tB = b.data_abertura?.seconds ?? 0;
+        const tA = (a as any).data_abertura?.seconds ?? 0;
+        const tB = (b as any).data_abertura?.seconds ?? 0;
         return tB - tA;
       });
 
@@ -86,7 +86,7 @@ export default function ChamadosADM() {
 
   return (
     <LinearGradient colors={colors.fundo as [string, string]} style={{ flex: 1 }}>
-      <View style={{ padding: 20 }}>
+      <View style={{ padding: 20, flex: 1 }}>
         <Text style={styles.titulo}>CHAMADOS</Text>
 
         <FlatList

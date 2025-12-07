@@ -94,13 +94,13 @@ export default function ADMManualAuth() {
 
   return (
     <View style={styles.Main}>
-      <View style={styles.card}>
-        <Text style={styles.titleText}>Autenticação Manual</Text>
+      <View style={styles.card2}>
+      <Text style={styles.titleText}>Autenticação Manual</Text>
         <View style={styles.container2}>
           <FlatList
             data={Solicitations}
             keyExtractor={item => item.id}
-            style={styles.smallmargin}
+            style={{flex: 1}}
 
             ListHeaderComponent={
               <View>
@@ -109,7 +109,7 @@ export default function ADMManualAuth() {
             }
 
             renderItem={({ item }) => (
-            <View style={[styles.solicitationCard, { backgroundColor: getStatusColor(item.status) }]}>
+              <View style={[styles.solicitationCard, { backgroundColor: getStatusColor(item.status) }]}>
               <Text style={styles.field}>ID: {item.id}</Text>
 
               <Text style={styles.field}>
@@ -151,14 +151,12 @@ export default function ADMManualAuth() {
         </View>
       </View>
     </View>
-    
   );
 }
 
 const styles = StyleSheet.create({
   Main: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#000"
   },
@@ -169,16 +167,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   container: {
+    flex: 1,
+    marginTop: 2,
     justifyContent: "center",
     alignItems: "center"
   },
   container2: {
+    flex: 1,
     padding: 20,
     marginTop: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#eee",
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
     borderRadius: 8
+  },
+  container3: {
+    marginTop: 2,
   },
   solicitationCard: {
     padding: 15,
@@ -250,11 +252,22 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   card: {
-    backgroundColor: "#fff",
+    flex:1,
+    backgroundColor: "rgba(255, 255, 255, 1)",
     borderRadius: 12,
-    padding: 20,
-    margin: 30,
-    marginBottom: 20,
-    width: "95%",
+    margin: 24,
+    borderWidth: 1,
+    borderColor: "#333",
+    padding: 20
   },
+  card2: {
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    borderRadius: 12,
+    margin: 24,
+    borderWidth: 1,
+    borderColor: "#333",
+    padding: 20,
+    flex: 1
+  },
+
 });

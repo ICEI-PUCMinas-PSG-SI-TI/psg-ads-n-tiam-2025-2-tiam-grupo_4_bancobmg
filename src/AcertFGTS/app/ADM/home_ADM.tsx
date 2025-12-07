@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView, Platform } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { useState, useEffect, useCallback } from "react";
 import { useFocusEffect } from "expo-router";
 import { useRouter } from "expo-router";
@@ -251,7 +251,8 @@ export default function ADMHomeScreen() {
   };
 
   return (
-    <View style={styles.Main}>
+    
+      <ScrollView keyboardShouldPersistTaps="handled" style={styles.Main}>
       <View style={styles.card}>
         <Text style={styles.text}>Relatórios de Uso</Text>
         <View style={styles.container2}>
@@ -264,9 +265,8 @@ export default function ADMHomeScreen() {
             <Text style={styles.subtext}>Saldo Gerado: {SaldoGerado}</Text>
           </View>
         </View>
-        <View style={styles.container}>
-          <Text style={styles.text}>Buscar Relatório:</Text>
-          <Text style={styles.error}>{ErrorText}</Text>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={40} style={styles.container}>
+          <Text style={styles.text2}>Buscar Relatório:</Text>
           <TextInput
             style={styles.input}
             placeholder="01/01/0001"
@@ -274,14 +274,15 @@ export default function ADMHomeScreen() {
             keyboardType="numeric"
             value={SelectedDate}
             onChangeText={handleDateChange}
-            maxLength={10} //11 números + 2 pontos + 1 traço
+            maxLength={10}
           />
+          <Text style={(ErrorText != "" ? styles.error : styles.invisible)}>{ErrorText}</Text>
           <TouchableOpacity style={styles.button}
               onPress={() => LoadRelatorio(SelectedDate)}
             >
               <Text>Carregar Relatório</Text>
           </TouchableOpacity>
-        </View>
+        </KeyboardAvoidingView>
         
       </View>
       <TouchableOpacity
@@ -290,16 +291,13 @@ export default function ADMHomeScreen() {
             >
               <Text style={styles.logoutText}>Sair do aplicativo</Text>
             </TouchableOpacity>
-    </View>
+      </ScrollView>
     
   );
 }
 
 const styles = StyleSheet.create({
   Main: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#000",
   },
   container: {
@@ -321,15 +319,27 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000",
   },
+  text2: {
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "#000",
+    marginTop: 5
+  },
   subtext: {
     fontSize: 16,
     color: "#111",
     marginTop: 8,
   },
   error: {
+    display: "flex",
     fontSize: 16,
     color: "#fc4903",
-    marginTop: 8,
+    marginTop: 0,
+    marginBottom: 2
+  },
+  invisible: {
+    display: "none",
+    fontSize: 1,
   },
   input: {
     height: 50,

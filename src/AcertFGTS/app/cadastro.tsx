@@ -141,6 +141,11 @@ export default function CadastroScreen() {
       );
       return;
     }
+    if (!email.endsWith(".com"))
+    {
+      Alert.alert("Email inválido", "Insira um Email Válido.");
+      return;
+    }
 
     setLoading(true);
 

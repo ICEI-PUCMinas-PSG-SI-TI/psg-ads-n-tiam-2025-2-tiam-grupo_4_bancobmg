@@ -12,6 +12,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView
 } from "react-native";
 import { auth, db } from "../../firebaseConfig"; // Importar auth
 import colors from "../styles/colors";
@@ -80,7 +81,7 @@ export default function HomeScreen() {
   return (
     <LinearGradient
       colors={colors.fundo as [string, string]}
-      style={styles.container}
+      style={styles.containerTop}
     >
       <ScrollView
         contentContainerStyle={{
@@ -170,6 +171,10 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  containerTop: {
+    flex: 1,
+    paddingBottom: 10
   },
 
   header: {

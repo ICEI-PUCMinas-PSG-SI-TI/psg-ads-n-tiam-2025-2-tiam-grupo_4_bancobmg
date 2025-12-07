@@ -45,6 +45,12 @@ export default function ADMFGTSManagement() {
     setFgtsValues(temp);
     setClientes(clientes);
     setFGTS(fgts);
+
+    /*fgts.forEach(e =>{
+      console.log(`${e.id} => ${clientes[e.id_cliente]}`)
+    })*/
+
+    console.log("ahoy!");
   }
 
   const handleFGTSChange = async (item: any, text: string) => {
@@ -67,6 +73,11 @@ export default function ADMFGTSManagement() {
     RefreshClientes();
   }
 
+  const logtest = (text: string) => {
+    console.log(text);
+    return "";
+  }
+
   return (
     <KeyboardAvoidingView
       style={styles.Main}
@@ -79,7 +90,7 @@ export default function ADMFGTSManagement() {
           <View style={styles.container2}>
             <FlatList
               data={FGTS}
-              keyExtractor={item => item.key}
+              keyExtractor={item => item.id}
 
               ListHeaderComponent={
                 <View>
@@ -89,6 +100,7 @@ export default function ADMFGTSManagement() {
 
               renderItem={({ item }) => (
                 <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
+                  {/*logtest(item.id)*/}
                   <View style={{ padding: 12, borderBottomWidth: 1, borderColor: "#ccc" }}>
                     <Text>ID Saldo: {item.id}</Text>
                     <Text>Usuário: {Clientes[item.id_cliente]?.nome}</Text>
@@ -114,8 +126,7 @@ export default function ADMFGTSManagement() {
               ListFooterComponent={
                 <View style={styles.container}>
                   <TouchableOpacity style={styles.button}
-                    onPress={() => RefreshClientes()}
-                  >
+                    onPress={() => RefreshClientes()} >
                     <Text>Atualizar Saldos</Text>
                   </TouchableOpacity>
                 </View>

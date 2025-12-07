@@ -11,9 +11,7 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: "#1a1a1a", // Cor de fundo da barra (escura)
           borderTopColor: "#333",
-          height: 60, // Altura um pouco maior para conforto
-          paddingBottom: 8,
-          paddingTop: 8,
+          paddingTop: 10,
         },
         tabBarActiveTintColor: colors.yellow, // Cor do ícone ativo
         tabBarInactiveTintColor: "#888", // Cor do ícone inativo
