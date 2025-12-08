@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
 import { addDoc, collection, getDocs, limit, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
 import { PROMPTS } from "../assets/prompts";
 import { auth, db } from "../firebaseConfig";
 import colors from "./styles/colors";
@@ -129,8 +129,9 @@ export default function SaqueScreen() {
   return (
     <LinearGradient 
       colors={colors.fundo as [string, string]}
-      style={styles.container}
+      style={{flex: 1}}
     >
+      <ScrollView style={styles.container}>
       {/* Header com Logo */}
       <View style={styles.header}>
         <Image source={require("../assets/images/logo.png")} style={styles.logo} resizeMode="contain" />
@@ -209,6 +210,7 @@ export default function SaqueScreen() {
 </TouchableOpacity>
 
       </View>
+      </ScrollView>
     </LinearGradient>
   );
 }
@@ -216,6 +218,8 @@ export default function SaqueScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: "#333"
   },
   header: {
     alignItems: "center",

@@ -171,6 +171,8 @@ export default function PerfilScreen() {
         );
         await reauthenticateWithCredential(user, credential);
       }
+      await user.reload();
+      //const refreshedUser = auth.currentUser;
 
       // 2. Atualizar Email (Login e Banco de Dados)
       if (novoEmail && novoEmail !== user.email) {
@@ -207,6 +209,7 @@ export default function PerfilScreen() {
         "auth/wrong-password",
         "auth/invalid-credential",
         "auth/invalid-login-credentials",
+        "auth/user-token-expired"
       ];
 
       if (erroSenha.includes(error.code)) {
@@ -218,6 +221,8 @@ export default function PerfilScreen() {
           "Erro no Firebase",
           "A proteção de e-mail ainda parece ativa no console. Aguarde alguns minutos."
         );
+      } else if (error.code === "auth/user-token-expired"){
+
       } else {
         Alert.alert("Erro", "Não foi possível atualizar: " + error.message);
       }
